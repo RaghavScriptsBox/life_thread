@@ -8,7 +8,7 @@ const CatalogueBanner = () => {
             sx={{
                 position: 'relative',
                 width: '100%',
-                height: '400px', // adjust height as needed
+                height: '500px', // adjust height as needed
                 overflow: 'hidden',
             }}
         >
@@ -49,7 +49,18 @@ const CatalogueBanner = () => {
                     px: 2,
                 }}
             >
-                <Typography variant="h4" fontWeight="bold">
+                <Typography sx={{
+                    fontSize: {
+                        xs: '1.5rem',
+                        sm: '2rem',
+                        md: '2.5rem',
+                        lg: '3rem',
+                        xl: '3.2rem',
+                    },
+                    fontWeight: 'bold',
+                    color: '#fff',
+                    fontFamily: 'Roboto',
+                }}>
                     Explore 40+ products with specifications, sizing & safety ratings.
                 </Typography>
                 <Typography variant="body1" sx={{ mt: 2 }}>
@@ -57,9 +68,9 @@ const CatalogueBanner = () => {
                 </Typography>
                 <Button
                     variant="contained"
-                    sx={{ mt: 3, bgcolor: '#fff', px: 4, py: 1.5, border:"1px solid #007C91" , color:"#007C91", fontFamily: "serif", fontWeight: "bold" }}
+                    sx={{ mt: 3, bgcolor: '#fff', px: 4, py: 1.5, border: "1px solid #007C91", color: "#007C91", fontFamily: "Roboto", fontWeight: "bold" }}
                 >
-                    Download Now
+                    Download the Catalogue
                 </Button>
             </Box>
         </Box>

@@ -1,37 +1,63 @@
 import React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Box, CssBaseline } from "@mui/material";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Projects from "./components/Projects";
-import Team from "./components/Team";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import "./App.css";
-import BlogSection from "./components/BlogSection";
 import CatalogueBanner from "./components/CatalogueBanner";
 import CatelogueSection from "./components/CatelogueSection";
 import ProductCategories from "./Sections/ProductCategories";
 import WorkwearHero from "./components/WorkwearHeroSection";
+import "./App.css";
 
-function App() {
+const Landing = () => (
+  <>
+    <WorkwearHero />
+    <Hero />
+    <CatelogueSection />
+    <ProductCategories />
+    <CatalogueBanner />
+    <Contact />
+  </>
+);
+
+const App = () => {
+  const headerHeight = 72; // adjust to your Header height if it's fixed
+  const isHeaderFixed = false; // set true if your Header is position: 'fixed'
+
   return (
-    <>
+    <Router>
       <CssBaseline />
-      <Header />
-      <WorkwearHero />
-      <Hero />
-      <CatelogueSection />
-      <ProductCategories />
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Header />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            // If Header is fixed, add top padding so content isn't hidden behind it
+            pt: isHeaderFixed ? `${headerHeight}px` : 0,
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/product" element={<Landing />} />
+            <Route path="/aboutUs" element={<About />} />
+            <Route path="*" element={<div>Not Found</div>} />
+          </Routes>
+        </Box>
 
-      {/* <About /> */}
-      {/* <Projects /> */}
-      {/* <Team /> */}
-      {/* <BlogSection /> */}
-      <CatalogueBanner />
-      <Contact />
-      <Footer />
-    </>
+        <Footer /> {/* render the footer (don’t comment it out) */}
+      </Box>
+    </Router>
   );
-}
+};
+
 export default App;

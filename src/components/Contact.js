@@ -31,11 +31,21 @@ const ContactSection = () => {
   ];
 
   return (
-    <Box sx={{ py: 10, px: 4, textAlign: 'center' }}>
-      <Typography variant="h4" fontWeight="bold" color="#005b66">
+    <Box sx={{ py: 10, px: 4, textAlign: 'center', minHeight: "60vh" }}>
+      <Typography sx={{
+        fontSize: {
+          xs: '1.5rem',
+          md: '2rem',
+          lg: '2.5rem',
+          xl: '3rem',
+        },
+        fontWeight: '600',
+        color: '#005b66',
+        fontFamily: 'Figtree, Inter, Lato, Roboto',
+      }}>
         Contact us
       </Typography>
-      <Typography variant="body1" sx={{ mt: 1, mb: 6 }}>
+      <Typography sx={{ mt: 1, mb: 6, fontFamily: "Roboto", fontWeight: "400" }}>
         Let’s connect about clean, compliant workwear solutions.
       </Typography>
 
@@ -43,10 +53,15 @@ const ContactSection = () => {
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center',
           gap: { xs: 6, md: 10 },
           flexWrap: 'wrap',
+          mx: 'auto',
+          width: {
+            xs: '90%',
+            md: '70%',
+          }
         }}
       >
         {contactItems.map((item, index) => (

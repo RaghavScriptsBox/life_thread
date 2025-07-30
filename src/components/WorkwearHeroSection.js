@@ -15,7 +15,7 @@ const WorkwearHeroSection = () => {
         gap: 4,
         maxWidth: '95%',
         margin: '0 auto',
-        marginTop:"100px"
+        marginTop: "80px"
       }}>
         {/* Left Text Section */}
         <Box>
@@ -84,6 +84,7 @@ const WorkwearHeroSection = () => {
               alt="Workwear 1"
               sx={{
                 width: { xs: '100%', sm: '50%', md: "438px" },
+                height: { xs: 'auto', sm: '300px', md: "600px" },
                 borderRadius: 2,
                 objectFit: 'cover',
               }}

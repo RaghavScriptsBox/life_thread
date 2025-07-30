@@ -49,7 +49,16 @@ const ComplianceSection = () => {
                     px: 2,
                 }}
             >
-                <Typography variant="h4" fontWeight="bold">
+                <Typography sx={{
+                    fontSize: {
+                        xs: '1.5rem',
+                        sm: '2rem',
+                        md: '2.5rem',
+                        lg: '3rem',
+                        xl: '3.5rem',
+                    },
+                    fontWeight: 'bold',
+                }}>
                     Purpose-built safety wear for controlled environments.
                 </Typography>
                 

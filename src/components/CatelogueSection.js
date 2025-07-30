@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, Card, CardContent, CardMedia, Grid, ToggleButton, ToggleButtonGroup } from '@mui/material';
-import DocImage from "../Assets/DocImage.png"
+import DocImage from "../Assets/DocImage.png";
+import PlaceholderImage from "../Assets/PlaceholderImage.png"
 
 const products = [
     {
@@ -26,21 +27,30 @@ const products = [
 ];
 
 const CatelogueSection = () => {
-    const [category, setCategory] = useState('Category 1');
+    const [category, setCategory] = useState('ESD & Lint Free');
 
     return (
         <Box sx={{ backgroundColor: '#007d8c', py: 8, px: 2 }}>
             <Typography
-                variant="h4"
-                align="center"
-                color="#fff"
-                fontWeight="bold"
-                mb={1}
+                sx={{
+                    fontSize: '2.5rem',
+                    fontWeight: 'bold',
+                    color: '#fff',
+                    textAlign: 'center',
+                    mb: 6,
+                    fontFamily: "Lato"
+                }}
             >
                 Our Protective Workwear Range
             </Typography>
 
-            <Typography variant="subtitle1" align="center" color="#e0f7fa" mb={4}>
+            <Typography sx={{
+                fontSize: '1.25rem',
+                color: '#e0f7fa',
+                fontFamily: 'Roboto',
+                fontWeight: '400',
+                textAlign: 'center',
+            }} mb={6}>
                 Trusted by companies in critical sectors
             </Typography>
 
@@ -51,23 +61,51 @@ const CatelogueSection = () => {
                     value={category}
                     onChange={(e, val) => val && setCategory(val)}
                     sx={{
-                        backgroundColor: '#fff',
-                        borderRadius: 20,
-                        p: 1,
+                        backgroundColor: 'transparent',
+                        p: 0,
+                        borderRadius: 0,
+                        borderBottom: "1px solid #fff",
+                        // Remove default group borders/radii so only our underline shows
+                        '& .MuiToggleButtonGroup-grouped': {
+                            border: 0,
+                            borderRadius: 0,
+                        },
                     }}
                 >
-                    {['Category 1', 'Category 2', 'Category 3'].map((cat) => (
+                    {['ESD & Lint Free', 'Uniforms', 'Single Use', 'Accessories'].map((cat) => (
                         <ToggleButton
                             key={cat}
                             value={cat}
+                            disableRipple
                             sx={{
                                 px: 3,
+                                py: 1.25,
                                 fontWeight: 'bold',
-                                color: category === cat ? '#007d8c' : '#555',
-                                backgroundColor: category === cat ? '#e0f7fa' : 'transparent',
                                 border: 0,
+                                borderRadius: 0,
+                                fontFamily: 'Lato',
+                                fontSize: "16px",
+                                // 2px white underline for ALL states
+                                borderBottom: '2px solid #fff',
+
+                                // Inactive look
+                                color: '#fff',
+                                backgroundColor: 'transparent',
+
+                                // Active (selected) look
+                                '&.Mui-selected': {
+                                    backgroundColor: '#fff',
+                                    color: '#007d8c',
+                                    borderBottom: '2px solid #fff', // keep underline on active too
+                                    borderRadius: "10px 10px 0 0",
+                                },
+
+                                // Hover states (don’t change the underline)
                                 '&:hover': {
-                                    backgroundColor: '#f0f0f0',
+                                    backgroundColor: 'rgba(255,255,255,0.08)',
+                                },
+                                '&.Mui-selected:hover': {
+                                    backgroundColor: '#fff',
                                 },
                             }}
                         >
@@ -77,65 +115,105 @@ const CatelogueSection = () => {
                 </ToggleButtonGroup>
             </Box>
 
+
+
             {/* Product Cards */}
-            <Grid container spacing={4} justifyContent="center">
-                {products.map((item, i) => (
-                    <Grid key={i} item xs={12} sm={6} md={4} lg={3}>
-                        <Card sx={{ borderRadius: 2, boxShadow: 3, width:"500px" }}>
-                            <CardMedia
-                                component="div"
-                                sx={{
-                                    height: "400px",
-                                    backgroundColor: '#eee',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <img
-                                    src={DocImage}
-                                    alt="placeholder"
-                                    style={{ width: "100%", height: "400px", opacity: 1 }}
-                                />
-                            </CardMedia>
-                            <CardContent>
-                                <Typography sx={{
-                                    fontSize: '20px',
-                                    fontWeight: 700,
-                                    color: '#007d8c',
-                                    fontFamily: 'Lato',
-                                }} mb={1}>
-                                    {item.title}
-                                </Typography>
-                                <Typography sx={{
-                                    fontSize: '16px',
-                                    color: '#444',
-                                    fontFamily: 'Inter',
-                                }} mb={2}>
-                                    {item.desc}
-                                </Typography>
-                                <Button
-                                    variant="outlined"
-                                    fullWidth
+            <Grid
+                container
+                spacing={{ xs: 2, md: 4 }}
+                justifyContent="center"
+            >
+                <Grid container spacing={4} justifyContent="center">
+                    {products.map((item, i) => (
+                        <Grid
+                            key={i}
+                            item
+                            xs={12}   // 1 per row on extra small devices
+                            sm={4}    // 2 per row on small screens
+                            md={4}    // 3 per row at >=900px (MacBook Air range)
+                            lg={3}    // maintain 3 per row for larger screens
+                            xl={3}    // 4 per row for extra wide screens (optional)
+                            sx={{
+                                maxWidth: "400px"
+                            }}
+                        >
+                            <Card sx={{
+                                borderRadius: 2, boxShadow: 3, maxWidth: {
+                                    xs: "400px",
+                                    sm: "400px",
+                                    md: "400px",
+                                    lg: "400px",
+                                    xl: "400px",
+                                }, height: "550px", margin: "auto"
+                            }}>
+                                <CardMedia
+                                    component="div"
                                     sx={{
-                                        color: '#007d8c',
-                                        borderColor: '#007d8c',
-                                        fontWeight: 'bold',
-                                        textTransform: 'none',
-                                        '&:hover': {
-                                            backgroundColor: '#007d8c',
-                                            color: '#fff',
-                                            borderColor: '#007d8c',
-                                        },
+                                        height: { xs: "220px", sm: "260px", md: "300px", lg: "340px", xl: "340px" },
+                                        width:"405px",
+                                        backgroundColor: "#eee",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
                                     }}
                                 >
-                                    Request quote
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
+                                    <img
+                                        src={PlaceholderImage}
+                                        alt={item.title}
+                                        style={{
+                                            width: "360px",
+                                            height: "340px",
+                                            objectFit: "cover",
+                                            opacity: 1,
+                                        }}
+                                    />
+                                </CardMedia>
+                                <CardContent>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "20px",
+                                            fontWeight: 700,
+                                            color: "#007d8c",
+                                            fontFamily: "Lato",
+                                        }}
+                                        mb={1}
+                                    >
+                                        {item.title}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: "16px",
+                                            color: "#444",
+                                            fontFamily: "Inter",
+                                        }}
+                                        mb={2}
+                                    >
+                                        {item.desc}
+                                    </Typography>
+                                    <Button
+                                        variant="outlined"
+                                        fullWidth
+                                        sx={{
+                                            color: "#007d8c",
+                                            borderColor: "#007d8c",
+                                            fontWeight: "bold",
+                                            textTransform: "none",
+                                            "&:hover": {
+                                                backgroundColor: "#007d8c",
+                                                color: "#fff",
+                                                borderColor: "#007d8c",
+                                            },
+                                        }}
+                                    >
+                                        Request quote
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
             </Grid>
+
 
             {/* View All Button */}
             <Box textAlign="center" mt={6}>

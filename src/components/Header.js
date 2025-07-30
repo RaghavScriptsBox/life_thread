@@ -16,11 +16,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../Styles/Header.css"; // import the CSS below!
 import BrandLogo from "../Assets/Logo.jpg"; // Example logo path, update as needed
+import { useNavigate } from "react-router-dom";
 
 const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "About Us", href: "#aboutUs" },
-  { label: "Contact", href: "#contact" },
+  { label: "Products", href: "product" },
+  { label: "About Us", href: "aboutUs" },
+  { label: "Contact", href: "contact" },
 ];
 
 function Header() {
@@ -28,13 +29,20 @@ function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownMobileOpen, setDropdownMobileOpen] = useState(false);
 
+  const navigate = useNavigate()
+
   // Responsive: only show on mobile
   const isMobile = () =>
     window.matchMedia("(max-width:900px)").matches;
 
+  const NavigateUser = (url) => {
+    console.log("urlzhdsgyuad", url)
+    navigate(url)
+  }
+
   return (
     <AppBar
-      position="fixed"
+      position="relative"
       elevation={0}
       sx={{
         background:
@@ -82,7 +90,7 @@ function Header() {
               fontSize: 20,
               color: "#16191A",
               fontFamily: "Inter, sans-serif",
-              color:"#007C91"
+              color: "#007C91"
             }}
           >
             Life Thread
@@ -99,112 +107,27 @@ function Header() {
         >
           {/* Navigation */}
           {navLinks.map((link, idx) =>
-            !link.dropdown ? (
-              <Button
-                key={link.label}
-                href={link.href}
-                color="inherit"
-                className="nav-link"
-                sx={{
-                  fontFamily:"Roboto, sans-serif",
-                  color: "#16191A",
-                  fontWeight: 500,
-                  px: 2,
-                  fontSize: 16,
-                  letterSpacing: 0.1,
-                  textTransform: "none",
-                  "&:hover": {
-                    color: "#1976d2",
-                    bgcolor: "transparent",
-                  },
-                }}
-              >
-                {link.label}
-              </Button>
-            ) : (
-              <Box
-                key={link.label}
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-                sx={{
-                  position: "relative",
-                  minWidth: 100,
-                }}
-              >
-                <Button
-                  color="inherit"
-                  endIcon={<ExpandMoreIcon />}
-                  className="nav-link"
-                  sx={{
-                    color: "#16191A",
-                    fontWeight: 500,
-                    px: 2,
-                    py: 1.2,
-                    fontSize: 16,
-                    textTransform: "none",
-                    "& .MuiSvgIcon-root": {
-                      transition: "0.2s",
-                      transform: dropdownOpen
-                        ? "rotate(-180deg)"
-                        : "rotate(0deg)",
-                    },
-                    "&:hover": {
-                      color: "#1976d2",
-                      bgcolor: "transparent",
-                    },
-                  }}
-                  onClick={() => setDropdownOpen((v) => !v)}
-                >
-                  {link.label}
-                </Button>
-                {/* Dropdown */}
-                <Box
-                  className={`dropdown-menu${dropdownOpen ? " active" : ""}`}
-                  sx={{
-                    display: dropdownOpen ? "flex" : "none",
-                    flexDirection: "column",
-                    position: "absolute",
-                    left: 0,
-                    top: "110%",
-                    bgcolor: "background.paper",
-                    borderRadius: 2,
-                    boxShadow: "0 4px 24px 0 rgba(40,44,63,0.16)",
-                    minWidth: 180,
-                    zIndex: 40,
-                    py: 1,
-                    overflow: "hidden",
-                    animation: dropdownOpen
-                      ? "dropdown-in 0.24s cubic-bezier(.6, .12, .18, 1.18)"
-                      : "none",
-                  }}
-                >
-                  {link.dropdown.map((item) => (
-                    <Button
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setDropdownOpen(false)}
-                      sx={{
-                        px: 2,
-                        py: 1.2,
-                        justifyContent: "flex-start",
-                        color: "#16191A",
-                        fontWeight: 400,
-                        textTransform: "none",
-                        borderRadius: 1,
-                        fontSize: 15,
-                        transition: "0.14s",
-                        "&:hover": {
-                          bgcolor: "#E3F2FD",
-                          color: "#1976d2",
-                        },
-                      }}
-                    >
-                      {item.label}
-                    </Button>
-                  ))}
-                </Box>
-              </Box>
-            )
+            <Button
+              key={link.label}
+              color="inherit"
+              className="nav-link"
+              sx={{
+                fontFamily: "Roboto, sans-serif",
+                color: "#16191A",
+                fontWeight: 500,
+                px: 2,
+                fontSize: 16,
+                letterSpacing: 0.1,
+                textTransform: "none",
+                "&:hover": {
+                  color: "#1976d2",
+                  bgcolor: "transparent",
+                },
+              }}
+              onClick={() => { NavigateUser(link.href) }}
+            >
+              {link.label}
+            </Button>
           )}
         </Box>
         {/* Login Button (Desktop) */}
@@ -321,26 +244,7 @@ function Header() {
                 </React.Fragment>
               )
             )}
-            {/* Login Button (Mobile) */}
-            <ListItem sx={{ mt: 2 }}>
-              <Button
-                variant="contained"
-                color="primary"
-                fullWidth
-                size="large"
-                sx={{
-                  textTransform: "none",
-                  fontWeight: 600,
-                  borderRadius: 2,
-                  boxShadow: "none",
-                  fontSize: 16,
-                  py: 1,
-                  bgcolor: "#1976d2",
-                }}
-              >
-                Login
-              </Button>
-            </ListItem>
+
           </List>
         </Drawer>
       </Toolbar>

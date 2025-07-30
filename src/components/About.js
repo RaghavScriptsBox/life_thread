@@ -1,20 +1,21 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Stack } from "@mui/material";
+import JoinUsSection from "./AboutSections/JoinUsSection";
+import CatalogoueAbout from "./AboutSections/CatalogoueAbout";
+import InspiredPage from "./AboutSections/InspiredPage";
+import AboutHeroSection from "./AboutSections/AboutHeroSection";
+import OurCommitment from "./AboutSections/OutCommitment";
+import Empowering from "./AboutSections/Empowering";
 function About() {
   return (
-    <Box className="main-section" id="about">
-      <Typography className="section-title">About Us</Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Typography>
-            CompanyName is a leader in delivering scalable digital products. With a focus on design and technology, we empower our partners to achieve their business goals efficiently.
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography>
-            Our team blends creativity, strategy, and engineering to realize visionary projects, from web platforms to mobile apps.
-          </Typography>
-        </Grid>
-      </Grid>
+    <Box>
+      <Stack spacing={0}>
+        <AboutHeroSection />
+        <OurCommitment />
+        <Empowering />
+        <InspiredPage />
+        <CatalogoueAbout />
+        <JoinUsSection />
+      </Stack>
     </Box>
   );
 }

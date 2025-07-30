@@ -15,7 +15,7 @@ const ProductCategories = () => {
         }}>
           <Typography
             sx={{
-              fontSize: { xs: '32px', md: '48px' },
+              fontSize: { xs: '32px', md: '40px' },
               fontWeight: 700,
               lineHeight: 1.2,
               mb: 3,
@@ -57,7 +57,7 @@ const ProductCategories = () => {
                 desc: 'We conduct thorough in-house quality control.',
               },
             ].map((item, index) => (
-              <Box sx={{ width: "400px", height: "200px", textAlign: 'lect' }} key={index}>
+              <Box sx={{ width: { xs: "100%", sm: "48%", md: "48%", lg: "40%" }, height: "200px", textAlign: 'left' }} key={index}>
                 <Box>
                   <Box sx={{ mb: 1 }}>{item.icon}</Box>
                   <Typography sx={{ fontSize: '24px', fontWeight: 700, mb: 0.5, color: "#005A69", fontFamily: "Lato" }}>

@@ -5,8 +5,8 @@ import PlaceholderImage from '../Assets/PlaceholderImage.png'; // Replace with y
 
 const ProtectiveApparelSection = () => {
   return (
-    <Box sx={{ width: '100%', bgcolor: '#fff', py: { xs: 4, md: 8 }, px: { xs: 2, md: 6 }, height: "90vh" }}>
-      <Box spacing={4} alignItems="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+    <Box sx={{ width: '100%', bgcolor: '#fff', py: { xs: 4, md: 8 }, px: { xs: 2, md: 6 }, height: "100vh", display:"flex", justifyContent:"center", alignContent:"center",alignItems:"center" }}>
+      <Box spacing={4} alignItems="center" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, minWidth:"90vw" }}>
         {/* Left Content */}
         <Box sx={{ width: { xs: '100%', md: '52%' }, ml: "100px", display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 2 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -28,10 +28,10 @@ const ProtectiveApparelSection = () => {
               cleanroom and ESD environments.
             </Typography>
 
-            <Typography sx={{ fontSize: '16px', color: '#333', maxWidth: 500, fontFamily: 'Inter' }}>
+            <Typography sx={{ fontSize: '16px', color: '#585858', maxWidth: 500, fontFamily: 'Inter' }}>
               LifeThread is focused on building protective solutions for precision-driven, compliance-led industries.
             </Typography>
-            <Typography sx={{ fontSize: '16px', color: '#333', maxWidth: 500, fontFamily: 'Inter' }}>
+            <Typography sx={{ fontSize: '16px', color: '#585858', maxWidth: 500, fontFamily: 'Inter' }}>
               We manufacture a full range of high-quality ESD-safe cleanroom garments, coveralls, lab coats, and accessories — all tailored to meet international certifications and engineered for all-day comfort.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
@@ -41,12 +41,12 @@ const ProtectiveApparelSection = () => {
                   color: '#fff',
                   px: 4,
                   py: 2,
-                  borderRadius: 1,
+                  borderRadius: 2,
                   cursor: 'pointer',
                   '&:hover': { bgcolor: '#005A69' },
                 }}
               >
-                Request a Quote
+                Our Products
               </Box>
               <Box
                 sx={{
@@ -54,13 +54,13 @@ const ProtectiveApparelSection = () => {
                   color: '#00778B',
                   px: 4,
                   py: 2,
-                  borderRadius: 1,
+                  borderRadius: 2,
                   border: '1px solid #00778B',
                   cursor: 'pointer',
                   '&:hover': { bgcolor: '#f0f0f0' },
                 }}
               >
-                Download Catalogue
+                Request a Quote
               </Box>
             </Box>
           </Box>

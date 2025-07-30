@@ -4,6 +4,7 @@ import {
   Typography,
   Link,
 } from '@mui/material';
+import FooterLogo from "../Assets/FooterLogo.png"; // Assuming you have a logo component or image
 
 const Footer = () => {
   return (
@@ -14,43 +15,57 @@ const Footer = () => {
         py: 6,
         px: 4,
         textAlign: 'center',
+        position: 'relative',
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width:"100vw"
       }}
     >
       {/* Logo & Tagline */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1, width: "400px",  mx: "auto", alignItems: 'center', justifyContent: 'flex-start',mt:"30px" }}>
         <Box
           sx={{
-            width: 50,
-            height: 50,
-            bgcolor: '#fff',
+            width: 80,
+            height: 80,
+            bgcolor: 'transparent',
             borderRadius: '50%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
             fontWeight: 'bold',
             fontSize: 24,
             color: '#00778B',
           }}
         >
-          {/* Replace this with actual image/logo */}
-          ↻
+          <img src={FooterLogo} alt="LifeThread Logo" style={{ width: '100%', height: '100%' }} />
         </Box>
-        <Typography variant="h6" fontWeight="bold" sx={{ mt: 1 }}>
-          LifeThread
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 2 }}>
-          Clean, Compliant, Confident
-        </Typography>
+        <Box sx={{
+          textAlign: "left",
+          ml:"20px"
+        }}>
+          <Typography sx={{ mt: 2, fontWeight: 'bold', fontSize: '30px', color: '#fff', fontFamily: "Inter" }}>
+            LifeThread
+          </Typography>
+          <Typography  sx={{ mb: 2,
+            fontWeight: 'bold',
+            fontSize: '14px',
+            color: '#fff',
+            fontFamily: "Inter"
+           }}>
+            Clean, Compliant, Confident
+          </Typography>
+        </Box>
       </Box>
 
       {/* Nav Links */}
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           gap: 4,
           my: 3,
           flexWrap: 'wrap',
+          maxWidth:"400px",
+          mx:"auto",
+          mb:"70px"
         }}
       >
         {['Products', 'About Us', 'Contact'].map((item) => (
@@ -58,7 +73,7 @@ const Footer = () => {
             key={item}
             href="#"
             underline="none"
-            sx={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}
+            sx={{ color: '#fff', fontWeight: 'bold', fontSize: 16, fontFamily: "Inter" }}
           >
             {item}
           </Link>
@@ -87,7 +102,7 @@ const Footer = () => {
           ))}
         </Box>
       </Box>
-    </Box>
+    </Box >
   );
 };
 
