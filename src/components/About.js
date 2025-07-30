@@ -3,7 +3,7 @@ import JoinUsSection from "./AboutSections/JoinUsSection";
 import CatalogoueAbout from "./AboutSections/CatalogoueAbout";
 import InspiredPage from "./AboutSections/InspiredPage";
 import AboutHeroSection from "./AboutSections/AboutHeroSection";
-import OurCommitment from "./AboutSections/OutCommitment";
+import OurCommitment from "./AboutSections/OurCommitment";
 import Empowering from "./AboutSections/Empowering";
 function About() {
   return (
