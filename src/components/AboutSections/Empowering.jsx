@@ -61,15 +61,18 @@ export default function Empowering() {
                     }
                 }}>
                     <Typography
-                        variant="h4"
                         sx={{
                             fontWeight: 700,
-                            color: "#16887a",
+                            color: "#000000",
                             mb: 2,
-                            fontFamily: "Lato, sans-serif"
+                            fontFamily: "Lato, sans-serif",
+                            fontSize: {
+                                xs: "30px",
+                                md: "56px"
+                            }
                         }}
                     >
-                        Our Commitment to<br /> Safety and Innovation
+                        Empowering Safer Workplaces with Innovative Apparel
                     </Typography>
 
                     <Typography
