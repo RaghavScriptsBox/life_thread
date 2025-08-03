@@ -19,9 +19,9 @@ import BrandLogo from "../Assets/Logo.jpg"; // Example logo path, update as need
 import { useNavigate } from "react-router-dom";
 
 const navLinks = [
-  { label: "Products", href: "product" },
-  { label: "About Us", href: "aboutUs" },
-  { label: "Contact", href: "contact" },
+  { label: "Products", href: "/product" },
+  { label: "About Us", href: "/aboutUs" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function Header() {
@@ -188,9 +188,7 @@ function Header() {
               !link.dropdown ? (
                 <ListItem key={link.label} disablePadding>
                   <ListItemButton
-                    component="a"
-                    href={link.href}
-                    onClick={() => setDrawerOpen(false)}
+                    onClick={() => { NavigateUser(link.href); setDrawerOpen(false); }}
                     sx={{
                       borderRadius: 1,
                       px: 2.5,
@@ -232,9 +230,7 @@ function Header() {
                     link.dropdown.map((item) => (
                       <ListItem key={item.label} sx={{ pl: 3 }} disablePadding>
                         <ListItemButton
-                          component="a"
-                          href={item.href}
-                          onClick={() => setDrawerOpen(false)}
+                          onClick={() => { NavigateUser(item.href); setDrawerOpen(false); }}
                           sx={{ borderRadius: 1, px: 2, color: "#16191A" }}
                         >
                           <ListItemText primary={item.label} />
