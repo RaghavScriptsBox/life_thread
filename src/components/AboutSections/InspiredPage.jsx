@@ -33,7 +33,7 @@ export default function InspiredPage() {
             variant="h4"
             sx={{
               fontWeight: 700,
-              color: "#16887a",
+              color: "#005A69",
               mb: 2,
               fontFamily: "Lato, sans-serif"
             }}

@@ -7,6 +7,7 @@ import OurCommitment from "./AboutSections/OurCommitment";
 import Empowering from "./AboutSections/Empowering";
 import CoreValuesSection from "./AboutSections/CoreValuesSection";
 import WhyChosseUs from "./AboutSections/WhyChosseUs";
+import CertifiedForSafety from "./AboutSections/CertifiedForSafety";
 function About() {
   return (
     <Box>
@@ -16,6 +17,7 @@ function About() {
         <Empowering />
         <CoreValuesSection />
         <WhyChosseUs />
+        <CertifiedForSafety />
         <InspiredPage />
         <CatalogoueAbout />
         <JoinUsSection />

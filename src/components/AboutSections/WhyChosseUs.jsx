@@ -33,54 +33,70 @@ const WhyChosseUs = () => {
 
     return (
         <Box py={8} sx={{ backgroundColor: '#f5f9f9' }}>
-            <Box sx={{ width: "90%", mx: 'auto' }}>
+            <Box sx={{ width: "100%", mx: 'auto' }}>
                 <Grid container spacing={4} alignItems="center">
                     {/* Left Column */}
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} md={12} sx={{ display: { xs: 'none', md: 'block' }, mx: 'auto' }}>
                         <Box sx={{
                             display: "flex",
                             flexDirection: "row",
+                            mx: 'auto',
 
                         }}>
-                            <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                                <Typography
-                                    sx={{
-                                        fontWeight: 500,
-                                        mb: 2,
-                                        fontSize: { xs: '24px', md: '56px' },
-                                        fontFamily: 'Figtree, sans-serif',
-                                        color: '#005A69',
-                                    }}
-                                >
-                                    Why Choose LifeThread for Your Garment Needs
-                                </Typography>
-                            </Box>
-                            <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                                <Typography variant="body1" color="text.secondary">
-                                    At LifeThread, we pride ourselves on our rapid turnaround times
-                                    and robust quality control processes that ensure every garment
-                                    meets the highest standards. Our in-house design and private
-                                    label capabilities allow us to tailor solutions specifically for
-                                    your needs. With ISO certifications and a commitment to
-                                    transparency, we empower your operations with confidence.
-                                </Typography>
-                            </Box>
+                            <Typography
+                                sx={{
+                                    fontWeight: 600,
+                                    mb: 2,
+                                    fontSize: { xs: '24px', md: '50px' },
+                                    fontFamily: 'Figtree, sans-serif',
+                                    color: '#005A69',
+                                    mx: 'auto',
+                                }}
+                            >
+                                Why Choose LifeThread?
+                            </Typography>
                         </Box>
                     </Grid>
                 </Grid>
 
                 {/* Icons + Info */}
-                <Grid container spacing={4} mt={4}>
+                <Grid container sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: "50px",
+                }}>
                     {highlights.map((item, index) => (
-                        <Grid item xs={12} md={4} key={index}>
-                            <Box textAlign="center" px={2}>
-                                <Box color="text.primary" mb={2}>
+                        <Grid item xs={12} md={3} key={index}>
+                            <Box textAlign="center" sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent:"space-between",
+                                alignItems: 'flex-start',
+                                textAlign: 'flex-start',
+                                maxWidth: '350px',
+                                mt:"40px"
+                            }}>
+                                <Box sx={{
+                                    color: "Figtree, sans-serif",
+                                    mb: 2,
+                                    fontSize: '24px',
+                                }}>
                                     {item.icon}
                                 </Box>
-                                <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                                <Typography sx={{
+                                    fontWeight: '600',
+                                    mb: 1,
+                                    fontSize: { xs: '18px', md: '20px' },
+                                    color: '#000000',
+                                    fontFamily: 'Figtree, sans-serif',
+                                }}>
                                     {item.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
+                                <Typography sx={{
+                                    fontSize: '12px',
+                                    color: 'text.secondary',
+                                    textAlign: 'center',
+                                }}>
                                     {item.description}
                                 </Typography>
                             </Box>

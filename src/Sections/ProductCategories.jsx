@@ -7,34 +7,54 @@ import ApparelImage from "../Assets/apparel.png"
 
 const ProductCategories = () => {
   return (
-    <Box sx={{ px: { xs: 3, md: 12 }, py: { xs: 8, md: 12 } }}>
-      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6 }}>
+    <Box sx={{ px: { xs: 2, sm: 3, md: 6, lg: 12 }, py: { xs: 6, md: 8, lg: 12 } }}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: { xs: 'column', md: 'row' }, 
+        gap: { xs: 4, md: 6 },
+        alignItems: { xs: 'center', md: 'flex-start' }
+      }}>
         {/* Left Section */}
         <Box sx={{
-          width: "40%",
+          width: { xs: "100%", md: "40%" },
+          textAlign: { xs: 'center', md: 'left' },
+          mb: { xs: 2, md: 0 }
         }}>
           <Typography
             sx={{
-              fontSize: { xs: '32px', md: '40px' },
+              fontSize: { xs: '28px', sm: '32px', md: '36px', lg: '40px' },
               fontWeight: 700,
               lineHeight: 1.2,
-              mb: 3,
+              mb: { xs: 2, md: 3 },
               fontFamily: "Lato",
               color: "#005A69",
-              width: "80%",
+              width: { xs: "100%", md: "80%" },
             }}
           >
             Why Choose LifeThread?
           </Typography>
           <Typography
-            sx={{ fontSize: '18px', color: '#000', mb: 4, fontFamily: "Inter",width: "80%" }}
+            sx={{ 
+              fontSize: { xs: '16px', md: '18px' }, 
+              color: '#000', 
+              mb: { xs: 3, md: 4 }, 
+              fontFamily: "Inter",
+              width: { xs: "100%", md: "80%" },
+              lineHeight: 1.5
+            }}
           >
             Our garments are engineered to meet the highest quality standards. Experience peace of mind with our reliable, certified solutions.
           </Typography>
         </Box>
 
         {/* Right Section */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'space-between', flexDirection: "row", flexWrap:"wrap", width:"60%" }}>
+          <Box sx={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: { xs: 3, sm: 3, md: 4 }, 
+            justifyContent: { xs: 'center', md: 'space-between' }, 
+            width: { xs: "100%", md: "60%" }
+          }}>
             {[
               {
                 icon: <img src={ApparelImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
@@ -57,13 +77,33 @@ const ProductCategories = () => {
                 desc: 'We conduct thorough in-house quality control.',
               },
             ].map((item, index) => (
-              <Box sx={{ width: { xs: "100%", sm: "48%", md: "48%", lg: "40%" }, height: "200px", textAlign: 'left' }} key={index}>
+              <Box sx={{ 
+                width: { xs: "100%", sm: "48%", md: "48%", lg: "45%" }, 
+                minHeight: { xs: "auto", md: "180px" }, 
+                textAlign: { xs: 'center', md: 'left' },
+                mb: { xs: 2, md: 0 },
+                p: { xs: 2, md: 0 }
+              }} key={index}>
                 <Box>
-                  <Box sx={{ mb: 1 }}>{item.icon}</Box>
-                  <Typography sx={{ fontSize: '24px', fontWeight: 700, mb: 0.5, color: "#005A69", fontFamily: "Lato" }}>
+                  <Box sx={{ mb: { xs: 1.5, md: 1 }, display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                    {item.icon}
+                  </Box>
+                  <Typography sx={{ 
+                    fontSize: { xs: '20px', md: '22px', lg: '24px' }, 
+                    fontWeight: 700, 
+                    mb: { xs: 1, md: 0.5 }, 
+                    color: "#005A69", 
+                    fontFamily: "Lato",
+                    lineHeight: 1.3
+                  }}>
                     {item.title}
                   </Typography>
-                  <Typography sx={{ fontSize: '16px', color: '#444', color: "#585858", fontFamily: "Inter" }}>
+                  <Typography sx={{ 
+                    fontSize: { xs: '14px', md: '16px' }, 
+                    color: "#585858", 
+                    fontFamily: "Inter",
+                    lineHeight: 1.5
+                  }}>
                     {item.desc}
                   </Typography>
                 </Box>

@@ -12,22 +12,32 @@ const Footer = () => {
       sx={{
         bgcolor: '#00778B',
         color: '#fff',
-        py: 6,
-        px: 4,
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, md: 4 },
         textAlign: 'center',
         position: 'relative',
         bottom: 0,
         left: 0,
         right: 0,
-        width:"100vw"
+        width: "100%"
       }}
     >
       {/* Logo & Tagline */}
-      <Box sx={{ display: 'flex', flexDirection: 'row', gap: 1, width: "400px",  mx: "auto", alignItems: 'center', justifyContent: 'flex-start',mt:"30px" }}>
+      <Box sx={{ 
+        display: 'flex', 
+        flexDirection: { xs: 'column', sm: 'row' }, 
+        gap: { xs: 2, sm: 1 }, 
+        width: { xs: "100%", sm: "400px" },  
+        mx: "auto", 
+        alignItems: 'center', 
+        justifyContent: { xs: 'center', sm: 'flex-start' },
+        mt: { xs: "20px", md: "30px" },
+        textAlign: { xs: 'center', sm: 'left' }
+      }}>
         <Box
           sx={{
-            width: 80,
-            height: 80,
+            width: { xs: 60, sm: 80 },
+            height: { xs: 60, sm: 80 },
             bgcolor: 'transparent',
             borderRadius: '50%',
             fontWeight: 'bold',
@@ -38,18 +48,25 @@ const Footer = () => {
           <img src={FooterLogo} alt="LifeThread Logo" style={{ width: '100%', height: '100%' }} />
         </Box>
         <Box sx={{
-          textAlign: "left",
-          ml:"20px"
+          textAlign: { xs: "center", sm: "left" },
+          ml: { xs: 0, sm: "20px" }
         }}>
-          <Typography sx={{ mt: 2, fontWeight: 'bold', fontSize: '30px', color: '#fff', fontFamily: "Inter" }}>
+          <Typography sx={{ 
+            mt: { xs: 1, sm: 2 }, 
+            fontWeight: 'bold', 
+            fontSize: { xs: '24px', sm: '30px' }, 
+            color: '#fff', 
+            fontFamily: "Inter" 
+          }}>
             LifeThread
           </Typography>
-          <Typography  sx={{ mb: 2,
+          <Typography sx={{ 
+            mb: 2,
             fontWeight: 'bold',
-            fontSize: '14px',
+            fontSize: { xs: '12px', sm: '14px' },
             color: '#fff',
             fontFamily: "Inter"
-           }}>
+          }}>
             Clean, Compliant, Confident
           </Typography>
         </Box>
@@ -59,13 +76,13 @@ const Footer = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
-          gap: 4,
-          my: 3,
+          justifyContent: { xs: 'center', sm: 'space-between' },
+          gap: { xs: 2, sm: 4 },
+          my: { xs: 2, md: 3 },
           flexWrap: 'wrap',
-          maxWidth:"400px",
-          mx:"auto",
-          mb:"70px"
+          maxWidth: { xs: "300px", sm: "400px" },
+          mx: "auto",
+          mb: { xs: "40px", md: "70px" }
         }}
       >
         {['Products', 'About Us', 'Contact'].map((item) => (
@@ -73,34 +90,43 @@ const Footer = () => {
             key={item}
             href="#"
             underline="none"
-            sx={{ color: '#fff', fontWeight: 'bold', fontSize: 16, fontFamily: "Inter" }}
+            sx={{ 
+              color: '#fff', 
+              fontWeight: 'bold', 
+              fontSize: { xs: 14, sm: 16 }, 
+              fontFamily: "Inter" 
+            }}
           >
             {item}
           </Link>
         ))}
       </Box>
 
-      <Box sx={{ borderBottom: '1px solid rgba(255, 255, 255, 0.5)', my: 4 }} />
+      <Box sx={{ borderBottom: '1px solid rgba(255, 255, 255, 0.5)', my: { xs: 2, md: 4 } }} />
 
       {/* Bottom Legal */}
       <Box
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           alignItems: 'center',
           gap: 2,
           flexWrap: 'wrap',
         }}
       >
-        <Typography variant="body2">&copy; 2025 LifeThread. All rights reserved.</Typography>
-        <Box sx={{ display: 'flex', gap: 3 }}>
+        <Typography sx={{
+          fontSize: { xs: 12, sm: 14 },
+          color: '#fff',
+          fontFamily: "Inter"
+        }}>&copy; {new Date().getFullYear()} LifeThread. All rights reserved.</Typography>
+        {/* <Box sx={{ display: 'flex', gap: 3 }}>
           {['Privacy Policy', 'Terms of Service', 'Cookies Settings'].map((item) => (
             <Link key={item} href="#" underline="hover" sx={{ color: '#fff', fontSize: 14 }}>
               {item}
             </Link>
           ))}
-        </Box>
+        </Box> */}
       </Box>
     </Box >
   );

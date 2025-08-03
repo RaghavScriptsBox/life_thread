@@ -22,11 +22,12 @@ export default function JoinUsSection() {
           align="center"
           sx={{
             color: teal,
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: { xs: 28, sm: 34, md: 38 },
             lineHeight: 1.2,
             mb: 1.5,
             fontFamily: "Lato, Inter, system-ui, -apple-system, Segoe UI, Roboto",
+            color: "#005A69",
           }}
         >
           Join Us in Shaping Safety
@@ -42,7 +43,8 @@ export default function JoinUsSection() {
             maxWidth: 780,
             mx: "auto",
             mb: { xs: 5, md: 7 },
-            fontFamily: "Inter, system-ui, -apple-system, Segoe UI, Roboto",
+            fontFamily: "Figtree, sans-serif",
+            color: "#000000"
           }}
         >
           Together, we tackle challenges with innovative solutions that prioritize
@@ -82,32 +84,36 @@ export default function JoinUsSection() {
           </Grid>
 
           {/* Reg. Office */}
-          <Grid item xs={12} md={6}>
-            <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
-              <PlaceOutlinedIcon sx={{ fontSize: 26, mb: 1, color: "text.primary" }} />
-              <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
-                Reg. Office
-              </Typography>
-              <Typography sx={{ color: bodyMuted, fontSize: 15, lineHeight: 1.6 }}>
-                214, Harmony Icon, Zydus Hospital Road, Nr. Bagbhan
-                Party Plot, Thaltej Ahmedabad, Gujarat 380059
-              </Typography>
+          <Box sx={{
+            display: { xs: "block", md: "flex" }
+          }}>
+            <Box>
+              <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
+                <PlaceOutlinedIcon sx={{ fontSize: 26, mb: 1, color: "text.primary" }} />
+                <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
+                  Reg. Office
+                </Typography>
+                <Typography sx={{ color: bodyMuted, fontSize: 15, lineHeight: 1.6 }}>
+                  214, Harmony Icon, Zydus Hospital Road, Nr. Bagbhan
+                  Party Plot, Thaltej Ahmedabad, Gujarat 380059
+                </Typography>
+              </Box>
             </Box>
-          </Grid>
 
-          {/* Manufacturing unit */}
-          <Grid item xs={12} md={6}>
-            <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
-              <PlaceOutlinedIcon sx={{ fontSize: 26, mb: 1, color: "text.primary" }} />
-              <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
-                Manufacturing unit
-              </Typography>
-              <Typography sx={{ color: bodyMuted, fontSize: 15, lineHeight: 1.6 }}>
-                Plot No C-18/6, Road no-14, Hojiwala Industrial Estate,
-                Sachin Palsana Road, Surat, Gujarat 394230
-              </Typography>
+            {/* Manufacturing unit */}
+            <Box>
+              <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
+                <PlaceOutlinedIcon sx={{ fontSize: 26, mb: 1, color: "text.primary" }} />
+                <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
+                  Manufacturing unit
+                </Typography>
+                <Typography sx={{ color: bodyMuted, fontSize: 15, lineHeight: 1.6 }}>
+                  Plot No C-18/6, Road no-14, Hojiwala Industrial Estate,
+                  Sachin Palsana Road, Surat, Gujarat 394230
+                </Typography>
+              </Box>
             </Box>
-          </Grid>
+          </Box>
         </Grid>
       </Container>
     </Box>

@@ -31,7 +31,12 @@ const ContactSection = () => {
   ];
 
   return (
-    <Box sx={{ py: 10, px: 4, textAlign: 'center', minHeight: "60vh" }}>
+    <Box sx={{ 
+      py: { xs: 6, md: 10 }, 
+      px: { xs: 2, md: 4 }, 
+      textAlign: 'center', 
+      minHeight: { xs: "auto", md: "60vh" }
+    }}>
       <Typography sx={{
         fontSize: {
           xs: '1.5rem',

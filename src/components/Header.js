@@ -180,8 +180,8 @@ function Header() {
         >
           {/* Logo and Close */}
           <Box sx={{ px: 2, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
-            <img src="/logo192.png" alt="Logo" style={{ height: 34 }} />
-            <Typography variant="subtitle1" fontWeight={800}>BrandName</Typography>
+            <img src={BrandLogo} alt="Logo" style={{ height: 34 }} />
+            <Typography variant="subtitle1" fontWeight={800} sx={{ color: "#007C91" }}>Life Thread</Typography>
           </Box>
           <List>
             {navLinks.map((link, idx) =>
