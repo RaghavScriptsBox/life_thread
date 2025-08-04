@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import { Box, Typography, Button, Card, CardContent, CardMedia, Grid, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme } from '@mui/material';
+import React, { useState, useRef } from 'react';
+import { Box, Typography, Button, Card, CardContent, CardMedia, Grid, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme, IconButton } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { ProductImages, ESDArray, UniformsArray, SingleUseArray, AccessoriesArray } from "../Assets/index.js";
 import  Suit from '../Assets/SingleUseImages/Frame 427321813.png'
+import RequestQuoteModal from './RequestQuoteModal';
 
 // Dynamic product data based on category
 const productData = {
@@ -133,11 +136,54 @@ const productData = {
 
 const CatelogueSection = () => {
     const [category, setCategory] = useState('ESD & Lint Free');
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const carouselRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     
     // Get current products based on selected category
     const currentProducts = productData[category] || [];
+
+    // Handle quote request
+    const handleRequestQuote = (productTitle) => {
+        setSelectedProduct(productTitle);
+        setQuoteModalOpen(true);
+    };
+
+    // Carousel navigation functions
+    const nextSlide = () => {
+        if (currentSlide < currentProducts.length - 1) {
+            setCurrentSlide(currentSlide + 1);
+            scrollToSlide(currentSlide + 1);
+        }
+    };
+
+    const prevSlide = () => {
+        if (currentSlide > 0) {
+            setCurrentSlide(currentSlide - 1);
+            scrollToSlide(currentSlide - 1);
+        }
+    };
+
+    const scrollToSlide = (slideIndex) => {
+        if (carouselRef.current) {
+            const slideWidth = carouselRef.current.children[0].offsetWidth;
+            carouselRef.current.scrollTo({
+                left: slideIndex * slideWidth,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // Reset carousel when category changes
+    React.useEffect(() => {
+        setCurrentSlide(0);
+        if (carouselRef.current) {
+            carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+    }, [category]);
 
     return (
         <Box sx={{ backgroundColor: '#007d8c', py: { xs: 4, md: 8 }, px: { xs: 2, md: 4 } }}>
@@ -237,112 +283,296 @@ const CatelogueSection = () => {
 
 
             {/* Product Cards */}
-            <Grid
-                container
-                spacing={{ xs: 2, sm: 3, md: 4 }}
-                justifyContent="center"
-                sx={{ px: { xs: 1, md: 0 } }}
-            >
-                {currentProducts.map((item, i) => (
-                    <Grid
-                        key={i}
-                        item
-                        xs={12}   // 1 per row on mobile
-                        sm={6}    // 2 per row on small screens
-                        md={4}    // 3 per row on medium screens
-                        lg={3}    // 4 per row on large screens (optional for better spacing)
-                        xl={3}    // maintain 4 per row for extra wide screens
+            {isMobile ? (
+                // Mobile Carousel
+                <Box sx={{ position: 'relative', px: 2 }}>
+                    {/* Carousel Container */}
+                    <Box
+                        ref={carouselRef}
                         sx={{
                             display: 'flex',
-                            justifyContent: 'center'
+                            overflowX: 'auto',
+                            scrollSnapType: 'x mandatory',
+                            gap: 2,
+                            pb: 2,
+                            '&::-webkit-scrollbar': {
+                                display: 'none'
+                            },
+                            scrollbarWidth: 'none'
                         }}
                     >
-                        <Card sx={{
-                            borderRadius: 2, 
-                            boxShadow: 3, 
-                            width: '100%',
-                            maxWidth: { xs: "350px", sm: "320px", md: "280px", lg: "300px" },
-                            height: { xs: "auto", sm: "500px", md: "520px", lg: "550px" },
-                            display: 'flex',
-                            flexDirection: 'column'
-                        }}>
-                            <CardMedia
-                                component="div"
+                        {currentProducts.map((item, i) => (
+                            <Box
+                                key={i}
                                 sx={{
-                                    height: { xs: "200px", sm: "220px", md: "260px", lg: "300px" },
-                                    width: "100%",
-                                    backgroundColor: "#eee",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    overflow: 'hidden'
+                                    minWidth: '280px',
+                                    maxWidth: '280px',
+                                    scrollSnapAlign: 'start'
                                 }}
                             >
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                        opacity: 1,
+                                <Card sx={{
+                                    borderRadius: 2, 
+                                    boxShadow: 3, 
+                                    width: '100%',
+                                    height: 'auto',
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}>
+                                    <CardMedia
+                                        component="div"
+                                        sx={{
+                                            height: 200,
+                                            width: "100%",
+                                            backgroundColor: "#eee",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            overflow: 'hidden'
+                                        }}
+                                    >
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                objectFit: "cover",
+                                                opacity: 1,
+                                            }}
+                                        />
+                                    </CardMedia>
+                                    <CardContent sx={{ 
+                                        flexGrow: 1, 
+                                        display: 'flex', 
+                                        flexDirection: 'column',
+                                        p: 2
+                                    }}>
+                                        <Typography
+                                            sx={{
+                                                fontSize: "16px",
+                                                fontWeight: 700,
+                                                color: "#007d8c",
+                                                fontFamily: "Lato",
+                                                lineHeight: 1.3,
+                                                mb: 1
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                        <Typography
+                                            sx={{
+                                                fontSize: "12px",
+                                                color: "#444",
+                                                fontFamily: "Inter",
+                                                lineHeight: 1.4,
+                                                mb: 2,
+                                                flexGrow: 1
+                                            }}
+                                        >
+                                            {item.desc}
+                                        </Typography>
+                                        <Button
+                                            variant="outlined"
+                                            fullWidth
+                                            onClick={() => handleRequestQuote(item.title)}
+                                            sx={{
+                                                color: "#007d8c",
+                                                borderColor: "#007d8c",
+                                                fontWeight: "bold",
+                                                textTransform: "none",
+                                                py: 1,
+                                                fontSize: "12px",
+                                                "&:hover": {
+                                                    backgroundColor: "#007d8c",
+                                                    color: "#fff",
+                                                    borderColor: "#007d8c",
+                                                },
+                                            }}
+                                        >
+                                            Request quote
+                                        </Button>
+                                    </CardContent>
+                                </Card>
+                            </Box>
+                        ))}
+                    </Box>
+
+                    {/* Navigation Arrows for Mobile */}
+                    <Box sx={{ 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        alignItems: 'center', 
+                        gap: 2, 
+                        mt: 2 
+                    }}>
+                        <IconButton
+                            onClick={prevSlide}
+                            disabled={currentSlide === 0}
+                            sx={{
+                                backgroundColor: 'rgba(255,255,255,0.2)',
+                                color: '#fff',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255,255,255,0.3)',
+                                },
+                                '&.Mui-disabled': {
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    color: 'rgba(255,255,255,0.3)',
+                                }
+                            }}
+                        >
+                            <ArrowBackIosIcon />
+                        </IconButton>
+                        
+                        {/* Slide indicators */}
+                        <Box sx={{ display: 'flex', gap: 1 }}>
+                            {currentProducts.map((_, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        width: 8,
+                                        height: 8,
+                                        borderRadius: '50%',
+                                        backgroundColor: currentSlide === index ? '#fff' : 'rgba(255,255,255,0.3)',
+                                        cursor: 'pointer',
+                                        transition: 'background-color 0.3s ease'
+                                    }}
+                                    onClick={() => {
+                                        setCurrentSlide(index);
+                                        scrollToSlide(index);
                                     }}
                                 />
-                            </CardMedia>
-                            <CardContent sx={{ 
-                                flexGrow: 1, 
-                                display: 'flex', 
-                                flexDirection: 'column',
-                                p: { xs: 2, md: 3 }
+                            ))}
+                        </Box>
+
+                        <IconButton
+                            onClick={nextSlide}
+                            disabled={currentSlide === currentProducts.length - 1}
+                            sx={{
+                                backgroundColor: 'rgba(255,255,255,0.2)',
+                                color: '#fff',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255,255,255,0.3)',
+                                },
+                                '&.Mui-disabled': {
+                                    backgroundColor: 'rgba(255,255,255,0.1)',
+                                    color: 'rgba(255,255,255,0.3)',
+                                }
+                            }}
+                        >
+                            <ArrowForwardIosIcon />
+                        </IconButton>
+                    </Box>
+                </Box>
+            ) : (
+                // Desktop Grid
+                <Grid
+                    container
+                    spacing={{ xs: 2, sm: 3, md: 4 }}
+                    justifyContent="center"
+                    sx={{ px: { xs: 1, md: 0 } }}
+                >
+                    {currentProducts.map((item, i) => (
+                        <Grid
+                            key={i}
+                            item
+                            xs={12}   // 1 per row on mobile
+                            sm={6}    // 2 per row on small screens
+                            md={4}    // 3 per row on medium screens
+                            lg={3}    // 4 per row on large screens (optional for better spacing)
+                            xl={3}    // maintain 4 per row for extra wide screens
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Card sx={{
+                                borderRadius: 2, 
+                                boxShadow: 3, 
+                                width: '100%',
+                                maxWidth: { xs: "350px", sm: "320px", md: "280px", lg: "300px" },
+                                height: { xs: "auto", sm: "500px", md: "520px", lg: "550px" },
+                                display: 'flex',
+                                flexDirection: 'column'
                             }}>
-                                <Typography
+                                <CardMedia
+                                    component="div"
                                     sx={{
-                                        fontSize: { xs: "18px", md: "18px" },
-                                        fontWeight: 700,
-                                        color: "#007d8c",
-                                        fontFamily: "Lato",
-                                        lineHeight: 1.3,
-                                        mb: { xs: 1, md: 1.5 }
+                                        height: { xs: "200px", sm: "220px", md: "260px", lg: "300px" },
+                                        width: "100%",
+                                        backgroundColor: "#eee",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        overflow: 'hidden'
                                     }}
                                 >
-                                    {item.title}
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        fontSize: { xs: "14px", md: "12px" },
-                                        color: "#444",
-                                        fontFamily: "Inter",
-                                        lineHeight: 1.4,
-                                        mb: { xs: 2, md: 3 },
-                                        flexGrow: 1
-                                    }}
-                                >
-                                    {item.desc}
-                                </Typography>
-                                <Button
-                                    variant="outlined"
-                                    fullWidth
-                                    sx={{
-                                        color: "#007d8c",
-                                        borderColor: "#007d8c",
-                                        fontWeight: "bold",
-                                        textTransform: "none",
-                                        py: { xs: 1, md: 1.2 },
-                                        fontSize: { xs: "14px", md: "16px" },
-                                        "&:hover": {
-                                            backgroundColor: "#007d8c",
-                                            color: "#fff",
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        style={{
+                                            width: "100%",
+                                            height: "100%",
+                                            objectFit: "cover",
+                                            opacity: 1,
+                                        }}
+                                    />
+                                </CardMedia>
+                                <CardContent sx={{ 
+                                    flexGrow: 1, 
+                                    display: 'flex', 
+                                    flexDirection: 'column',
+                                    p: { xs: 2, md: 3 }
+                                }}>
+                                    <Typography
+                                        sx={{
+                                            fontSize: { xs: "18px", md: "18px" },
+                                            fontWeight: 700,
+                                            color: "#007d8c",
+                                            fontFamily: "Lato",
+                                            lineHeight: 1.3,
+                                            mb: { xs: 1, md: 1.5 }
+                                        }}
+                                    >
+                                        {item.title}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: { xs: "14px", md: "12px" },
+                                            color: "#444",
+                                            fontFamily: "Inter",
+                                            lineHeight: 1.4,
+                                            mb: { xs: 2, md: 3 },
+                                            flexGrow: 1
+                                        }}
+                                    >
+                                        {item.desc}
+                                    </Typography>
+                                    <Button
+                                        variant="outlined"
+                                        fullWidth
+                                        onClick={() => handleRequestQuote(item.title)}
+                                        sx={{
+                                            color: "#007d8c",
                                             borderColor: "#007d8c",
-                                        },
-                                    }}
-                                >
-                                    Request quote
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
+                                            fontWeight: "bold",
+                                            textTransform: "none",
+                                            py: { xs: 1, md: 1.2 },
+                                            fontSize: { xs: "14px", md: "16px" },
+                                            "&:hover": {
+                                                backgroundColor: "#007d8c",
+                                                color: "#fff",
+                                                borderColor: "#007d8c",
+                                            },
+                                        }}
+                                    >
+                                        Request Quote
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            )}
 
 
             {/* View All Button */}
@@ -350,7 +580,7 @@ const CatelogueSection = () => {
                 <Button
                     variant="contained"
                     sx={{
-                        borderRadius: { xs: 8, md: 20 },
+                        borderRadius: { xs: 8, md: "10px" },
                         px: { xs: 3, md: 4 },
                         py: { xs: 1, md: 1.2 },
                         textTransform: 'none',
@@ -363,9 +593,16 @@ const CatelogueSection = () => {
                         },
                     }}
                 >
-                    View all
+                    Download Catelogue
                 </Button>
             </Box>
+
+            {/* Request Quote Modal */}
+            <RequestQuoteModal
+                open={quoteModalOpen}
+                onClose={() => setQuoteModalOpen(false)}
+                selectedProduct={selectedProduct}
+            />
         </Box>
     );
 };

@@ -10,8 +10,8 @@ const CertifiedForSafety = () => {
         <Box sx={{
             textAlign: 'center',
             mb: 4,
-            height:"100%",
-            minHeight:"50vh",
+            height: "100%",
+            minHeight: "50vh",
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -26,7 +26,17 @@ const CertifiedForSafety = () => {
                     color: '#005A69'
                 }}>Certified for Safety, Quality & Compliance</Typography>
             </Box>
-            <Box sx={{mt:"40px"}}>
+            <Box sx={{ mt: "40px", display: { xs: "block", md: "flex" }, gap: "20px", justifyContent: "center", alignItems: "center" }}>
+                <img src={Iso9001} alt="ISO 9001 Certification" style={{
+                    width: '100px',
+                    height: 'auto',
+                    margin: '0 10px'
+                }} />
+                <img src={ISO13485} alt="ISO 13485 Certification" style={{
+                    width: '100px',
+                    height: 'auto',
+                    margin: '0 10px'
+                }} />
                 <img src={Atira} alt="Atira Certification"
                     style={{
                         width: '100px',
@@ -39,16 +49,7 @@ const CertifiedForSafety = () => {
                     height: 'auto',
                     margin: '0 10px'
                 }} />
-                <img src={Iso9001} alt="ISO 9001 Certification" style={{
-                    width: '100px',
-                    height: 'auto',
-                    margin: '0 10px'
-                }} />
-                <img src={ISO13485} alt="ISO 13485 Certification" style={{
-                    width: '100px',
-                    height: 'auto',
-                    margin: '0 10px'
-                }} />
+
             </Box>
         </Box>
     )

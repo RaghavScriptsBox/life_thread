@@ -3,7 +3,7 @@ import { Grid, Typography, Box, List, ListItem, ListItemIcon, ListItemText } fro
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // Example image: Replace with your own asset or correct path
-import SectionImage from '../../Assets/DocImage.png'; // Adjust path as needed
+import AboutUsTwoImage from '../../Assets/AboutUsTwoImage.png'; // Adjust path as needed
 
 export default function Empowering() {
     return (
@@ -36,7 +36,7 @@ export default function Empowering() {
                 }}>
                     <Box
                         component="img"
-                        src={SectionImage}
+                        src={AboutUsTwoImage}
                         alt="Cleanroom professionals"
                         sx={{
                             width: { xs: "100%", md: "100%" },
@@ -63,9 +63,9 @@ export default function Empowering() {
                     <Typography
                         sx={{
                             fontWeight: 700,
-                            color: "#000000",
+                            color: "#005A69",
                             mb: 2,
-                            fontFamily: "Lato, sans-serif",
+                            fontFamily: "Figtree, sans-serif",
                             fontSize: {
                                 xs: "30px",
                                 md: "56px"

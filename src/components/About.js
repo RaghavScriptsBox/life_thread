@@ -19,8 +19,8 @@ function About() {
         <WhyChosseUs />
         <CertifiedForSafety />
         <InspiredPage />
-        <CatalogoueAbout />
-        <JoinUsSection />
+        {/* <CatalogoueAbout /> */}
+        {/* <JoinUsSection /> */}
       </Stack>
     </Box>
   );

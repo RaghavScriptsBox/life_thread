@@ -3,7 +3,7 @@ import { Grid, Typography, Box, List, ListItem, ListItemIcon, ListItemText } fro
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // Example image: Replace with your own asset or correct path
-import SectionImage from '../../Assets/DocImage.png'; // Adjust path as needed
+import AboutUsImage from '../../Assets/AboutUsImage.png'; // Adjust path as needed
 
 export default function OurCommitment() {
   return (
@@ -94,7 +94,7 @@ export default function OurCommitment() {
         }}>
           <Box
             component="img"
-            src={SectionImage}
+            src={AboutUsImage}
             alt="Cleanroom professionals"
             sx={{
               width: { xs: "100%", md: "100%" },

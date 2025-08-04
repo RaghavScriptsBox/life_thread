@@ -8,17 +8,17 @@ const CoreValuesSection = () => {
   const values = [
     {
       icon: <HighQualityIcon fontSize="large" />,
-      title: 'Commitment to Safety and Quality in Every Thread We Stitch',
+      title: 'Commitment to Safety and Quality',
       description: 'We prioritize safety by ensuring our garments protect lives and environments.',
     },
     {
       icon: <Diversity3Icon fontSize="large" />,
-      title: 'Integrity in Our Processes: Transparent Communication and Honest Work',
+      title: 'Integrity in Our Processes',
       description: 'Integrity guides our actions, ensuring trust in every partnership.',
     },
     {
       icon: <DesignServicesIcon fontSize="large" />,
-      title: 'Innovation Drives Us: Smarter Designs and Better Materials for Your Needs',
+      title: 'Innovation for Your Needs',
       description: 'Our commitment to innovation leads to superior products for critical environments.',
     },
   ];
@@ -50,14 +50,19 @@ const CoreValuesSection = () => {
               flex={1}
               px={{ xs: 2, md: 4 }}
             >
-              <Box color="text.primary" mb={2}>
+              <Box
+                sx={{
+                  fontFamily: "Figtree, sans-serif",
+                  fontSize: { xs: '48px', md: '64px' },
+                  color: "#005A69",
+                }}
+              >
                 {item.icon}
               </Box>
               <Typography sx={{
-                fontWeight: "500",
-                fontSize: { xs: '18px', md: '22px' },
-                color: "#000000",
-                fontFamily: "Figtree, sans-serif"
+                fontFamily: "Figtree, sans-serif",
+                fontSize: { xs: '16px', md: '24px', fontWeight:600 },
+                color: "#005A69",
               }} gutterBottom>
                 {item.title}
               </Typography>

@@ -3,7 +3,7 @@ import { Grid, Typography, Box, List, ListItem, ListItemIcon, ListItemText } fro
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // Example image: Replace with your own asset or correct path
-import SectionImage from '../../Assets/DocImage.png'; // Adjust path as needed
+import InspiredBy from '../../Assets/InspiredBy.png'; // Adjust path as needed
 
 export default function InspiredPage() {
   return (
@@ -85,11 +85,11 @@ export default function InspiredPage() {
           width: {
             xs: '100%',
             md: "50%"
-          }
+          },
         }}>
           <Box
             component="img"
-            src={SectionImage}
+            src={InspiredBy}
             alt="Cleanroom professionals"
             sx={{
               width: { xs: "100%", md: "100%" },
@@ -97,11 +97,15 @@ export default function InspiredPage() {
                 xs: "400px",
                 md: "500px"
               },
-              maxHeight:"400px",
+              maxHeight:{
+                xs:"400px",
+                md:"600px"
+              },
               borderRadius: 2,
               boxShadow: 3,
               objectFit: "cover",
-              mx: "auto"
+              mx: "auto",
+              height:"auto"
             }}
           />
         </Box>

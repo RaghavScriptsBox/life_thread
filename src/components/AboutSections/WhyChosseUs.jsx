@@ -70,11 +70,14 @@ const WhyChosseUs = () => {
                             <Box textAlign="center" sx={{
                                 display: 'flex',
                                 flexDirection: 'column',
-                                justifyContent:"space-between",
+                                justifyContent: "space-between",
                                 alignItems: 'flex-start',
                                 textAlign: 'flex-start',
                                 maxWidth: '350px',
-                                mt:"40px"
+                                mt: "40px",
+                                bgcolor: '#fff',
+                                padding:"20px",
+                                minHeight:"400px"
                             }}>
                                 <Box sx={{
                                     color: "Figtree, sans-serif",
@@ -84,18 +87,21 @@ const WhyChosseUs = () => {
                                     {item.icon}
                                 </Box>
                                 <Typography sx={{
-                                    fontWeight: '600',
+                                    fontWeight: 600,
                                     mb: 1,
-                                    fontSize: { xs: '18px', md: '20px' },
-                                    color: '#000000',
+                                    fontSize: { xs: '18px', md: '30px' },
+                                    color: '#005A69',
                                     fontFamily: 'Figtree, sans-serif',
                                 }}>
                                     {item.title}
                                 </Typography>
                                 <Typography sx={{
-                                    fontSize: '12px',
-                                    color: 'text.secondary',
-                                    textAlign: 'center',
+                                    fontWeight: 500,
+                                    mb: 1,
+                                    fontSize: { xs: '14px', md: '16px' },
+                                    color: '#1212129f',
+                                    fontFamily: 'Figtree, sans-serif',
+                                    mt:"10px"
                                 }}>
                                     {item.description}
                                 </Typography>

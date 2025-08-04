@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import CheckroomIcon from '@mui/icons-material/Checkroom'; // Shirt icon
-import PlaceholderImage from '../Assets/PlaceholderImage.png'; // Replace with your image path
+import HomeSecondImage from '../Assets/HomeSecondImage.png'; // Replace with your image path
 
 const ProtectiveApparelSection = () => {
   return (
@@ -130,7 +130,7 @@ const ProtectiveApparelSection = () => {
             sx={{
               width: '100%',
               maxWidth: { xs: 300, sm: 400, md: 500, lg: 600 },
-              height: { xs: 250, sm: 300, md: 400, lg: 500 },
+              height: { xs: 250, sm: 300, md: 400, lg: 600 },
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -140,7 +140,7 @@ const ProtectiveApparelSection = () => {
           >
             <Box 
               component="img" 
-              src={PlaceholderImage} 
+              src={HomeSecondImage} 
               alt="Protective Apparel" 
               sx={{
                 height: "100%",

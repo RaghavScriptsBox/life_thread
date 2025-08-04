@@ -11,6 +11,7 @@ import CatelogueSection from "./components/CatelogueSection";
 import ProductCategories from "./Sections/ProductCategories";
 import WorkwearHero from "./components/WorkwearHeroSection";
 import "./App.css";
+import ContactUs from "./components/ContactUs";
 
 const Landing = () => (
   <>
@@ -19,7 +20,7 @@ const Landing = () => (
     <CatelogueSection />
     <ProductCategories />
     <CatalogueBanner />
-    <Contact />
+    {/* <Contact /> */}
   </>
 );
 
@@ -50,7 +51,7 @@ const App = () => {
             <Route path="/" element={<Landing />} />
             <Route path="/product" element={<Landing />} />
             <Route path="/aboutUs" element={<About />} />
-            <Route path="/contact" element={<Landing />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="*" element={<div>Not Found</div>} />
           </Routes>
         </Box>
