@@ -94,7 +94,7 @@ const Footer = () => {
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Manufacturing Unit</Typography>
               <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
-                Plot No. 142, Sector 6, Industrial Area, Bawal, Rewari, Haryana 123501
+                Plot No C-18/6, Road no-14, Hojiwala Industrial Estate, Sachin Palsana Road, Surat, Gujarat 394230
               </Typography>
             </Box>
           </Box>

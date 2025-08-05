@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { ProductImages, ESDArray, UniformsArray, SingleUseArray, AccessoriesArray } from "../Assets/index.js";
 import  Suit from '../Assets/SingleUseImages/Frame 427321813.png'
 import RequestQuoteModal from './RequestQuoteModal';
+import DownloadCatalogueModal from './DownloadCatalogueModal';
 
 // Dynamic product data based on category
 const productData = {
@@ -138,6 +139,7 @@ const CatelogueSection = () => {
     const [category, setCategory] = useState('ESD & Lint Free');
     const [currentSlide, setCurrentSlide] = useState(0);
     const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+    const [downloadModalOpen, setDownloadModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const carouselRef = useRef(null);
     const theme = useTheme();
@@ -600,7 +602,7 @@ const CatelogueSection = () => {
             <Box textAlign="center" mt={{ xs: 4, md: 6 }}>
                 <Button
                     variant="contained"
-                    onClick={() => window.open('https://drive.google.com/drive/folders/10uwcdxaetJPEDQDpQIXZQOf0RZnNgcSV', '_blank')}
+                    onClick={() => setDownloadModalOpen(true)}
                     sx={{
                         borderRadius: { xs: 8, md: "10px" },
                         px: { xs: 3, md: 4 },
@@ -624,6 +626,12 @@ const CatelogueSection = () => {
                 open={quoteModalOpen}
                 onClose={() => setQuoteModalOpen(false)}
                 selectedProduct={selectedProduct}
+            />
+
+            {/* Download Catalogue Modal */}
+            <DownloadCatalogueModal
+                open={downloadModalOpen}
+                onClose={() => setDownloadModalOpen(false)}
             />
         </Box>
     );

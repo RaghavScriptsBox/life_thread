@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import CatalogueImage from "../Assets/Catalogue.jpg"
+import RequestQuoteModal from './RequestQuoteModal';
+import DownloadCatalogueModal from './DownloadCatalogueModal';
+import { useNavigate } from 'react-router-dom';
 
 const CatalogueBanner = () => {
+    const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+    const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const navigate = useNavigate();
+
+    const handleRequestQuote = (productTitle) => {
+        setSelectedProduct(productTitle);
+        setQuoteModalOpen(true);
+    };
     return (
         <Box
             sx={{
@@ -69,10 +81,20 @@ const CatalogueBanner = () => {
                 <Button
                     variant="contained"
                     sx={{ mt: 3, bgcolor: '#fff', px: 4, py: 1.5, border: "1px solid #007C91", color: "#007C91", fontFamily: "Roboto", fontWeight: "bold" }}
+                    onClick={() => setDownloadModalOpen(true)}
                 >
                     Download the Catalogue
                 </Button>
             </Box>
+            <RequestQuoteModal
+                open={quoteModalOpen}
+                onClose={() => setQuoteModalOpen(false)}
+                selectedProduct={null}
+            />
+            <DownloadCatalogueModal
+                open={downloadModalOpen}
+                onClose={() => setDownloadModalOpen(false)}
+            />
         </Box>
     );
 };
