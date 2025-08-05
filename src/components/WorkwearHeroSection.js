@@ -39,7 +39,7 @@ const WorkwearHeroSection = () => {
         <Box sx={{
           width: { xs: '100%', md: '50%' },
           textAlign: { xs: 'center', md: 'left' },
-          order: { xs: 2, md: 1 }
+          order: { xs: 1, md: 1 }
         }}>
           <Typography sx={{
             fontSize: { xs: '28px', sm: '36px', md: '42px', lg: '48px' },
@@ -119,7 +119,7 @@ const WorkwearHeroSection = () => {
         {/* Right Image Section */}
         <Box sx={{
           width: { xs: '100%', md: '50%' },
-          order: { xs: 1, md: 2 },
+          order: { xs: 2, md: 2 },
           display: 'flex',
           justifyContent: 'center'
         }}>

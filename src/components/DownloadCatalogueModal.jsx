@@ -31,7 +31,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Basic validation
         if (!formData.email || !formData.contactNumber) {
             setShowError(true);
@@ -40,9 +40,9 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
         }
 
         setIsSubmitting(true);
-        
+
         try {
-            const response = await fetch('https://formbold.com/s/3n5n1', {
+            const response = await fetch('https://formspree.io/f/xanbpogz', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                     contactNumber: '',
                     businessName: ''
                 });
-                
+
                 // Close modal after short delay and redirect to catalogue
                 setTimeout(() => {
                     setShowSuccess(false);
@@ -177,7 +177,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                     >
                         <CloseIcon />
                     </IconButton>
-                    
+
                     <Typography variant="h6" sx={{
                         fontFamily: 'Inter',
                         fontWeight: 600,
@@ -186,7 +186,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                     }}>
                         Download Catalogue
                     </Typography>
-                    
+
                     <Typography sx={{
                         fontFamily: 'Inter',
                         fontSize: '12px',
@@ -205,7 +205,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                             Form submitted successfully! Redirecting to catalogue...
                         </Alert>
                     )}
-                    
+
                     {showError && (
                         <Alert severity="error" sx={{ mb: 2 }}>
                             Please fill in all required fields and try again.
@@ -253,6 +253,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                                 Business Name
                             </Typography>
                             <TextField
+                                required
                                 name="businessName"
                                 value={formData.businessName}
                                 onChange={handleInputChange}

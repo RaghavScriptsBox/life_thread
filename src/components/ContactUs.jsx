@@ -38,7 +38,7 @@ const ContactUs = () => {
         setSubmitStatus('');
 
         try {
-            const response = await fetch('https://formbold.com/s/3n5n1', {
+            const response = await fetch('https://formspree.io/f/xanbpogz', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,6 +51,7 @@ const ContactUs = () => {
                     message: formData.message
                 })
             });
+            console.log("Response:", response);
 
             if (response.ok) {
                 setSubmitStatus('success');
@@ -155,16 +156,24 @@ const ContactUs = () => {
                             justifyContent: { xs: "center", md: "flex-start" },
                             alignItems: "center"
                         }}>
-                            <Button variant="contained" sx={{
-                                backgroundColor: '#fff',
-                                color: '#006778',
-                                borderRadius: "8px",
-                                fontWeight: "600",
-                                px: { xs: 3, md: 4 },
-                                py: { xs: 1, md: 1.5 },
-                                fontSize: { xs: "14px", md: "16px" },
-                                minWidth: { xs: "140px", sm: "auto" }
-                            }}>Send Message</Button>
+                            <Button
+                                onClick={() => {
+                                    const catalogueElement = document.getElementById('send-message');
+                                    if (catalogueElement) {
+                                        catalogueElement.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }}
+
+                                variant="contained" sx={{
+                                    backgroundColor: '#fff',
+                                    color: '#006778',
+                                    borderRadius: "8px",
+                                    fontWeight: "600",
+                                    px: { xs: 3, md: 4 },
+                                    py: { xs: 1, md: 1.5 },
+                                    fontSize: { xs: "14px", md: "16px" },
+                                    minWidth: { xs: "140px", sm: "auto" }
+                                }}>Send Message</Button>
                             <Button variant="outlined" sx={{
                                 color: '#fff',
                                 borderColor: '#fff',
@@ -183,6 +192,7 @@ const ContactUs = () => {
 
             {/* Image Section */}
             <Box
+                
                 component="img"
                 src={ContactUsImage}
                 alt="Lab"
@@ -196,7 +206,7 @@ const ContactUs = () => {
             <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
                 {/* Contact Us Form */}
                 <Paper elevation={0} sx={{ p: { xs: 3, md: 5 }, borderRadius: 2 }}>
-                    <Box sx={{
+                    <Box id='send-message' sx={{
                         textAlign: "center",
                         mb: { xs: 3, md: 4 }
                     }}>

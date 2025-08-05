@@ -66,7 +66,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('https://formbold.com/s/3n5n1', {
+            const response = await fetch('https://formspree.io/f/xanbpogz', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

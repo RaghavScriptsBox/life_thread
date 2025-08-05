@@ -7,8 +7,8 @@ import DocTwoImage from './DocTwoImage.png';
 import FooterLogo from './FooterLogo.png';
 import FrameImage from './Frame 427321813.png';
 import GMPImage from './GMP.png';
-import HeroImage from './Hero.jpg';
-import HomeDesktopImage from './Home • Desktop (1).png';
+// import HeroImage from './Hero.jpg';
+// import HomeDesktopImage from './Home • Desktop (1).png';
 import ISO13485Image from './ISO13485.png';
 import ISO9001Image from './ISO9001.png';
 import LogoImage from './Logo.jpg';
@@ -56,8 +56,8 @@ export const MainAssets = {
   FooterLogo,
   FrameImage,
   GMPImage,
-  HeroImage,
-  HomeDesktopImage,
+  // HeroImage,
+  // HomeDesktopImage,
   ISO13485Image,
   ISO9001Image,
   LogoImage,
@@ -156,8 +156,8 @@ export {
   FooterLogo,
   FrameImage,
   GMPImage,
-  HeroImage,
-  HomeDesktopImage,
+  // HeroImage,
+  // HomeDesktopImage,
   ISO13485Image,
   ISO9001Image,
   LogoImage,
