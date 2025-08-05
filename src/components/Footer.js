@@ -65,7 +65,7 @@ const Footer = () => {
             }}>
               <PhoneOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Phone</Typography>
-              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>+91 99789 73055</Typography>
+              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>+91 9909916599</Typography>
             </Box>
             <Box sx={{
               width: {
@@ -79,7 +79,7 @@ const Footer = () => {
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Reg. Office</Typography>
               <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
-                7/41, Harmony Tower, Bhakti Tower Rd, Satellite Park Rd, Thaltej, Ahmedabad, Gujarat 380059
+                214, Harmony Icon, Zydus Hospital Road, Nr. Baghban Party Plot, Thaltej Ahmedabad, Gujarat 380059
               </Typography>
             </Box>
             <Box sx={{

@@ -17,6 +17,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../Styles/Header.css"; // import the CSS below!
 import BrandLogo from "../Assets/Logo.jpg"; // Example logo path, update as needed
 import { useNavigate } from "react-router-dom";
+import RequestQuoteModal from "./RequestQuoteModal";
 
 const navLinks = [
   { label: "Products", href: "/product" },
@@ -28,6 +29,13 @@ function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [dropdownMobileOpen, setDropdownMobileOpen] = useState(false);
+
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const handleRequestQuote = (productTitle) => {
+    setSelectedProduct(productTitle);
+    setQuoteModalOpen(true);
+  };
 
   const navigate = useNavigate()
 
@@ -152,6 +160,7 @@ function Header() {
               background: "rgba(25,118,210,0.12)",
             },
           }}
+          onClick={() => handleRequestQuote()}
         >
           Request a Quote
         </Button>
@@ -244,6 +253,12 @@ function Header() {
           </List>
         </Drawer>
       </Toolbar>
+      {/* Request Quote Modal */}
+      <RequestQuoteModal
+        open={quoteModalOpen}
+        onClose={() => setQuoteModalOpen(false)}
+        selectedProduct={null}
+      />
     </AppBar>
   );
 }

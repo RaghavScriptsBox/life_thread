@@ -1,9 +1,12 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import CheckroomIcon from '@mui/icons-material/Checkroom'; // Shirt icon
 import HomeSecondImage from '../Assets/HomeSecondImage.png'; // Replace with your image path
 
 const ProtectiveApparelSection = () => {
+  const navigate = useNavigate();
+  
   return (
     <Box sx={{ 
       width: '100%', 
@@ -79,6 +82,12 @@ const ProtectiveApparelSection = () => {
               justifyContent: { xs: 'center', md: 'flex-start' }
             }}>
               <Box
+                onClick={() => {
+                  const catalogueElement = document.getElementById('catalogue-section');
+                  if (catalogueElement) {
+                    catalogueElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 sx={{
                   bgcolor: '#00778B',
                   color: '#fff',

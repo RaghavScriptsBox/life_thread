@@ -1,15 +1,25 @@
 // components/WorkwearHeroSection.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, Typography, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import DocImage from '../Assets/DocImage.png'; // Replace with actual image path
 import DocTwoImage from '../Assets/DocTwoImage.png'; // Replace with actual image path
+import RequestQuoteModal from './RequestQuoteModal';
 
 const WorkwearHeroSection = () => {
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
+  
+  const handleRequestQuote = (productTitle) => {
+    setSelectedProduct(productTitle);
+    setQuoteModalOpen(true);
+  };
   return (
-    <Box sx={{ 
-      px: { xs: 2, sm: 3, md: 6, lg: 8 }, 
-      py: { xs: 4, sm: 6 }, 
-      minHeight: { xs: "auto", md: "100vh" }, 
+    <Box sx={{
+      px: { xs: 2, sm: 3, md: 6, lg: 8 },
+      py: { xs: 4, sm: 6 },
+      minHeight: { xs: "auto", md: "100vh" },
       backgroundColor: '#fff',
       display: 'flex',
       alignItems: 'center'
@@ -26,7 +36,7 @@ const WorkwearHeroSection = () => {
         width: '100%'
       }}>
         {/* Left Text Section */}
-        <Box sx={{ 
+        <Box sx={{
           width: { xs: '100%', md: '50%' },
           textAlign: { xs: 'center', md: 'left' },
           order: { xs: 2, md: 1 }
@@ -59,15 +69,22 @@ const WorkwearHeroSection = () => {
             ESD zones, and industrial environments.
           </Typography>
 
-          <Box sx={{ 
-            display: 'flex', 
-            gap: { xs: 2, md: 2 }, 
+          <Box sx={{
+            display: 'flex',
+            gap: { xs: 2, md: 2 },
             flexWrap: 'wrap',
             justifyContent: { xs: 'center', md: 'flex-start' },
             flexDirection: { xs: 'column', sm: 'row' },
             alignItems: 'center'
           }}>
-            <Button sx={{
+            <Button 
+              onClick={() => {
+                const catalogueElement = document.getElementById('catalogue-section');
+                if (catalogueElement) {
+                  catalogueElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              sx={{
               bgcolor: '#00778B',
               color: '#fff',
               px: { xs: 3, md: 4 },
@@ -91,14 +108,16 @@ const WorkwearHeroSection = () => {
               fontWeight: 500,
               minWidth: { xs: 140, md: 'auto' },
               '&:hover': { bgcolor: '#f0f0f0' },
-            }}>
+            }}
+              onClick={() => handleRequestQuote()}
+            >
               Request quote
             </Button>
           </Box>
         </Box>
 
         {/* Right Image Section */}
-        <Box sx={{ 
+        <Box sx={{
           width: { xs: '100%', md: '50%' },
           order: { xs: 1, md: 2 },
           display: 'flex',
@@ -141,6 +160,12 @@ const WorkwearHeroSection = () => {
           </Box>
         </Box>
       </Box>
+       {/* Request Quote Modal */}
+      <RequestQuoteModal
+        open={quoteModalOpen}
+        onClose={() => setQuoteModalOpen(false)}
+        selectedProduct={null}
+      />
     </Box>
   );
 };

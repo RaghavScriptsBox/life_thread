@@ -5,6 +5,7 @@ import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import DocTwoImage from "../Assets/DocTwoImage.png"
+import RequestQuoteModal from './RequestQuoteModal';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +17,13 @@ const ContactUs = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
+    const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const handleRequestQuote = (productTitle) => {
+        setSelectedProduct(productTitle);
+        setQuoteModalOpen(true);
+    };
+
 
     const handleChange = (e) => {
         setFormData({
@@ -67,8 +75,8 @@ const ContactUs = () => {
     return (
         <Box>
             {/* Hero Section with Background */}
-            <Box 
-                sx={{ 
+            <Box
+                sx={{
                     // backgroundImage: `url(${ContactUsImage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -93,7 +101,7 @@ const ContactUs = () => {
                     zIndex: 2,
                     width: "100%",
                     px: { xs: 3, md: 5 },
-                    display:"flex"
+                    display: "flex"
                 }}>
                     <Box sx={{
                         color: "white",
@@ -135,7 +143,7 @@ const ContactUs = () => {
                             },
                             lineHeight: 1.5,
                             px: { xs: 1, md: 0 },
-                            color:"#fff"
+                            color: "#fff"
                         }}>
                             Have a question about our garments, certifications, or custom solutions? Reach out for samples or meetings today.
                         </Typography>
@@ -147,41 +155,43 @@ const ContactUs = () => {
                             justifyContent: { xs: "center", md: "flex-start" },
                             alignItems: "center"
                         }}>
-                            <Button variant="contained" sx={{ 
-                                backgroundColor: '#fff', 
-                                color: '#006778', 
-                                borderRadius: "8px", 
+                            <Button variant="contained" sx={{
+                                backgroundColor: '#fff',
+                                color: '#006778',
+                                borderRadius: "8px",
                                 fontWeight: "600",
                                 px: { xs: 3, md: 4 },
                                 py: { xs: 1, md: 1.5 },
                                 fontSize: { xs: "14px", md: "16px" },
                                 minWidth: { xs: "140px", sm: "auto" }
                             }}>Send Message</Button>
-                            <Button variant="outlined" sx={{ 
-                                color: '#fff', 
-                                borderColor: '#fff', 
+                            <Button variant="outlined" sx={{
+                                color: '#fff',
+                                borderColor: '#fff',
                                 borderRadius: "8px",
                                 px: { xs: 3, md: 4 },
                                 py: { xs: 1, md: 1.5 },
                                 fontSize: { xs: "14px", md: "16px" },
                                 minWidth: { xs: "140px", sm: "auto" }
-                            }}>Request Quote</Button>
+                            }}
+                                onClick={() => handleRequestQuote()}
+                            >Request Quote</Button>
                         </Box>
                     </Box>
                 </Box>
             </Box>
 
             {/* Image Section */}
-            <Box 
-                component="img" 
-                src={ContactUsImage} 
-                alt="Lab" 
+            <Box
+                component="img"
+                src={ContactUsImage}
+                alt="Lab"
                 sx={{
-                    width: "100%", 
+                    width: "100%",
                     height: "auto",
                     maxHeight: { xs: "250px", md: "600px" },
                     objectFit: "cover"
-                }} 
+                }}
             />
             <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
                 {/* Contact Us Form */}
@@ -370,9 +380,9 @@ const ContactUs = () => {
                         </Box>
                         <Box sx={{ mt: { xs: "16px", md: "20px" } }}>
                             {submitStatus === 'success' && (
-                                <Typography sx={{ 
-                                    color: 'green', 
-                                    textAlign: 'center', 
+                                <Typography sx={{
+                                    color: 'green',
+                                    textAlign: 'center',
                                     mb: 2,
                                     fontFamily: "Figtree",
                                     fontSize: "14px"
@@ -381,9 +391,9 @@ const ContactUs = () => {
                                 </Typography>
                             )}
                             {submitStatus === 'error' && (
-                                <Typography sx={{ 
-                                    color: 'red', 
-                                    textAlign: 'center', 
+                                <Typography sx={{
+                                    color: 'red',
+                                    textAlign: 'center',
                                     mb: 2,
                                     fontFamily: "Figtree",
                                     fontSize: "14px"
@@ -396,12 +406,12 @@ const ContactUs = () => {
                                 fullWidth
                                 disabled={isSubmitting}
                                 variant="contained"
-                                sx={{ 
-                                    backgroundColor: isSubmitting ? '#ccc' : '#007b89', 
-                                    color: '#fff', 
-                                    borderRadius: "10px", 
-                                    fontFamily: "Figtree", 
-                                    textTransform: "none", 
+                                sx={{
+                                    backgroundColor: isSubmitting ? '#ccc' : '#007b89',
+                                    color: '#fff',
+                                    borderRadius: "10px",
+                                    fontFamily: "Figtree",
+                                    textTransform: "none",
                                     height: { xs: "45px", md: "50px" },
                                     fontSize: { xs: "14px", md: "16px" },
                                     fontWeight: 600,
@@ -419,8 +429,8 @@ const ContactUs = () => {
             {/* Garment Selection Help Section */}
             <Box sx={{ backgroundColor: '#f9f9f9', py: { xs: 4, md: 6 } }}>
                 <Container maxWidth="lg">
-                    <Box sx={{ 
-                        display: "flex", 
+                    <Box sx={{
+                        display: "flex",
                         flexDirection: { xs: "column", md: "row" },
                         alignItems: { xs: "center", md: "center" },
                         gap: { xs: 3, md: 0 }
@@ -457,13 +467,13 @@ const ContactUs = () => {
                             }}>
                                 Our experts are here to guide you in selecting the perfect garment for your needs. Don't hesitate to reach out for personalized advice.
                             </Typography>
-                            <Button variant="contained" sx={{ 
-                                backgroundColor: '#007C91', 
-                                borderRadius: "10px", 
-                                fontFamily: "Figtree", 
-                                textTransform: "none", 
-                                height: { xs: "45px", md: "50px" }, 
-                                width: { xs: "180px", md: "200px" }, 
+                            <Button variant="contained" sx={{
+                                backgroundColor: '#007C91',
+                                borderRadius: "10px",
+                                fontFamily: "Figtree",
+                                textTransform: "none",
+                                height: { xs: "45px", md: "50px" },
+                                width: { xs: "180px", md: "200px" },
                                 mt: { xs: "8px", md: "10px" },
                                 fontSize: { xs: "14px", md: "16px" }
                             }}>
@@ -473,6 +483,12 @@ const ContactUs = () => {
                     </Box>
                 </Container>
             </Box>
+            {/* Request Quote Modal */}
+            <RequestQuoteModal
+                open={quoteModalOpen}
+                onClose={() => setQuoteModalOpen(false)}
+                selectedProduct={null}
+            />
         </Box>
     );
 };

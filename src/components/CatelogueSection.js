@@ -186,7 +186,7 @@ const CatelogueSection = () => {
     }, [category]);
 
     return (
-        <Box sx={{ backgroundColor: '#007d8c', py: { xs: 4, md: 8 }, px: { xs: 2, md: 4 } }}>
+        <Box id="catalogue-section" sx={{ backgroundColor: '#007d8c', py: { xs: 4, md: 8 }, px: { xs: 2, md: 4 } }}>
             <Typography
                 sx={{
                     fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
@@ -215,19 +215,32 @@ const CatelogueSection = () => {
             </Typography>
 
             {/* Category Buttons */}
-            <Box display="flex" justifyContent="center" mb={{ xs: 3, md: 5 }} px={{ xs: 1, md: 0 }}>
+            <Box 
+                display="flex" 
+                justifyContent="center" 
+                mb={{ xs: 3, md: 5 }} 
+                px={{ xs: 1, md: 0 }}
+                sx={{
+                    overflowX: { xs: 'auto', sm: 'visible' },
+                    '&::-webkit-scrollbar': {
+                        display: 'none'
+                    },
+                    scrollbarWidth: 'none'
+                }}
+            >
                 <ToggleButtonGroup
                     exclusive
                     value={category}
                     onChange={(e, val) => val && setCategory(val)}
-                    orientation={isMobile ? 'vertical' : 'horizontal'}
+                    orientation="horizontal"
                     sx={{
                         backgroundColor: 'transparent',
                         p: 0,
-                        borderRadius: 0,
-                        borderBottom: { xs: 'none', sm: "1px solid #fff" },
-                        width: { xs: '100%', sm: 'auto' },
-                        maxWidth: { xs: '300px', sm: 'none' },
+                        borderRadius: "10px 10px 0 0",
+                        borderBottom: { xs: '1px solid #fff', sm: "1px solid #fff" },
+                        width: { xs: '100%', sm: 'auto', md: 'auto' },
+                        minWidth: { xs: 'max-content', sm: 'auto' },
+                        flexShrink: 0,
                         // Remove default group borders/radii so only our underline shows
                         '& .MuiToggleButtonGroup-grouped': {
                             border: 0,
@@ -243,13 +256,21 @@ const CatelogueSection = () => {
                             sx={{
                                 px: { xs: 2, sm: 3 },
                                 py: { xs: 1.5, sm: 1.25 },
+                                marginLeft:{
+                                    xs:"450px",
+                                    sm:"400px",
+                                    md:"0px",
+                                    lg:"0px",
+                                    xl:"0px"
+
+                                },
                                 fontWeight: 'bold',
                                 border: 0,
-                                borderRadius: { xs: '8px', sm: 0 },
+                                borderRadius: { xs: '10px', sm: "10px" },
                                 fontFamily: 'Lato',
                                 fontSize: { xs: "14px", sm: "16px" },
-                                width: { xs: '100%', sm: 'auto' },
-                                mb: { xs: 1, sm: 0 },
+                                width: { xs: '200px', sm: '300px',md:"300px" },
+                                mb: { xs: 0, sm: 0 },
                                 // Responsive bottom border
                                 borderBottom: { xs: 'none', sm: '2px solid #fff' },
 
@@ -321,7 +342,7 @@ const CatelogueSection = () => {
                                     <CardMedia
                                         component="div"
                                         sx={{
-                                            height: 200,
+                                            height: 300,
                                             width: "100%",
                                             backgroundColor: "#eee",
                                             display: "flex",
@@ -579,6 +600,7 @@ const CatelogueSection = () => {
             <Box textAlign="center" mt={{ xs: 4, md: 6 }}>
                 <Button
                     variant="contained"
+                    onClick={() => window.open('https://drive.google.com/drive/folders/10uwcdxaetJPEDQDpQIXZQOf0RZnNgcSV', '_blank')}
                     sx={{
                         borderRadius: { xs: 8, md: "10px" },
                         px: { xs: 3, md: 4 },
@@ -593,7 +615,7 @@ const CatelogueSection = () => {
                         },
                     }}
                 >
-                    Download Catelogue
+                    Download Catalogue
                 </Button>
             </Box>
 

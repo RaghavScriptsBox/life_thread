@@ -3,7 +3,12 @@ import { Box, Typography, Button, Grid } from '@mui/material';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ApparelImage from "../Assets/apparel.png"
+import ApparelImage from "../Assets/apparel.png";
+import Certificate from "../Assets/Icons/certificate_13065794 1.png";
+import PeopeImage from "../Assets/Icons/people_12746339 1.png";
+import SizeImage from "../Assets/Icons/size_13778096 1.png";
+import WareHouse from "../Assets/Icons/warehouse_6808833 1.png"
+
 
 const ProductCategories = () => {
   return (
@@ -57,22 +62,22 @@ const ProductCategories = () => {
           }}>
             {[
               {
-                icon: <img src={ApparelImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
-                title: 'Certified Safety (ISO, EN, NFPA)',
+                icon: <img src={Certificate} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
+                title: 'Certified Safety (ISO, GMP)',
                 desc: 'All products are ATIRA-tested for compliance.',
               },
               {
-                icon: <img src={ApparelImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
+                icon: <img src={WareHouse} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
                 title: 'In-House Manufacturing',
-                desc: 'Custom branding solutions to enhance your identity.',
+                desc: 'In-house production for assured quality.',
               },
               {
-                icon: <img src={ApparelImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
+                icon: <img src={SizeImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
                 title: 'Custom Sizing & Branding',
                 desc: 'Custom branding solutions to enhance your identity.',
               },
               {
-                icon: <img src={ApparelImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
+                icon: <img src={PeopeImage} alt="Apparel" style={{ height: "48px", width: "48px" }} />,
                 title: 'Trusted by industrial leaders',
                 desc: 'We conduct thorough in-house quality control.',
               },

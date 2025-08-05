@@ -8,6 +8,10 @@ import {
 import SettingsIcon from '@mui/icons-material/Settings';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
+import Certificate from "../../Assets/Icons/certificate_13065794 1.png";
+import PeopeImage from "../../Assets/Icons/people_12746339 1.png";
+import SizeImage from "../../Assets/Icons/size_13778096 1.png";
+import WareHouse from "../../Assets/Icons/warehouse_6808833 1.png"
 
 const WhyChosseUs = () => {
     const highlights = [
@@ -76,8 +80,8 @@ const WhyChosseUs = () => {
                                 maxWidth: '350px',
                                 mt: "40px",
                                 bgcolor: '#fff',
-                                padding:"20px",
-                                minHeight:"400px"
+                                padding: "20px",
+                                minHeight: "400px"
                             }}>
                                 <Box sx={{
                                     color: "Figtree, sans-serif",
@@ -101,7 +105,7 @@ const WhyChosseUs = () => {
                                     fontSize: { xs: '14px', md: '16px' },
                                     color: '#1212129f',
                                     fontFamily: 'Figtree, sans-serif',
-                                    mt:"10px"
+                                    mt: "10px"
                                 }}>
                                     {item.description}
                                 </Typography>
