@@ -3,11 +3,11 @@ import {
   Container,
   Grid,
   Typography,
-  Link,
 } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import { Link } from "react-router-dom"
 
 const teal = "#007d8c";          // heading color to match screenshot
 const bodyMuted = "#5b6b73";     // subtitle + address tone
@@ -63,7 +63,7 @@ export default function JoinUsSection() {
               <Link
                 href="mailto:contact@lifethread.co.in"
                 underline="none"
-                sx={{ color: "text.primary", fontSize: 15 }}
+                sx={{ color: "text.primary", fontSize: 15, cursor: "pointer" }}
               >
                 contact@lifethread.co.in
               </Link>
@@ -73,7 +73,9 @@ export default function JoinUsSection() {
           {/* Phone */}
           <Grid item xs={12} md={6}>
             <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
-              <LocalPhoneOutlinedIcon sx={{ fontSize: 26, mb: 1, color: "text.primary" }} />
+              <Link href="tel:+919909916599" underline="none" sx={{ color: "text.primary" }}>
+                <LocalPhoneOutlinedIcon sx={{ fontSize: 26, mb: 1 }} />
+              </Link>
               <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
                 Phone
               </Typography>
@@ -81,6 +83,7 @@ export default function JoinUsSection() {
                 +91 99099 16599
               </Link>
             </Box>
+
           </Grid>
 
           {/* Reg. Office */}

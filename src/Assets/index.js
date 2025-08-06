@@ -22,7 +22,7 @@ import AccessoriesFrame4 from './Accessories/Frame 427321813-4.png';
 import AccessoriesFrame5 from './Accessories/Frame 427321813-5.png';
 import AccessoriesFrame6 from './Accessories/Frame 427321813-6.png';
 import AccessoriesFrame7 from './Accessories/Frame 427321813-7.png';
-import AccessoriesFrameMain from './Accessories/Frame 427321813.png';
+// import AccessoriesFrameMain from './Accessories/Frame 427321813.png';
 
 // ESD Images
 import ESDFrame1 from './ESD/Frame 427321813-1.png';
@@ -45,6 +45,7 @@ import UniformsFrame1 from './Uniforms/Frame 427321813-1.png';
 import UniformsFrame2 from './Uniforms/Frame 427321813-2.png';
 import UniformsFrameMain from './Uniforms/Frame 427321813.png';
 import UniformsFrame814 from './Uniforms/Frame 427321814.png';
+import ScruSuit from "./Uniforms/Frame 427321813 1.png"
 
 // Organized exports by category
 export const MainAssets = {
@@ -72,7 +73,7 @@ export const AccessoriesImages = {
   AccessoriesFrame5,
   AccessoriesFrame6,
   AccessoriesFrame7,
-  AccessoriesFrameMain
+  // AccessoriesFrameMain
 };
 
 export const ESDImages = {
@@ -97,7 +98,8 @@ export const UniformsImages = {
   UniformsFrame1,
   UniformsFrame2,
   UniformsFrameMain,
-  UniformsFrame814
+  UniformsFrame814,
+  ScruSuit
 };
 
 // Arrays for easy mapping in components
@@ -109,7 +111,7 @@ export const AccessoriesArray = [
   AccessoriesFrame5,
   AccessoriesFrame6,
   AccessoriesFrame7,
-  AccessoriesFrameMain
+  // AccessoriesFrameMain
 ];
 
 export const ESDArray = [
@@ -134,7 +136,8 @@ export const UniformsArray = [
   UniformsFrame1,
   UniformsFrame2,
   UniformsFrameMain,
-  UniformsFrame814
+  UniformsFrame814,
+  ScruSuit
 ];
 
 // Combined export for all product images
@@ -162,7 +165,7 @@ export {
   ISO9001Image,
   LogoImage,
   PlaceholderImage,
-  
+
   // Accessories
   AccessoriesFrame1,
   AccessoriesFrame2,
@@ -171,15 +174,15 @@ export {
   AccessoriesFrame5,
   AccessoriesFrame6,
   AccessoriesFrame7,
-  AccessoriesFrameMain,
-  
+  // AccessoriesFrameMain,
+
   // ESD
   ESDFrame1,
   ESDFrame2,
   ESDFrame3,
   ESDFrame4,
   ESDFrameMain,
-  
+
   // Single Use
   SingleUseFrame1,
   SingleUseFrame2,
@@ -188,10 +191,11 @@ export {
   SingleUseFrame5,
   SingleUseFrame6,
   SingleUseFrameMain,
-  
+
   // Uniforms
   UniformsFrame1,
   UniformsFrame2,
   UniformsFrameMain,
-  UniformsFrame814
+  UniformsFrame814,
+  ScruSuit
 };

@@ -10,7 +10,7 @@ const WorkwearHeroSection = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const navigate = useNavigate();
-  
+
   const handleRequestQuote = (productTitle) => {
     setSelectedProduct(productTitle);
     setQuoteModalOpen(true);
@@ -33,16 +33,16 @@ const WorkwearHeroSection = () => {
         maxWidth: '95%',
         margin: '0 auto',
         marginTop: { xs: "40px", md: "80px" },
-        width: '100%'
+        width: '100%',
       }}>
         {/* Left Text Section */}
         <Box sx={{
-          width: { xs: '100%', md: '50%' },
-          textAlign: { xs: 'center', md: 'left' },
+          width: { xs: '100%', sm: "100%", md: '50%' },
+          textAlign: { xs: 'left', md: 'left' },
           order: { xs: 1, md: 1 }
         }}>
           <Typography sx={{
-            fontSize: { xs: '28px', sm: '36px', md: '42px', lg: '48px' },
+            fontSize: { xs: '32px', sm: '36px', md: '42px', lg: '48px' },
             fontWeight: 700,
             lineHeight: 1.2,
             mb: { xs: 2, md: 3 },
@@ -50,12 +50,8 @@ const WorkwearHeroSection = () => {
             color: "#005A69",
           }} gutterBottom>
             Clean, Compliant, and{' '}
-            <Box component="span" sx={{ display: { xs: 'block', sm: 'inline' } }}>
               Confident Workwear
-            </Box>{' '}
-            <Box component="span" sx={{ display: { xs: 'block', sm: 'inline' } }}>
               Starts Here
-            </Box>
           </Typography>
           <Typography sx={{
             fontSize: { xs: '16px', md: '18px' },
@@ -73,11 +69,11 @@ const WorkwearHeroSection = () => {
             display: 'flex',
             gap: { xs: 2, md: 2 },
             flexWrap: 'wrap',
-            justifyContent: { xs: 'center', md: 'flex-start' },
-            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: { xs: 'flex-start', md: 'flex-start' },
+            flexDirection: { xs: 'row', sm: 'row' },
             alignItems: 'center'
           }}>
-            <Button 
+            <Button
               onClick={() => {
                 const catalogueElement = document.getElementById('catalogue-section');
                 if (catalogueElement) {
@@ -85,16 +81,19 @@ const WorkwearHeroSection = () => {
                 }
               }}
               sx={{
-              bgcolor: '#00778B',
-              color: '#fff',
-              px: { xs: 3, md: 4 },
-              py: { xs: 1.5, md: 2 },
-              borderRadius: 1,
-              fontSize: { xs: '14px', md: '16px' },
-              fontWeight: 500,
-              minWidth: { xs: 140, md: 'auto' },
-              '&:hover': { bgcolor: '#005A69' },
-            }}>
+                bgcolor: '#00778B',
+                color: '#fff',
+                px: { xs: 3, md: 4 },
+                py: { xs: 1.5, md: 2 },
+                borderRadius: 1,
+                fontSize: { xs: '14px', md: '16px' },
+                fontWeight: 500,
+                minWidth: { xs: 140, md: 'auto' },
+                '&:hover': { bgcolor: '#005A69' },
+                textTransform: "none"
+              }}
+
+            >
               Our products
             </Button>
             <Button sx={{
@@ -108,6 +107,7 @@ const WorkwearHeroSection = () => {
               fontWeight: 500,
               minWidth: { xs: 140, md: 'auto' },
               '&:hover': { bgcolor: '#f0f0f0' },
+              textTransform: "none"
             }}
               onClick={() => handleRequestQuote()}
             >
@@ -160,7 +160,7 @@ const WorkwearHeroSection = () => {
           </Box>
         </Box>
       </Box>
-       {/* Request Quote Modal */}
+      {/* Request Quote Modal */}
       <RequestQuoteModal
         open={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}

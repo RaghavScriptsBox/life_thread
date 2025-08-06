@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button, TextField, MenuItem, Grid, Container, Paper, FormControl, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { Box, Typography, Button, TextField, MenuItem, Grid, Container, Paper, FormControl, RadioGroup, FormControlLabel, Radio, Link } from '@mui/material';
 import ContactUsImage from "../Assets/ContactUs.png"
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import DocTwoImage from "../Assets/DocTwoImage.png"
 import RequestQuoteModal from './RequestQuoteModal';
+// import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -78,7 +79,6 @@ const ContactUs = () => {
             {/* Hero Section with Background */}
             <Box
                 sx={{
-                    // backgroundImage: `url(${ContactUsImage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     minHeight: { xs: "60vh", md: "50vh" },
@@ -93,98 +93,128 @@ const ContactUs = () => {
                         right: 0,
                         bottom: 0,
                         backgroundColor: "#007C91",
-                        zIndex: 1
-                    }
+                        zIndex: 1,
+                        opacity: 0.9, // optional: softens overlay
+                    },
                 }}
             >
-                <Box sx={{
-                    position: "relative",
-                    zIndex: 2,
-                    width: "100%",
-                    px: { xs: 3, md: 5 },
-                    display: "flex"
-                }}>
-                    <Box sx={{
-                        color: "white",
-                        width: {
-                            xs: "100%",
-                            md: "50%"
-                        },
-                        textAlign: { xs: "center", md: "left" }
-                    }}>
-                        <Typography sx={{
-                            fontFamily: "Figtree",
-                            fontWeight: 600,
-                            fontSize: {
-                                xs: "28px",
-                                sm: "36px",
-                                md: "48px",
-                                lg: "55px"
-                            },
-                            lineHeight: 1.2
-                        }}>Get in Touch with LifeThread</Typography>
-
-                    </Box>
-                    <Box sx={{
-                        width: {
-                            xs: "100%",
-                            md: "50%"
-                        },
-                        mt: { xs: "16px", md: "20px" },
-                        textAlign: { xs: "center", md: "left" }
-                    }}>
-                        <Typography sx={{
-                            fontFamily: "Figtree",
-                            fontWeight: 400,
-                            fontSize: {
-                                xs: "14px",
-                                sm: "16px",
-                                md: "18px",
-                                lg: "20px"
-                            },
-                            lineHeight: 1.5,
-                            px: { xs: 1, md: 0 },
-                            color: "#fff"
-                        }}>
-                            Have a question about our garments, certifications, or custom solutions? Reach out for samples or meetings today.
-                        </Typography>
-                        <Box sx={{
-                            mt: { xs: "16px", md: "20px" },
+                <Box
+                    sx={{
+                        position: "relative",
+                        zIndex: 2,
+                        width: "100%",
+                        px: { xs: 2, sm: 3, md: 5 },
+                        display: "flex",
+                        flexDirection: { xs: "column", md: "row" },
+                        gap: { xs: 4, md: 0 },
+                    }}
+                >
+                    {/* Left Side */}
+                    <Box
+                        sx={{
+                            color: "white",
+                            width: { xs: "100%", md: "50%" },
+                            textAlign: { xs: "left", md: "left" },
                             display: "flex",
-                            flexDirection: { xs: "column", sm: "row" },
-                            gap: { xs: 2, sm: 2 },
-                            justifyContent: { xs: "center", md: "flex-start" },
-                            alignItems: "center"
-                        }}>
+                            alignItems: {
+                                xs: "flex-start",
+                                md: "center"
+                            },
+                            justifyContent: { xs: "flex-start", md: "flex-start" },
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                fontFamily: "Figtree",
+                                fontWeight: 600,
+                                fontSize: {
+                                    xs: "40px",
+                                    sm: "40px",
+                                    md: "48px",
+                                    lg: "55px",
+                                },
+                                lineHeight: 1.5,
+                            }}
+                        >
+                            Get in Touch with LifeThread
+                        </Typography>
+                    </Box>
+
+                    {/* Right Side */}
+                    <Box
+                        sx={{
+                            width: { xs: "100%", md: "50%" },
+                            textAlign: { xs: "left", md: "left" },
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                fontFamily: "Figtree",
+                                fontWeight: 400,
+                                fontSize: {
+                                    xs: "20px",
+                                    sm: "20px",
+                                    md: "20px",
+                                    lg: "20px",
+                                },
+                                lineHeight: 1.5,
+                                color: "#fff",
+                                px: { xs: 1, sm: 2, md: 0 },
+                            }}
+                        >
+                            Have a question about our garments, certifications, or custom solutions?
+                            Reach out for samples or meetings today.
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                mt: { xs: 3, md: 4 },
+                                display: "flex",
+                                flexDirection: { xs: "row", sm: "row" },
+                                gap: 2,
+                                justifyContent: { xs: "flex-start", md: "flex-start" },
+                                alignItems: "center",
+                            }}
+                        >
                             <Button
                                 onClick={() => {
-                                    const catalogueElement = document.getElementById('send-message');
+                                    const catalogueElement = document.getElementById("send-message");
                                     if (catalogueElement) {
-                                        catalogueElement.scrollIntoView({ behavior: 'smooth' });
+                                        catalogueElement.scrollIntoView({ behavior: "smooth" });
                                     }
                                 }}
-
-                                variant="contained" sx={{
-                                    backgroundColor: '#fff',
-                                    color: '#006778',
+                                variant="contained"
+                                sx={{
+                                    backgroundColor: "#fff",
+                                    color: "#006778",
                                     borderRadius: "8px",
                                     fontWeight: "600",
                                     px: { xs: 3, md: 4 },
-                                    py: { xs: 1, md: 1.5 },
-                                    fontSize: { xs: "14px", md: "16px" },
-                                    minWidth: { xs: "140px", sm: "auto" }
-                                }}>Send Message</Button>
-                            <Button variant="outlined" sx={{
-                                color: '#fff',
-                                borderColor: '#fff',
-                                borderRadius: "8px",
-                                px: { xs: 3, md: 4 },
-                                py: { xs: 1, md: 1.5 },
-                                fontSize: { xs: "14px", md: "16px" },
-                                minWidth: { xs: "140px", sm: "auto" }
-                            }}
-                                onClick={() => handleRequestQuote()}
-                            >Request Quote</Button>
+                                    py: { xs: 1.5, md: 1.5 },
+                                    fontSize: { xs: "16px", md: "16px" },
+                                    minWidth: { xs: "160px", sm: "auto" },
+                                    textTransform: "none",
+                                }}
+                            >
+                                Send Message
+                            </Button>
+
+                            <Button
+                                variant="outlined"
+                                sx={{
+                                    color: "#fff",
+                                    borderColor: "#fff",
+                                    borderRadius: "8px",
+                                    px: { xs: 3, md: 4 },
+                                    py: { xs: 1.5, md: 1.5 },
+                                    fontSize: { xs: "16px", md: "16px" },
+                                    minWidth: { xs: "160px", sm: "auto" },
+                                    textTransform: "none",
+                                }}
+                                onClick={handleRequestQuote}
+                            >
+                                Request Quote
+                            </Button>
                         </Box>
                     </Box>
                 </Box>
@@ -192,7 +222,7 @@ const ContactUs = () => {
 
             {/* Image Section */}
             <Box
-                
+
                 component="img"
                 src={ContactUsImage}
                 alt="Lab"
@@ -309,7 +339,7 @@ const ContactUs = () => {
                             </Typography>
                             <Box sx={{
                                 display: "flex",
-                                flexDirection: { xs: "column", md: "row" },
+                                flexDirection: { xs: "row", md: "row" },
                                 gap: { xs: "20px", md: "0" }
                             }}>
                                 <Box sx={{ width: { xs: "100%", md: "50%" } }}>
@@ -487,19 +517,32 @@ const ContactUs = () => {
                                 mt: { xs: "8px", md: "10px" },
                                 fontSize: { xs: "14px", md: "16px" }
                             }}>
-                                Talk to the Expert
+                                <Link
+                                    href="tel:+9825109703"
+                                    underline="none"
+                                    sx={{ display: "block", fontFamily: "Figtree", fontSize: "16px", color: "#003B49" }}
+                                >
+                                    <Typography sx={{
+                                        fontFamily: "Figtree",
+                                        fontSize: "16px",
+                                        color: "#fff",
+                                        textDecoration: "none"
+                                    }}>
+                                        Talk to the Expert
+                                    </Typography>
+                                </Link>
                             </Button>
                         </Box>
                     </Box>
                 </Container>
-            </Box>
+            </Box >
             {/* Request Quote Modal */}
-            <RequestQuoteModal
+            < RequestQuoteModal
                 open={quoteModalOpen}
                 onClose={() => setQuoteModalOpen(false)}
                 selectedProduct={null}
             />
-        </Box>
+        </Box >
     );
 };
 

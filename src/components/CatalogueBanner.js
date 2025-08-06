@@ -59,6 +59,7 @@ const CatalogueBanner = () => {
                     textAlign: 'center',
                     zIndex: 1,
                     px: 2,
+                    width: "100%"
                 }}
             >
                 <Typography sx={{
@@ -71,11 +72,14 @@ const CatalogueBanner = () => {
                     },
                     fontWeight: 'bold',
                     color: '#fff',
-                    fontFamily: 'Roboto',
+                    fontFamily: 'Figtree, sans-serif',
                 }}>
                     Explore 40+ products with specifications, sizing & safety ratings.
                 </Typography>
-                <Typography variant="body1" sx={{ mt: 2 }}>
+                <Typography sx={{
+                    fontFamily: 'Figtree, sans-serif',
+                    fontSize: "18px"
+                }} >
                     Download our complete catalog to explore materials, certifications, and customization options across our workwear line.
                 </Typography>
                 <Button

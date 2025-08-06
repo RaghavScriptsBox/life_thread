@@ -19,6 +19,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
     const [activeStep, setActiveStep] = useState(0);
+
     const [formData, setFormData] = useState({
         products: [{ product: '', quantity: '' }],
         additionalNotes: '',
@@ -27,12 +28,34 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         contactNumber: '',
         businessName: ''
     });
+    const [errors, setErrors] = useState({});
 
     const steps = ['Product Details', 'Personal Details'];
 
+
+    const validateStep = () => {
+        let newErrors = {};
+        if (activeStep === 0) {
+            // At least one product with product and quantity
+            if (!formData.products.length || formData.products.some(p => !p.product || !p.quantity)) {
+                newErrors.products = 'Please select a product and quantity.';
+            }
+        } else if (activeStep === 1) {
+            if (!formData.fullName) newErrors.fullName = 'Full Name is required.';
+            if (!formData.email) newErrors.email = 'Email is required.';
+            else if (!/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Enter a valid email.';
+            if (!formData.contactNumber) newErrors.contactNumber = 'Contact Number is required.';
+            else if (!/^\d{10,}$/.test(formData.contactNumber)) newErrors.contactNumber = 'Enter a valid number.';
+        }
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleNext = () => {
-        if (activeStep < steps.length - 1) {
-            setActiveStep(activeStep + 1);
+        if (validateStep()) {
+            if (activeStep < steps.length - 1) {
+                setActiveStep(activeStep + 1);
+            }
         }
     };
 
@@ -64,7 +87,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         setFormData({ ...formData, [field]: value });
     };
 
+
     const handleSubmit = async () => {
+        if (!validateStep()) return;
         try {
             const response = await fetch('https://formspree.io/f/xanbpogz', {
                 method: 'POST',
@@ -95,6 +120,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                     businessName: ''
                 });
                 setActiveStep(0);
+                setErrors({});
             }
         } catch (error) {
             console.error('Error submitting quote request:', error);
@@ -234,7 +260,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     mt: "20px"
                                 }}>
                                     <Box sx={{ width: { xs: "100%", md: "70%" } }}>
-                                        <label style={LabelStyle}>Select the product</label>
+                                        <label style={LabelStyle}>Select the product<span style={{color: 'red'}}>*</span></label>
                                         <select
                                             value={product.product}
                                             onChange={(e) => handleProductChange(index, 'product', e.target.value)}
@@ -257,10 +283,13 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                                 </option>
                                             ))}
                                         </select>
+                                        {errors.products && index === 0 && (
+                                            <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.products}</Typography>
+                                        )}
                                     </Box>
                                     
                                     <Box sx={{ width: { xs: "100%", md: "25%" } }}>
-                                        <label style={LabelStyle}>Quantity</label>
+                                        <label style={LabelStyle}>Quantity<span style={{color: 'red'}}>*</span></label>
                                         <input
                                             type="number"
                                             value={product.quantity}
@@ -340,7 +369,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                     // Step 2: Personal Details
                     <Box sx={{ mt: "20px" }}>
                         <Box>
-                            <label style={LabelStyle}>Full Name*</label>
+                            <label style={LabelStyle}>Full Name<span style={{color: 'red'}}>*</span></label>
                             <input
                                 required
                                 type="text"
@@ -357,6 +386,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     fontSize: '14px'
                                 }}
                             />
+                            {errors.fullName && (
+                                <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.fullName}</Typography>
+                            )}
                         </Box>
                         
                         <Box sx={{
@@ -366,7 +398,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                             mt: "20px"
                         }}>
                             <Box sx={{ width: { xs: "100%", md: "48%" } }}>
-                                <label style={LabelStyle}>Email Id*</label>
+                                <label style={LabelStyle}>Email Id<span style={{color: 'red'}}>*</span></label>
                                 <input
                                     required
                                     type="email"
@@ -383,10 +415,13 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                         fontSize: '14px'
                                     }}
                                 />
+                                {errors.email && (
+                                    <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.email}</Typography>
+                                )}
                             </Box>
                             
                             <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                                <label style={LabelStyle}>Contact Number*</label>
+                                <label style={LabelStyle}>Contact Number<span style={{color: 'red'}}>*</span></label>
                                 <input
                                     required
                                     type="tel"
@@ -403,6 +438,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                         fontSize: '14px'
                                     }}
                                 />
+                                {errors.contactNumber && (
+                                    <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.contactNumber}</Typography>
+                                )}
                             </Box>
                         </Box>
                         

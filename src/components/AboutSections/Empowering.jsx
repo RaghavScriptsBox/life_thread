@@ -4,6 +4,8 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // Example image: Replace with your own asset or correct path
 import AboutUsTwoImage from '../../Assets/AboutUsTwoImage.png'; // Adjust path as needed
+import SafetyImage from '../../Assets/Icons/safety_divider.png'; // Adjust path as needed
+import VectorImage from "../../Assets/Icons/Vector.png"
 
 export default function Empowering() {
     return (
@@ -20,7 +22,8 @@ export default function Empowering() {
             <Box alignItems="center" sx={{
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
-                width: "100%"
+                width: "100%",
+                justifyContent: 'center',
 
             }}>
                 {/* RIGHT: Image */}
@@ -32,7 +35,8 @@ export default function Empowering() {
                     width: {
                         xs: '100%',
                         md: "50%"
-                    }
+                    },
+                    order: { xs: 1, md: 2 },
                 }}>
                     <Box
                         component="img"
@@ -54,15 +58,16 @@ export default function Empowering() {
                 </Box>
                 {/* LEFT: Text content */}
                 <Box sx={{
-                    textAlign: { xs: "center", md: "left" },
+                    textAlign: { xs: "left", md: "left" },
                     width: {
                         xs: "100%",
                         md: "50%"
-                    }
+                    },
+                    order: { xs: 1, md: 2 },
                 }}>
                     <Typography
                         sx={{
-                            fontWeight: 700,
+                            fontWeight: 600,
                             color: "#005A69",
                             mb: 2,
                             fontFamily: "Figtree, sans-serif",
@@ -70,6 +75,7 @@ export default function Empowering() {
                                 xs: "30px",
                                 md: "56px"
                             }
+                            , mt: { xs: "30px", md: "0px" }
                         }}
                     >
                         Empowering Safer Workplaces with Innovative Apparel
@@ -77,34 +83,49 @@ export default function Empowering() {
 
                     <Typography
                         variant="body1"
-                        sx={{ color: "#333", fontSize: 18, mb: 3, maxWidth: 540 }}
+                        sx={{ color: "#121212B2", fontSize: 18, mb: 3, maxWidth: 540, opacity: 0.8 }}
                     >
-                        We draw inspiration from industry leaders combining their legacy with our unique Indian agility. This fusion allows us to adapt and respond effectively to our partners' needs.
+                        Our vision is to be the leading provider of ESD and medical protective apparel in India. We strive to create environments that are safer, cleaner, and more productive for everyone.
                     </Typography>
 
                     <List>
                         <ListItem sx={{ pl: 0 }}>
-                            <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                                <CheckCircleOutlinedIcon />
+                            <ListItemIcon sx={{ maxWidth: 40, color: "#16887a" }}>
+                                <img src={VectorImage} alt="Check" style={{ width: "30px" }} />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Agility and adaptability define our collaborative partnerships."
+                                sx={{
+                                    color: "#121212B2",
+                                    fontFamily: "Figtree, sans-serif",
+                                    fontSize: "18px"
+                                }}
+                                primary="Trusted provider of protective apparel for critical industries."
                             />
                         </ListItem>
                         <ListItem sx={{ pl: 0 }}>
-                            <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                                <CheckCircleOutlinedIcon />
+                            <ListItemIcon sx={{ maxWidth: 40, color: "#16887a" }}>
+                                <img src={SafetyImage} alt="Check" style={{ width: "30px" }} />
                             </ListItemIcon>
                             <ListItemText
-                                primary="We deliver on time, every time, with confidence."
+                                sx={{
+                                    color: "#121212B2",
+                                    fontFamily: "Figtree, sans-serif",
+                                    fontSize: "18px"
+                                }}
+                                primary="Innovative solutions for a safer work environment."
                             />
                         </ListItem>
                         <ListItem sx={{ pl: 0 }}>
-                            <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                                <CheckCircleOutlinedIcon />
+                            <ListItemIcon sx={{ maxWidth: 40, color: "#16887a" }}>
+                                <img src={VectorImage} alt="Check" style={{ width: "30px" }} />
                             </ListItemIcon>
                             <ListItemText
-                                primary="Your needs shape our innovative garment solutions."
+                                sx={{
+                                    color: "#121212B2",
+                                    fontFamily: "Figtree, sans-serif",
+                                    fontSize: "18px"
+                                }}
+                                primary="Commitment to quality and safety in every garment."
                             />
                         </ListItem>
                     </List>

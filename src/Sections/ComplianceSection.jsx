@@ -51,13 +51,13 @@ const ComplianceSection = () => {
             >
                 <Typography sx={{
                     fontSize: {
-                        xs: '1.5rem',
+                        xs: '2rem',
                         sm: '2rem',
                         md: '2.5rem',
                         lg: '3rem',
                         xl: '3.5rem',
                     },
-                    fontWeight: 'bold',
+                    fontWeight: '500',
                 }}>
                     Purpose-built safety wear for controlled environments.
                 </Typography>

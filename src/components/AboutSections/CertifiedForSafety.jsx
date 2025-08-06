@@ -26,7 +26,12 @@ const CertifiedForSafety = () => {
                     color: '#005A69'
                 }}>Certified for Safety, Quality & Compliance</Typography>
             </Box>
-            <Box sx={{ mt: "40px", display: { xs: "block", md: "flex" }, gap: "20px", justifyContent: "center", alignItems: "center" }}>
+            <Box sx={{
+                mt: "40px", display: { xs: "flex", md: "flex" }, flexDirection: { xs: "row", md: "row" }, flexWrap: "wrap", gap: {
+                    xs: "40px",
+                    md: "100px"
+                }, justifyContent: "center", alignItems: "center"
+            }}>
                 <img src={Iso9001} alt="ISO 9001 Certification" style={{
                     width: '100px',
                     height: 'auto',

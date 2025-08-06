@@ -4,6 +4,9 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 // Example image: Replace with your own asset or correct path
 import InspiredBy from '../../Assets/InspiredBy.png'; // Adjust path as needed
+import ApprealImage from "../../Assets/Icons/About/apparel.png";
+import PartnerExchange from "../../Assets/Icons/About/partner_exchange.png";
+import SendTimeImage from "../../Assets/Icons/About/send_time_extension.png"
 
 export default function InspiredPage() {
   return (
@@ -23,26 +26,28 @@ export default function InspiredPage() {
       }}>
         {/* LEFT: Text content */}
         <Box sx={{
-          textAlign: { xs: "center", md: "left" },
+          textAlign: { xs: "left", md: "left" },
           width: {
             xs: "100%",
             md: "50%"
           }
         }}>
           <Typography
-            variant="h4"
             sx={{
               fontWeight: 700,
               color: "#005A69",
               mb: 2,
-              fontFamily: "Lato, sans-serif"
+              fontFamily: "Lato, sans-serif",
+              fontSize: {
+                xs: "30px",
+                md: "56px"
+              }
             }}
           >
             Inspired by Pioneers,<br />Driven by Innovation
           </Typography>
 
           <Typography
-            variant="body1"
             sx={{ color: "#333", fontSize: 18, mb: 3, maxWidth: 540 }}
           >
             We draw inspiration from industry leaders combining their legacy with our unique Indian agility. This fusion allows us to adapt and respond effectively to our partners' needs.
@@ -51,25 +56,34 @@ export default function InspiredPage() {
           <List>
             <ListItem sx={{ pl: 0 }}>
               <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                <CheckCircleOutlinedIcon />
+                <img src={PartnerExchange} alt="Apparel" style={{ width: '24px', height: '24px' }} />
               </ListItemIcon>
               <ListItemText
+                sx={{
+                  color: "#121212B2"
+                }}
                 primary="Agility and adaptability define our collaborative partnerships."
               />
             </ListItem>
             <ListItem sx={{ pl: 0 }}>
               <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                <CheckCircleOutlinedIcon />
+                <img src={SendTimeImage} alt="Partner Exchange" style={{ width: '24px', height: '24px' }} />
               </ListItemIcon>
               <ListItemText
+                sx={{
+                  color: "#121212B2"
+                }}
                 primary="We deliver on time, every time, with confidence."
               />
             </ListItem>
             <ListItem sx={{ pl: 0 }}>
               <ListItemIcon sx={{ minWidth: 40, color: "#16887a" }}>
-                <CheckCircleOutlinedIcon />
+                <img src={ApprealImage} alt="Send Time Extension" style={{ width: '24px', height: '24px' }} />
               </ListItemIcon>
               <ListItemText
+                sx={{
+                  color: "#121212B2"
+                }}
                 primary="Your needs shape our innovative garment solutions."
               />
             </ListItem>
@@ -97,15 +111,15 @@ export default function InspiredPage() {
                 xs: "400px",
                 md: "500px"
               },
-              maxHeight:{
-                xs:"400px",
-                md:"600px"
+              maxHeight: {
+                xs: "400px",
+                md: "600px"
               },
               borderRadius: 2,
               boxShadow: 3,
               objectFit: "cover",
               mx: "auto",
-              height:"auto"
+              height: "auto"
             }}
           />
         </Box>

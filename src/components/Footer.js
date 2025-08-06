@@ -11,6 +11,11 @@ import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 
 const Footer = () => {
+  const navItems = [
+    { label: 'Products', href: '/product' },
+    { label: 'About Us', href: '/aboutUs' },
+    { label: 'Contact', href: '/contact' },
+  ];
   return (
     <Box>
       <Box sx={{ backgroundColor: '#ffffffff', py: 15 }}>
@@ -41,7 +46,8 @@ const Footer = () => {
             display: 'flex',
             flexDirection: "row",
             flexWrap: "wrap",
-            mt: "80px"
+            mt: "80px",
+            gap: { xs: 5, sm: 4, md: 0 },
           }}>
             <Box sx={{
               width: {
@@ -53,7 +59,16 @@ const Footer = () => {
             }}>
               <EmailOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Email</Typography>
-              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>contact@lifethread.in</Typography>
+              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
+                <Link
+                  href="mailto:contact@lifethread.co.in"
+                  underline="none"
+                  component="a"
+                  sx={{ color: "#003B49", fontSize: "18px", cursor: "pointer", fontWeight: "500" }}
+                >
+                  contact@lifethread.co.in
+                </Link>
+              </Typography>
             </Box>
             <Box sx={{
               width: {
@@ -64,8 +79,15 @@ const Footer = () => {
               minWidth: "400px"
             }}>
               <PhoneOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
-              <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Phone</Typography>
-              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>+91 9909916599</Typography>
+              <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">
+                <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Phone</Typography>
+                <Link
+                  href="tel:+919909916599"
+                  underline="none"
+                  sx={{ display: "block", mt: 1, fontFamily: "Figtree", fontSize: "16px", color: "#003B49" }}
+                >
+                  +91 9909916599
+                </Link></Typography>
             </Box>
             <Box sx={{
               width: {
@@ -74,7 +96,7 @@ const Footer = () => {
                 xl: "50%"
               },
               minWidth: "400px",
-              mt: '50px'
+              mt: { xs: "10px", md: "50px" }
             }}>
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Reg. Office</Typography>
@@ -89,7 +111,7 @@ const Footer = () => {
                 xl: "50%"
               },
               minWidth: "400px",
-              mt: "50px"
+              mt: { xs: "10px", md: "50px" }
             }}>
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Manufacturing Unit</Typography>
@@ -177,19 +199,21 @@ const Footer = () => {
             mb: { xs: "40px", md: "70px" }
           }}
         >
-          {['Products', 'About Us', 'Contact'].map((item) => (
+          {navItems.map(({ label, href }) => (
             <Link
-              key={item}
-              href="#"
+              key={label}
+              href={href}
+              component="a"
               underline="none"
               sx={{
                 color: '#fff',
                 fontWeight: 'bold',
                 fontSize: { xs: 14, sm: 16 },
-                fontFamily: "Inter"
+                fontFamily: "Inter",
+                cursor: 'pointer'
               }}
             >
-              {item}
+              {label}
             </Link>
           ))}
         </Box>

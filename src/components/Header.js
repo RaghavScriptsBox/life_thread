@@ -15,7 +15,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../Styles/Header.css"; // import the CSS below!
-import BrandLogo from "../Assets/Logo.jpg"; // Example logo path, update as needed
+import BrandLogo from "../Assets/LogoLifeThread.svg"; // Example logo path, update as needed
 import { useNavigate } from "react-router-dom";
 import RequestQuoteModal from "./RequestQuoteModal";
 
@@ -83,7 +83,10 @@ function Header() {
             fontWeight: 700,
             letterSpacing: 1,
           }}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => {
+            NavigateUser("/");
+
+          }}
         >
           {/* Example logo: */}
           <img

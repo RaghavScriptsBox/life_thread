@@ -6,6 +6,9 @@ import { ProductImages, ESDArray, UniformsArray, SingleUseArray, AccessoriesArra
 import  Suit from '../Assets/SingleUseImages/Frame 427321813.png'
 import RequestQuoteModal from './RequestQuoteModal';
 import DownloadCatalogueModal from './DownloadCatalogueModal';
+import CapImage from '../Assets/Accessories/Cap.png';
+import MaskImage from "../Assets/Accessories/Mask.png"
+
 
 // Dynamic product data based on category
 const productData = {
@@ -40,22 +43,22 @@ const productData = {
         {
             title: 'Scrub Suit (Cotton)',
             desc: 'Breathable two-piece medical scrub set for daily clinical use.',
-            image: UniformsArray[0]
+            image: UniformsArray[2]
         },
         {
             title: 'Scrub Suit (Polyester)',
             desc: 'Durable and lightweight scrub suit for medical professionals.',
-            image: UniformsArray[1]
+            image: UniformsArray[4]
         },
         {
             title: 'Boiler Suit (Cotton)',
             desc: 'A robust, one-piece protective suit tailored for industrial, laboratory, and maintenance work.',
-            image: UniformsArray[2]
+            image: UniformsArray[1]
         },
         {
             title: 'Boiler Suit (Polyester)',
             desc: 'Durable, easy-care one-piece suit, ideal for demanding workplaces where strong fabric and ease of cleaning are priorities.',
-            image: UniformsArray[3]
+            image: UniformsArray[0]
         },
     ],
     'Single Use': [
@@ -98,38 +101,43 @@ const productData = {
     ],
     'Accessories': [
         {
-            title: 'Safety Goggles',
-            desc: 'Impact-resistant goggles for eye protection in hazardous environments.',
+            title: 'Disposable Shoe Cover',
+            desc: 'Slip-on cover to protect floors, footwear, and maintain hygiene.',
             image: AccessoriesArray[0]
         },
         {
-            title: 'ESD Wrist Straps',
-            desc: 'Adjustable wrist straps for personal grounding in ESD environments.',
+            title: 'Disposable Hand Sleeve',
+            desc: 'Arm protection sleeve for low-risk tasks.',
             image: AccessoriesArray[1]
         },
         {
-            title: 'Cleanroom Caps',
-            desc: 'Lint-free caps designed for sterile and cleanroom environments.',
-            image: AccessoriesArray[2]
+            title: '3-Layer Surgical Mask',
+            desc: 'Disposable mask with three-layer filtration.',
+            image: MaskImage
         },
         {
-            title: 'Anti-Static Mats',
-            desc: 'Professional anti-static mats for workstation protection.',
+            title: 'Disposable Bouffant Cap',
+            desc: 'Covers hair to prevent contamination.',
+            image: CapImage
+        },
+        {
+            title: 'Clean Room Clogs',
+            desc: 'Designed to meet the demanding standards of controlled environments.',
             image: AccessoriesArray[3]
         },
         {
-            title: 'Safety Helmets',
-            desc: 'Durable helmets meeting international safety standards.',
+            title: 'Clean Room Mops',
+            desc: 'Designed for high hygiene and efficiency in labs, pharma, and cleanroom environments.',
             image: AccessoriesArray[4]
         },
         {
-            title: 'Protective Boots',
-            desc: 'Steel-toe boots with slip-resistant soles for industrial safety.',
+            title: 'Disposable Hand Gloves',
+            desc: 'Nitrile, latex, or vinyl gloves for hygiene and protection across tasks',
             image: AccessoriesArray[5]
         },
         {
-            title: 'ESD Tool Kit',
-            desc: 'Complete kit of ESD-safe tools for electronics manufacturing.',
+            title: 'Disposable Beard Cover',
+            desc: 'Nonwoven cover for hygiene and hair control in food, healthcare, and clean settings.',
             image: AccessoriesArray[6]
         },
     ]
