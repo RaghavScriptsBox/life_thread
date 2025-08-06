@@ -128,17 +128,22 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         }
     };
 
-    // Product options based on categories
+    // Product options based on categories (updated from CatalogueSection)
     const productOptions = [
+        // ESD & Lint Free
         'ESD Coverall Suits',
         'ESD Apron',
         'ESD Top & Bottom',
         'Lint-Free Polyester Apron',
         'Lint-Free Wipes for Cleaning',
+        
+        // Uniforms
         'Scrub Suit (Cotton)',
         'Scrub Suit (Polyester)',
         'Boiler Suit (Cotton)',
         'Boiler Suit (Polyester)',
+        
+        // Single Use
         'Disposable Scrub Suit',
         'Surgical Gown',
         'Isolation Gown',
@@ -146,13 +151,16 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         'Disposable Apron',
         'Visitor Gown',
         'Disposable Antistatic Garment',
-        'Safety Goggles',
-        'ESD Wrist Straps',
-        'Cleanroom Caps',
-        'Anti-Static Mats',
-        'Safety Helmets',
-        'Protective Boots',
-        'ESD Tool Kit'
+        
+        // Accessories
+        'Disposable Shoe Cover',
+        'Disposable Hand Sleeve',
+        '3-Layer Surgical Mask',
+        'Disposable Bouffant Cap',
+        'Clean Room Clogs',
+        'Clean Room Mops',
+        'Disposable Hand Gloves',
+        'Disposable Beard Cover'
     ];
 
     React.useEffect(() => {
@@ -161,6 +169,8 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                 ...prev,
                 products: [{ product: selectedProduct, quantity: '' }]
             }));
+            // Clear any existing errors when opening with a pre-selected product
+            setErrors({});
         }
     }, [selectedProduct, open]);
 

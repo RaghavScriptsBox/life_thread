@@ -15,7 +15,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../Styles/Header.css"; // import the CSS below!
-import BrandLogo from "../Assets/LogoLifeThread.svg"; // Example logo path, update as needed
+import BrandLogo from "../Assets/LogoWithText.svg"; // Example logo path, update as needed
 import { useNavigate } from "react-router-dom";
 import RequestQuoteModal from "./RequestQuoteModal";
 
@@ -94,18 +94,6 @@ function Header() {
             alt="Logo"
             style={{ height: 38, marginRight: 10 }}
           />
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 800,
-              fontSize: 20,
-              color: "#16191A",
-              fontFamily: "Inter, sans-serif",
-              color: "#007C91"
-            }}
-          >
-            Life Thread
-          </Typography>
         </Box>
         {/* Desktop Nav Links */}
         <Box

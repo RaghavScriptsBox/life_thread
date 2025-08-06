@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Box, Typography, Button, Card, CardContent, CardMedia, Grid, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme, IconButton } from '@mui/material';
+import { Box, Typography, Button, Card, CardContent, CardMedia, Grid, ToggleButton, ToggleButtonGroup, useMediaQuery, useTheme, IconButton, Dialog, DialogContent, Fade, Backdrop } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import CloseIcon from '@mui/icons-material/Close';
 import { ProductImages, ESDArray, UniformsArray, SingleUseArray, AccessoriesArray } from "../Assets/index.js";
 import  Suit from '../Assets/SingleUseImages/Frame 427321813.png'
 import RequestQuoteModal from './RequestQuoteModal';
@@ -148,6 +149,8 @@ const CatelogueSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [quoteModalOpen, setQuoteModalOpen] = useState(false);
     const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+    const [imageModalOpen, setImageModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState({ src: '', title: '' });
     const [selectedProduct, setSelectedProduct] = useState(null);
     const carouselRef = useRef(null);
     const theme = useTheme();
@@ -160,6 +163,12 @@ const CatelogueSection = () => {
     const handleRequestQuote = (productTitle) => {
         setSelectedProduct(productTitle);
         setQuoteModalOpen(true);
+    };
+
+    // Handle image click for modal
+    const handleImageClick = (imageSrc, imageTitle) => {
+        setSelectedImage({ src: imageSrc, title: imageTitle });
+        setImageModalOpen(true);
     };
 
     // Carousel navigation functions
@@ -351,6 +360,7 @@ const CatelogueSection = () => {
                                 }}>
                                     <CardMedia
                                         component="div"
+                                        onClick={() => handleImageClick(item.image, item.title)}
                                         sx={{
                                             height: 300,
                                             width: "100%",
@@ -358,7 +368,12 @@ const CatelogueSection = () => {
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
-                                            overflow: 'hidden'
+                                            overflow: 'hidden',
+                                            cursor: 'pointer',
+                                            transition: 'transform 0.3s ease',
+                                            '&:hover': {
+                                                transform: 'scale(1.02)'
+                                            }
                                         }}
                                     >
                                         <img
@@ -527,6 +542,7 @@ const CatelogueSection = () => {
                             }}>
                                 <CardMedia
                                     component="div"
+                                    onClick={() => handleImageClick(item.image, item.title)}
                                     sx={{
                                         height: { xs: "200px", sm: "220px", md: "260px", lg: "300px" },
                                         width: "100%",
@@ -534,7 +550,12 @@ const CatelogueSection = () => {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        overflow: 'hidden'
+                                        overflow: 'hidden',
+                                        cursor: 'pointer',
+                                        transition: 'transform 0.3s ease',
+                                        '&:hover': {
+                                            transform: 'scale(1.02)'
+                                        }
                                     }}
                                 >
                                     <img
@@ -641,6 +662,114 @@ const CatelogueSection = () => {
                 open={downloadModalOpen}
                 onClose={() => setDownloadModalOpen(false)}
             />
+
+            {/* Image Preview Modal */}
+            <Dialog
+                open={imageModalOpen}
+                onClose={() => setImageModalOpen(false)}
+                maxWidth="lg"
+                fullWidth
+                PaperProps={{
+                    sx: {
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none',
+                        borderRadius: 0,
+                        overflow: 'hidden'
+                    }
+                }}
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    sx: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                        backdropFilter: 'blur(5px)'
+                    },
+                    timeout: 500
+                }}
+                TransitionComponent={Fade}
+                transitionDuration={500}
+            >
+                <DialogContent
+                    sx={{
+                        p: 0,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        position: 'relative',
+                        minHeight: '80vh',
+                        backgroundColor: 'transparent'
+                    }}
+                >
+                    {/* Close Button */}
+                    <IconButton
+                        onClick={() => setImageModalOpen(false)}
+                        sx={{
+                            position: 'absolute',
+                            top: 20,
+                            right: 20,
+                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                            color: '#fff',
+                            zIndex: 1000,
+                            '&:hover': {
+                                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                                transform: 'scale(1.1)'
+                            },
+                            transition: 'all 0.3s ease'
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
+
+                    {/* Image Container */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            maxWidth: '90%',
+                            maxHeight: '90%',
+                            animation: 'zoomIn 0.5s ease-out',
+                            '@keyframes zoomIn': {
+                                '0%': {
+                                    opacity: 0,
+                                    transform: 'scale(0.8)'
+                                },
+                                '100%': {
+                                    opacity: 1,
+                                    transform: 'scale(1)'
+                                }
+                            }
+                        }}
+                    >
+                        <img
+                            src={selectedImage.src}
+                            alt={selectedImage.title}
+                            style={{
+                                maxWidth: '100%',
+                                maxHeight: '80vh',
+                                objectFit: 'contain',
+                                borderRadius: '8px',
+                                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)'
+                            }}
+                        />
+                        
+                        {/* Image Title */}
+                        <Typography
+                            sx={{
+                                color: '#fff',
+                                fontSize: { xs: '18px', md: '24px' },
+                                fontWeight: 600,
+                                fontFamily: 'Lato',
+                                mt: 2,
+                                textAlign: 'center',
+                                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)'
+                            }}
+                        >
+                            {selectedImage.title}
+                        </Typography>
+                    </Box>
+                </DialogContent>
+            </Dialog>
         </Box>
     );
 };

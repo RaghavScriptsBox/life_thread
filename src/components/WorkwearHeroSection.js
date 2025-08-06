@@ -18,7 +18,7 @@ const WorkwearHeroSection = () => {
   return (
     <Box sx={{
       px: { xs: 2, sm: 3, md: 6, lg: 8 },
-      py: { xs: 4, sm: 6 },
+      py: { xs: 4, sm: 4 },
       minHeight: { xs: "auto", md: "100vh" },
       backgroundColor: '#fff',
       display: 'flex',
@@ -32,7 +32,7 @@ const WorkwearHeroSection = () => {
         gap: { xs: 4, md: 6, lg: 8 },
         maxWidth: '95%',
         margin: '0 auto',
-        marginTop: { xs: "40px", md: "80px" },
+        marginTop: { xs: "40px", md: "30px" },
         width: '100%',
       }}>
         {/* Left Text Section */}
@@ -155,6 +155,7 @@ const WorkwearHeroSection = () => {
                 height: "auto",
                 borderRadius: 2,
                 objectFit: 'cover',
+                display: { xs: 'none', sm: 'block' }
               }}
             />
           </Box>
