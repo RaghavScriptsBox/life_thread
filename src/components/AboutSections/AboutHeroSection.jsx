@@ -30,12 +30,12 @@ export default function AboutHeroSection() {
         variant="subtitle1"
         sx={{
           color: "#fff",
-          fontSize: { xs: 16, md: 20 },
-          maxWidth: 900,
+          fontSize: { xs: 14, md: 20 },
+          // maxWidth: 900,
           fontFamily: "Inter, sans-serif"
         }}
       >
-        At LifeThread, we create high-performance garments that ensure safety in critical environments.
+        At LifeThread, we pride ourselves on our rapid turnaround times and robust quality control processes that ensure every garment meets the highest standards. Our in-house design and private label capabilities allow us to tailor solutions specifically for your needs. With ISO certifications and a commitment to transparency, we empower your operations with confidence.
       </Typography>
     </Box>
   );

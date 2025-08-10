@@ -18,7 +18,7 @@ const WorkwearHeroSection = () => {
   return (
     <Box sx={{
       px: { xs: 2, sm: 3, md: 6, lg: 8 },
-      py: { xs: 4, sm: 4 },
+      py: { xs: 4, sm: 2 },
       minHeight: { xs: "auto", md: "100vh" },
       backgroundColor: '#fff',
       display: 'flex',
@@ -32,17 +32,17 @@ const WorkwearHeroSection = () => {
         gap: { xs: 4, md: 6, lg: 8 },
         maxWidth: '95%',
         margin: '0 auto',
-        marginTop: { xs: "40px", md: "30px" },
+        marginTop: { xs: "40px", md: "00px" },
         width: '100%',
       }}>
         {/* Left Text Section */}
         <Box sx={{
-          width: { xs: '100%', sm: "100%", md: '50%' },
+          width: { xs: '100%', sm: "100%", md: '40%' },
           textAlign: { xs: 'left', md: 'left' },
           order: { xs: 1, md: 1 }
         }}>
           <Typography sx={{
-            fontSize: { xs: '32px', sm: '36px', md: '42px', lg: '48px' },
+            fontSize: { xs: '32px', sm: '36px', md: '42px', lg: '60px' },
             fontWeight: 700,
             lineHeight: 1.2,
             mb: { xs: 2, md: 3 },
@@ -83,13 +83,18 @@ const WorkwearHeroSection = () => {
               sx={{
                 bgcolor: '#00778B',
                 color: '#fff',
+                height: '50px',
                 px: { xs: 3, md: 4 },
-                py: { xs: 1.5, md: 2 },
-                borderRadius: 1,
-                fontSize: { xs: '14px', md: '16px' },
-                fontWeight: 500,
+                borderRadius: '10px',
+                fontSize: '16px',
+                fontWeight: 600,
+                fontFamily: 'Figtree',
                 minWidth: { xs: 140, md: 'auto' },
-                '&:hover': { bgcolor: '#005A69' },
+                boxShadow: 'none',
+                '&:hover': { 
+                  bgcolor: '#005A69',
+                  boxShadow: 'none'
+                },
                 textTransform: "none"
               }}
 
@@ -99,14 +104,19 @@ const WorkwearHeroSection = () => {
             <Button sx={{
               bgcolor: '#fff',
               color: '#00778B',
+              height: '50px',
               px: { xs: 3, md: 4 },
-              py: { xs: 1.5, md: 2 },
-              borderRadius: 1,
-              border: '1px solid #00778B',
-              fontSize: { xs: '14px', md: '16px' },
-              fontWeight: 500,
+              borderRadius: '10px',
+              border: '2px solid #00778B',
+              fontSize: '16px',
+              fontWeight: 600,
+              fontFamily: 'Figtree',
               minWidth: { xs: 140, md: 'auto' },
-              '&:hover': { bgcolor: '#f0f0f0' },
+              boxShadow: 'none',
+              '&:hover': { 
+                bgcolor: '#f0f0f0',
+                boxShadow: 'none'
+              },
               textTransform: "none"
             }}
               onClick={() => handleRequestQuote()}
@@ -118,10 +128,10 @@ const WorkwearHeroSection = () => {
 
         {/* Right Image Section */}
         <Box sx={{
-          width: { xs: '100%', md: '50%' },
+          width: { xs: '100%', md: '60%' },
           order: { xs: 2, md: 2 },
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}>
           <Box
             sx={{
@@ -138,8 +148,8 @@ const WorkwearHeroSection = () => {
               src={DocImage}
               alt="Workwear 1"
               sx={{
-                width: { xs: '100%', sm: '60%', md: "50%" },
-                maxWidth: { xs: '350px', sm: '300px', md: "400px" },
+                width: { xs: '100%', sm: '60%', md: "60%" },
+                maxWidth: { xs: '350px', sm: '400px', md: "500px" },
                 height: { xs: 'auto', sm: '300px', md: "500px" },
                 borderRadius: 2,
                 objectFit: 'cover',
@@ -150,8 +160,8 @@ const WorkwearHeroSection = () => {
               src={DocTwoImage}
               alt="Workwear 2"
               sx={{
-                width: { xs: '100%', sm: '35%', md: "35%" },
-                maxWidth: { xs: '250px', sm: '200px', md: "250px" },
+                width: { xs: '100%', sm: '35%', md: "40%" },
+                maxWidth: { xs: '250px', sm: '250px', md: "300px" },
                 height: "auto",
                 borderRadius: 2,
                 objectFit: 'cover',

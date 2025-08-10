@@ -250,7 +250,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                         {/* Business Name Field */}
                         <Box sx={{ mb: 4 }}>
                             <Typography sx={labelStyle}>
-                                Business Name
+                                Business Name*
                             </Typography>
                             <TextField
                                 required
@@ -272,17 +272,20 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                             sx={{
                                 backgroundColor: '#007b89',
                                 color: '#fff',
-                                py: 2,
-                                borderRadius: '8px',
-                                fontFamily: 'Inter',
+                                height: '50px',
+                                borderRadius: '10px',
+                                fontFamily: 'Figtree',
                                 fontWeight: 600,
                                 fontSize: '16px',
                                 textTransform: 'none',
+                                boxShadow: 'none',
                                 '&:hover': {
-                                    backgroundColor: '#006570'
+                                    backgroundColor: '#006570',
+                                    boxShadow: 'none',
                                 },
                                 '&:disabled': {
-                                    backgroundColor: '#ccc'
+                                    backgroundColor: '#ccc',
+                                    boxShadow: 'none',
                                 }
                             }}
                         >

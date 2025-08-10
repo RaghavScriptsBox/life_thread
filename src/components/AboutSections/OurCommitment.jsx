@@ -20,7 +20,8 @@ export default function OurCommitment() {
       <Box alignItems="center" sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        width: "100%"
+        width: "100%",
+        alignItems:"center"
 
       }}>
         {/* LEFT: Text content */}
@@ -29,7 +30,8 @@ export default function OurCommitment() {
           width: {
             xs: "100%",
             md: "50%"
-          }
+          },
+          maxWidth:"800px"
         }}>
           <Typography
             sx={{
@@ -38,18 +40,19 @@ export default function OurCommitment() {
               mb: 2,
               fontFamily: "Lato, sans-serif",
               fontSize: {
-                xs: "30px",
+                xs: "27px",
                 md: "56px"
               },
+              lineHeight: 1.2,
               color: "#005A69"
             }}
           >
-            Our Commitment to<br /> Safety and Innovation
+            Our Commitment to Safety and Innovation
           </Typography>
 
           <Typography
             
-            sx={{ color: "#333", fontSize: 18, mb: 3, maxWidth: 540, fontFamily: "Figtree", color: "#121212B2" }}
+            sx={{ color: "#121212B2",opacity: 0.8, fontSize: 18, mb: 3, maxWidth: 540, fontFamily: "Figtree", color: "#121212B2" }}
           >
             At LifeThread, we are dedicated to creating high-performance ESD and cleanroom garments. Our mission is to ensure the safety of people and products in critical environments.
           </Typography>
@@ -65,9 +68,9 @@ export default function OurCommitment() {
             <Box>
               <Typography sx={{
                 fontFamily: "Figtree, sans-serif",
-                fontSize: { xs: '22px', md: '25px', lg: "30px" },
+                fontSize: { xs: '25px', md: '25px', lg: "30px" },
                 color: "#005A69",
-                fontWeight: "semibold"
+                fontWeight: "bold"
               }}>Our Mission</Typography>
               <Typography sx={{
                 fontFamily: 'Figtree, sans-serif',
@@ -79,9 +82,9 @@ export default function OurCommitment() {
             <Box>
               <Typography sx={{
                 fontFamily: "Figtree, sans-serif",
-                fontSize: { xs: '22px', md: '25px', lg: "30px" },
+                fontSize: { xs: '25px', md: '25px', lg: "30px" },
                 color: "#005A69",
-                fontWeight: "semibold"
+                fontWeight: "bold"
               }}>Our Vision</Typography>
               <Typography sx={{
                 fontFamily: 'Figtree, sans-serif',

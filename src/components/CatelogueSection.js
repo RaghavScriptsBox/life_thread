@@ -204,6 +204,30 @@ const CatelogueSection = () => {
         }
     }, [category]);
 
+    // Update currentSlide based on scroll position
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (carouselRef.current) {
+                const scrollLeft = carouselRef.current.scrollLeft;
+                const slideWidth = carouselRef.current.children[0]?.offsetWidth || 0;
+                if (slideWidth > 0) {
+                    const newSlideIndex = Math.round(scrollLeft / slideWidth);
+                    if (newSlideIndex !== currentSlide && newSlideIndex >= 0 && newSlideIndex < currentProducts.length) {
+                        setCurrentSlide(newSlideIndex);
+                    }
+                }
+            }
+        };
+
+        const carouselElement = carouselRef.current;
+        if (carouselElement) {
+            carouselElement.addEventListener('scroll', handleScroll);
+            return () => {
+                carouselElement.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [currentSlide, currentProducts.length]);
+
     return (
         <Box id="catalogue-section" sx={{ backgroundColor: '#007d8c', py: { xs: 4, md: 8 }, px: { xs: 2, md: 4 } }}>
             <Typography
@@ -260,7 +284,6 @@ const CatelogueSection = () => {
                         width: { xs: '100%', sm: 'auto', md: 'auto' },
                         minWidth: { xs: 'max-content', sm: 'auto' },
                         flexShrink: 0,
-                        // Remove default group borders/radii so only our underline shows
                         '& .MuiToggleButtonGroup-grouped': {
                             border: 0,
                             borderRadius: 0,
@@ -422,20 +445,25 @@ const CatelogueSection = () => {
                                             fullWidth
                                             onClick={() => handleRequestQuote(item.title)}
                                             sx={{
-                                                color: "#007d8c",
-                                                borderColor: "#007d8c",
-                                                fontWeight: "bold",
+                                                color: "#007b89",
+                                                borderColor: "#007b89",
+                                                borderWidth: "2px",
+                                                fontWeight: 600,
                                                 textTransform: "none",
-                                                py: 1,
-                                                fontSize: "12px",
+                                                height: "50px",
+                                                fontSize: "16px",
+                                                borderRadius: "10px",
+                                                fontFamily: "Figtree",
+                                                boxShadow: "none",
                                                 "&:hover": {
-                                                    backgroundColor: "#007d8c",
+                                                    backgroundColor: "#007b89",
                                                     color: "#fff",
-                                                    borderColor: "#007d8c",
+                                                    borderColor: "#007b89",
+                                                    boxShadow: "none",
                                                 },
                                             }}
                                         >
-                                            Request quote
+                                            Request Quote
                                         </Button>
                                     </CardContent>
                                 </Card>
@@ -536,7 +564,7 @@ const CatelogueSection = () => {
                                 boxShadow: 3, 
                                 width: '100%',
                                 maxWidth: { xs: "350px", sm: "320px", md: "280px", lg: "300px" },
-                                height: { xs: "auto", sm: "500px", md: "520px", lg: "550px" },
+                                height: { xs: "auto", sm: "500px", md: "500px", lg: "500px" },
                                 display: 'flex',
                                 flexDirection: 'column'
                             }}>
@@ -593,8 +621,10 @@ const CatelogueSection = () => {
                                             color: "#444",
                                             fontFamily: "Inter",
                                             lineHeight: 1.4,
-                                            mb: { xs: 2, md: 3 },
-                                            flexGrow: 1
+                                            mb: { xs: 1, md: 1 },
+                                            flexGrow: 1,
+                                            // bgcolor:"red",
+                                            height:"auto"
                                         }}
                                     >
                                         {item.desc}
@@ -604,16 +634,21 @@ const CatelogueSection = () => {
                                         fullWidth
                                         onClick={() => handleRequestQuote(item.title)}
                                         sx={{
-                                            color: "#007d8c",
-                                            borderColor: "#007d8c",
-                                            fontWeight: "bold",
+                                            color: "#007b89",
+                                            borderColor: "#007b89",
+                                            borderWidth: "2px",
+                                            fontWeight: 600,
                                             textTransform: "none",
-                                            py: { xs: 1, md: 1.2 },
-                                            fontSize: { xs: "14px", md: "16px" },
+                                            height: "50px",
+                                            fontSize: "16px",
+                                            borderRadius: "10px",
+                                            fontFamily: "Figtree",
+                                            boxShadow: "none",
                                             "&:hover": {
-                                                backgroundColor: "#007d8c",
+                                                backgroundColor: "#007b89",
                                                 color: "#fff",
-                                                borderColor: "#007d8c",
+                                                borderColor: "#007b89",
+                                                boxShadow: "none",
                                             },
                                         }}
                                     >
@@ -633,16 +668,19 @@ const CatelogueSection = () => {
                     variant="contained"
                     onClick={() => setDownloadModalOpen(true)}
                     sx={{
-                        borderRadius: { xs: 8, md: "10px" },
-                        px: { xs: 3, md: 4 },
-                        py: { xs: 1, md: 1.2 },
+                        borderRadius: "10px",
+                        px: 4,
+                        height: "50px",
                         textTransform: 'none',
-                        fontWeight: 'bold',
-                        fontSize: { xs: '14px', md: '16px' },
+                        fontWeight: 600,
+                        fontSize: "16px",
+                        fontFamily: "Figtree",
                         backgroundColor: '#fff',
-                        color: '#007d8c',
+                        color: '#007b89',
+                        boxShadow: "none",
                         '&:hover': {
                             backgroundColor: '#e0f7fa',
+                            boxShadow: "none",
                         },
                     }}
                 >

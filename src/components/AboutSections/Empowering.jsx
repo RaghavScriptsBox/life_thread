@@ -23,12 +23,13 @@ export default function Empowering() {
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
                 width: "100%",
-                justifyContent: 'center',
+                justifyContent: 'space-between',
+                gap:"50px"
 
             }}>
                 {/* RIGHT: Image */}
                 <Box sx={{
-                    textAlign: { xs: "center", md: "right" },
+                    textAlign: { xs: "center", md: "left" },
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -36,7 +37,8 @@ export default function Empowering() {
                         xs: '100%',
                         md: "50%"
                     },
-                    order: { xs: 1, md: 2 },
+                    mt:{ xs: "30px", md: "0px" },
+                    order: { xs: 2, md: 1 },
                 }}>
                     <Box
                         component="img"
@@ -49,7 +51,7 @@ export default function Empowering() {
                                 md: "550px"
                             },
                             maxHeight: "600px",
-                            borderRadius: 2,
+                            borderRadius: 0,
                             boxShadow: 3,
                             objectFit: "cover",
                             mx: "auto"
@@ -95,7 +97,7 @@ export default function Empowering() {
                             </ListItemIcon>
                             <ListItemText
                                 sx={{
-                                    color: "#121212B2",
+                                    color: "#121212cb",
                                     fontFamily: "Figtree, sans-serif",
                                     fontSize: "18px"
                                 }}
@@ -108,7 +110,7 @@ export default function Empowering() {
                             </ListItemIcon>
                             <ListItemText
                                 sx={{
-                                    color: "#121212B2",
+                                    color: "#121212cb",
                                     fontFamily: "Figtree, sans-serif",
                                     fontSize: "18px"
                                 }}
@@ -121,7 +123,7 @@ export default function Empowering() {
                             </ListItemIcon>
                             <ListItemText
                                 sx={{
-                                    color: "#121212B2",
+                                    color: "#121212cb",
                                     fontFamily: "Figtree, sans-serif",
                                     fontSize: "18px"
                                 }}

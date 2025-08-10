@@ -342,13 +342,17 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                         <Button
                             onClick={addMoreProduct}
                             sx={{
-                                color: '#005A69',
-                                fontSize: '14px',
+                                color: '#007b89',
+                                fontSize: '16px',
                                 textTransform: 'none',
-                                fontWeight: 500,
+                                fontWeight: 600,
                                 mb: 3,
                                 p: 0,
-                                fontFamily: 'Figtree'
+                                fontFamily: 'Figtree',
+                                boxShadow: "none",
+                                "&:hover": {
+                                    boxShadow: "none",
+                                }
                             }}
                         >
                             + Add more
@@ -455,7 +459,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                         </Box>
                         
                         <Box sx={{ mt: "20px" }}>
-                            <label style={LabelStyle}>Business Name</label>
+                            <label style={LabelStyle}>Business Name<span style={{color: 'red'}}>*</span></label>
                             <input
                                 type="text"
                                 value={formData.businessName}
@@ -489,14 +493,19 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                 onClick={onClose}
                                 sx={{
                                     borderColor: '#D9D9D9',
+                                    borderWidth: "2px",
                                     color: '#666',
                                     textTransform: 'none',
                                     fontWeight: 600,
                                     flex: 1,
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
-                                    height: { xs: "45px", md: "50px" },
-                                    fontSize: { xs: "14px", md: "16px" }
+                                    height: "50px",
+                                    fontSize: "16px",
+                                    boxShadow: "none",
+                                    "&:hover": {
+                                        boxShadow: "none",
+                                    }
                                 }}
                             >
                                 Back
@@ -512,10 +521,12 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     flex: 1,
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
-                                    height: { xs: "45px", md: "50px" },
-                                    fontSize: { xs: "14px", md: "16px" },
+                                    height: "50px",
+                                    fontSize: "16px",
+                                    boxShadow: "none",
                                     '&:hover': {
-                                        backgroundColor: '#006570'
+                                        backgroundColor: '#006570',
+                                        boxShadow: "none",
                                     }
                                 }}
                             >
@@ -529,14 +540,19 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                 onClick={handleBack}
                                 sx={{
                                     borderColor: '#D9D9D9',
+                                    borderWidth: "2px",
                                     color: '#666',
                                     textTransform: 'none',
                                     fontWeight: 600,
                                     flex: 1,
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
-                                    height: { xs: "45px", md: "50px" },
-                                    fontSize: { xs: "14px", md: "16px" }
+                                    height: "50px",
+                                    fontSize: "16px",
+                                    boxShadow: "none",
+                                    "&:hover": {
+                                        boxShadow: "none",
+                                    }
                                 }}
                             >
                                 Back
@@ -552,10 +568,12 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     flex: 1,
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
-                                    height: { xs: "45px", md: "50px" },
-                                    fontSize: { xs: "14px", md: "16px" },
+                                    height: "50px",
+                                    fontSize: "16px",
+                                    boxShadow: "none",
                                     '&:hover': {
-                                        backgroundColor: '#006570'
+                                        backgroundColor: '#006570',
+                                        boxShadow: "none",
                                     }
                                 }}
                             >

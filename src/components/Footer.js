@@ -5,10 +5,10 @@ import {
   Link,
   Container,
 } from '@mui/material';
-import FooterLogo from "../Assets/FooterLogo.png"; // Assuming you have a logo component or image
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import WhiteLogo from "../Assets/Horizontal wordmark.svg"; // Assuming you have a logo component or image
 
 const Footer = () => {
   const navItems = [
@@ -17,8 +17,8 @@ const Footer = () => {
     { label: 'Contact', href: '/contact' },
   ];
   return (
-    <Box>
-      <Box sx={{ backgroundColor: '#ffffffff', py: 15 }}>
+    <Box sx={{ width: "100%", overflowX: 'hidden', backgroundColor: '#f5f9fa' }}>
+      <Box sx={{ backgroundColor: 'transparent', py: 15 }}>
         <Container maxWidth="lg" sx={{ textAlign: "center" }}>
           <Box sx={{ maxWidth: "700px", margin: "0 auto" }}>
             <Typography sx={{
@@ -55,7 +55,9 @@ const Footer = () => {
                 md: "50%",
                 xl: "50%"
               },
-              minWidth: "400px"
+              minWidth: "300px",
+              maxWidth: { xs: "300px", md: "500px" },
+              mx: "auto",
             }}>
               <EmailOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Email</Typography>
@@ -76,7 +78,9 @@ const Footer = () => {
                 md: "50%",
                 xl: "50%"
               },
-              minWidth: "400px"
+              minWidth: "300px",
+              maxWidth: { xs: "300px", md: "500px" },
+              mx: "auto",
             }}>
               <PhoneOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">
@@ -95,8 +99,10 @@ const Footer = () => {
                 md: "50%",
                 xl: "50%"
               },
-              minWidth: "400px",
-              mt: { xs: "10px", md: "50px" }
+              minWidth: "300px",
+              maxWidth: { xs: "300px", md: "500px" },
+              mt: { xs: "10px", md: "50px" },
+              mx: "auto"
             }}>
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Reg. Office</Typography>
@@ -110,8 +116,10 @@ const Footer = () => {
                 md: "50%",
                 xl: "50%"
               },
-              minWidth: "400px",
-              mt: { xs: "10px", md: "50px" }
+              minWidth: "300px",
+              maxWidth: { xs: "300px", md: "500px" },
+              mt: { xs: "10px", md: "50px" },
+              mx: "auto"
             }}>
               <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
               <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Manufacturing Unit</Typography>
@@ -137,53 +145,55 @@ const Footer = () => {
         }}
       >
         {/* Logo & Tagline */}
-        <Box sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          gap: { xs: 2, sm: 1 },
-          width: { xs: "100%", sm: "400px" },
-          mx: "auto",
-          alignItems: 'center',
-          justifyContent: { xs: 'center', sm: 'flex-start' },
-          mt: { xs: "20px", md: "30px" },
-          textAlign: { xs: 'center', sm: 'left' }
-        }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: { xs: 1, md: 2 },
+            width: { xs: '100%', md: '400px' },
+            mx: 'auto',
+            mt: { xs: '20px', md: '30px' },
+            textAlign: 'center',
+          }}
+        >
           <Box
             sx={{
-              width: { xs: 60, sm: 80 },
-              height: { xs: 60, sm: 80 },
+              width: { xs: '180px', md: '200px' },
+              height: { xs: 'auto', md: 'auto' },
               bgcolor: 'transparent',
               borderRadius: '50%',
               fontWeight: 'bold',
               fontSize: 24,
-              color: '#00778B',
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            <img src={FooterLogo} alt="LifeThread Logo" style={{ width: '100%', height: '100%' }} />
+            <img src={WhiteLogo} alt="LifeThread Logo" style={{ width: '100%', height: '100%' }} />
           </Box>
-          <Box sx={{
-            textAlign: { xs: "center", sm: "left" },
-            ml: { xs: 0, sm: "20px" }
-          }}>
-            <Typography sx={{
-              mt: { xs: 1, sm: 2 },
-              fontWeight: 'bold',
-              fontSize: { xs: '24px', sm: '30px' },
-              color: '#fff',
-              fontFamily: "Inter"
-            }}>
-              LifeThread
-            </Typography>
-            <Typography sx={{
-              mb: 2,
-              fontWeight: 'bold',
-              fontSize: { xs: '12px', sm: '14px' },
-              color: '#fff',
-              fontFamily: "Inter"
-            }}>
+          {/* <Box
+            sx={{
+              textAlign: 'center',
+              mt: { xs: 1, md: 0 },
+            }}
+          >
+            <Typography
+              sx={{
+                mb: 2,
+                ml: 7,
+                mt: "-20px",
+                fontWeight: 'bold',
+                fontSize: { xs: '10px', md: '10px' },
+                color: '#fff',
+                fontFamily: 'Inter',
+              }}
+            >
               Clean, Compliant, Confident
             </Typography>
-          </Box>
+          </Box> */}
         </Box>
 
         {/* Nav Links */}

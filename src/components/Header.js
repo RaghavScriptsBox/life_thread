@@ -45,7 +45,12 @@ function Header() {
 
   const NavigateUser = (url) => {
     console.log("urlzhdsgyuad", url)
-    navigate(url)
+    if (url === "/product") {
+      // Navigate to home page with state to scroll to catalogue
+      navigate("/", { state: { scrollToCatalogue: true } });
+    } else {
+      navigate(url);
+    }
   }
 
   return (
@@ -131,24 +136,25 @@ function Header() {
         </Box>
         {/* Login Button (Desktop) */}
         <Button
-          variant="outlined"
+          variant="contained"
           color="primary"
           sx={{
-            height: 40,
+            height: 45,
             fontSize: 16,
             fontWeight: 600,
-            borderRadius: 2,
+            borderRadius: "10px",
             ml: { xs: 0, md: 2 },
-            px: 2.5,
-            borderColor: "#007C91",
+            px: 3,
+            borderColor: "#007b89",
             color: "#fff",
-            background: "#007C91",
+            background: "#007b89",
             boxShadow: "none",
             textTransform: "none",
+            fontFamily: "Figtree",
             display: { xs: "none", md: "inline-flex" },
             "&:hover": {
-              borderColor: "#1565c0",
-              background: "rgba(25,118,210,0.12)",
+              backgroundColor: "#006570",
+              boxShadow: "none",
             },
           }}
           onClick={() => handleRequestQuote()}
@@ -181,7 +187,7 @@ function Header() {
           {/* Logo and Close */}
           <Box sx={{ px: 2, mb: 2, display: "flex", alignItems: "center", gap: 1 }}>
             <img src={BrandLogo} alt="Logo" style={{ height: 34 }} />
-            <Typography variant="subtitle1" fontWeight={800} sx={{ color: "#007C91" }}>Life Thread</Typography>
+            {/* <Typography variant="subtitle1" fontWeight={800} sx={{ color: "#007C91" }}>Life Thread</Typography> */}
           </Box>
           <List>
             {navLinks.map((link, idx) =>

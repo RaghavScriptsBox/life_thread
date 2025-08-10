@@ -14,7 +14,7 @@ const bodyMuted = "#5b6b73";     // subtitle + address tone
 
 export default function JoinUsSection() {
   return (
-    <Box component="section" sx={{ bgcolor: "#fff" }}>
+    <Box component="section" sx={{ bgcolor: "transparent" }}>
       <Container maxWidth="md" sx={{ py: { xs: 6, md: 10 } }}>
         {/* Heading */}
         <Typography

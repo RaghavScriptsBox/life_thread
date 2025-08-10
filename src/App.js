@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Box, CssBaseline } from "@mui/material";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -13,16 +13,33 @@ import WorkwearHero from "./components/WorkwearHeroSection";
 import "./App.css";
 import ContactUs from "./components/ContactUs";
 
-const Landing = () => (
-  <>
-    <WorkwearHero />
-    <Hero />
-    <CatelogueSection />
-    <ProductCategories />
-    <CatalogueBanner />
-    {/* <Contact /> */}
-  </>
-);
+const Landing = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we need to scroll to catalogue section
+    if (location.state?.scrollToCatalogue) {
+      const timer = setTimeout(() => {
+        const catalogueElement = document.getElementById('catalogue-section');
+        if (catalogueElement) {
+          catalogueElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
+  return (
+    <>
+      <WorkwearHero />
+      <Hero />
+      <CatelogueSection />
+      <ProductCategories />
+      <CatalogueBanner />
+      {/* <Contact /> */}
+    </>
+  );
+};
 
 const App = () => {
   const headerHeight = 72; // adjust to your Header height if it's fixed
@@ -56,7 +73,7 @@ const App = () => {
           </Routes>
         </Box>
 
-        <Footer /> {/* render the footer (don’t comment it out) */}
+        <Footer /> 
       </Box>
     </Router>
   );

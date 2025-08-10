@@ -59,7 +59,7 @@ const CatalogueBanner = () => {
                     textAlign: 'center',
                     zIndex: 1,
                     px: 2,
-                    width: "100%"
+                    width: {xs:"90%",md:"70%"}
                 }}
             >
                 <Typography sx={{
@@ -84,7 +84,23 @@ const CatalogueBanner = () => {
                 </Typography>
                 <Button
                     variant="contained"
-                    sx={{ mt: 3, bgcolor: '#fff', px: 4, py: 1.5, border: "1px solid #007C91", color: "#007C91", fontFamily: "Roboto", fontWeight: "bold" }}
+                    sx={{
+                        mt: 3,
+                        borderRadius: "10px",
+                        height: "50px",
+                        px: { xs: 3, md: 4 },
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        fontSize: "16px",
+                        fontFamily: 'Figtree',
+                        backgroundColor: '#fff',
+                        color: '#007d8c',
+                        boxShadow: 'none',
+                        '&:hover': {
+                            backgroundColor: '#e0f7fa',
+                            boxShadow: 'none',
+                        },
+                    }}
                     onClick={() => setDownloadModalOpen(true)}
                 >
                     Download the Catalogue

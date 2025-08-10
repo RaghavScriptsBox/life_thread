@@ -32,7 +32,7 @@ const WhyChosseUs = () => {
         },
         {
             icon: <img src={LaundryImage} alt="Durability" style={{ width: '45px', height: '45px' }} />,
-            title: 'Durability You Can Rely On',
+            title: 'Durability you can rely on every single time',
             description:
                 'Our garments are ATIRA-certified, ensuring durability up to 100 washes.',
         },
@@ -40,78 +40,95 @@ const WhyChosseUs = () => {
 
     return (
         <Box py={8} sx={{ backgroundColor: '#f5f9f9' }}>
-            <Box sx={{ width: "100%", mx: 'auto' }}>
-                <Grid container spacing={4} alignItems="center">
-                    {/* Left Column */}
-                    <Grid item xs={12} md={12} sx={{ display: { xs: 'none', md: 'block' }, mx: 'auto' }}>
-                        <Box sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            mx: 'auto',
-
-                        }}>
-                            <Typography
-                                sx={{
-                                    fontWeight: 600,
-                                    mb: 2,
-                                    fontSize: { xs: '24px', md: '50px' },
-                                    fontFamily: 'Figtree, sans-serif',
-                                    color: '#005A69',
-                                    mx: 'auto',
-                                }}
-                            >
-                                Why Choose LifeThread?
-                            </Typography>
-                        </Box>
-                    </Grid>
-                </Grid>
+            <Box sx={{ width: "100%", mx: 'auto', px: { xs: 2, md: 4 } }}>
+                {/* Header Section */}
+                <Box sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    mb: { xs: 4, md: 6 },
+                    width: '100%'
+                }}>
+                    <Typography
+                        sx={{
+                            fontWeight: 600,
+                            fontSize: { xs: '32px', md: '48px' },
+                            fontFamily: 'Figtree, sans-serif',
+                            color: '#005A69',
+                            textAlign: 'center',
+                            lineHeight: 1.2
+                        }}
+                    >
+                        Why Choose LifeThread?
+                    </Typography>
+                </Box>
 
                 {/* Icons + Info */}
-                <Grid container sx={{
+                <Grid container spacing={3} sx={{
                     display: 'flex',
                     justifyContent: 'center',
-                    gap: "50px",
+                    mt: 4,
+                    px: { xs: 2, md: 4 }
                 }}>
                     {highlights.map((item, index) => (
-                        <Grid item xs={12} md={3} key={index}>
-                            <Box textAlign="center" sx={{
+                        <Grid item xs={12} sm={6} md={4} key={index} sx={{
+                            display: 'flex',
+                            justifyContent: 'center'
+                        }}>
+                            <Box sx={{
                                 display: 'flex',
                                 flexDirection: 'column',
-                                justifyContent: "space-between",
                                 alignItems: 'flex-start',
-                                textAlign: 'flex-start',
+                                textAlign: 'left',
+                                width: '100%',
                                 maxWidth: '350px',
-                                mt: "40px",
                                 bgcolor: '#fff',
-                                padding: "20px",
-                                minHeight: {xs: "300px", md: "350px"},
+                                padding: { xs: "24px", md: "28px" },
+                                borderRadius: "12px",
+                                boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+                                height: '100%',
+                                minHeight: { xs: "280px", md: "320px" }
                             }}>
+                                {/* Icon Section - Fixed Height */}
                                 <Box sx={{
-                                    color: "Figtree, sans-serif",
-                                    mb: 2,
-                                    fontSize: { xs: '50px', md: '64px' },
+                                    mb: 3,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    height: '60px'
                                 }}>
                                     {item.icon}
                                 </Box>
-                                <Typography sx={{
-                                    fontWeight: 600,
-                                    mb: 1,
-                                    fontSize: { xs: '26px', md: '30px' },
-                                    color: '#005A69',
-                                    fontFamily: 'Figtree, sans-serif',
+                                
+                                {/* Title Section - Fixed Height */}
+                                <Box sx={{
+                                    mb: 2,
+                                    minHeight: { xs: "70px", md: "80px" },
+                                    display: 'flex',
+                                    alignItems: 'flex-start'
                                 }}>
-                                    {item.title}
-                                </Typography>
-                                <Typography sx={{
-                                    fontWeight: 500,
-                                    mb: 1,
-                                    fontSize: { xs: '15px', md: '16px' },
-                                    color: '#1212129f',
-                                    fontFamily: 'Figtree, sans-serif',
-                                    mt: "10px"
-                                }}>
-                                    {item.description}
-                                </Typography>
+                                    <Typography sx={{
+                                        fontWeight: 600,
+                                        fontSize: { xs: '22px', md: '26px' },
+                                        color: '#005A69',
+                                        fontFamily: 'Figtree, sans-serif',
+                                        lineHeight: 1.3
+                                    }}>
+                                        {item.title}
+                                    </Typography>
+                                </Box>
+                                
+                                {/* Description Section - Flexible Height */}
+                                <Box sx={{ flex: 1 }}>
+                                    <Typography sx={{
+                                        fontWeight: 400,
+                                        fontSize: { xs: '15px', md: '16px' },
+                                        color: '#666666',
+                                        fontFamily: 'Figtree, sans-serif',
+                                        lineHeight: 1.5
+                                    }}>
+                                        {item.description}
+                                    </Typography>
+                                </Box>
                             </Box>
                         </Grid>
                     ))}

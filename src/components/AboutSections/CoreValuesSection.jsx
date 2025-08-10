@@ -33,7 +33,7 @@ const CoreValuesSection = () => {
 
           fontWeight="500"
           gutterBottom
-          sx={{ textAlign: 'center', mb: 4, fontSize: { xs: '24px', md: '56px' }, fontFamily: 'Figtree, sans-serif', color: "#005A69" }}
+          sx={{ textAlign: 'center', mb: 4, fontWeight: 600, fontSize: { xs: '30px', md: '56px' }, fontFamily: 'Figtree, sans-serif', color: "#005A69" }}
         >
           Our Core Values
         </Typography>
@@ -72,7 +72,7 @@ const CoreValuesSection = () => {
               <Typography sx={{
                 fontWeight: "400",
                 fontSize: { xs: '16px', md: '16px' },
-                color: "#000000",
+                color: "#000000c0",
                 fontFamily: "Figtree, sans-serif"
               }}>
                 {item.description}

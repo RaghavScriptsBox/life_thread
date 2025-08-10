@@ -75,7 +75,7 @@ const ContactUs = () => {
     };
 
     return (
-        <Box>
+        <Box sx={{background:"#f5f9fa"}}>
             {/* Hero Section with Background */}
             <Box
                 sx={{
@@ -235,7 +235,7 @@ const ContactUs = () => {
             />
             <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
                 {/* Contact Us Form */}
-                <Paper elevation={0} sx={{ p: { xs: 3, md: 5 }, borderRadius: 2 }}>
+                <Paper elevation={0} sx={{ p: { xs: 3, md: 5 }, borderRadius: 2,background:"transparent" }}>
                     <Box id='send-message' sx={{
                         textAlign: "center",
                         mb: { xs: 3, md: 4 }
@@ -452,11 +452,13 @@ const ContactUs = () => {
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
                                     textTransform: "none",
-                                    height: { xs: "45px", md: "50px" },
-                                    fontSize: { xs: "14px", md: "16px" },
+                                    height: "50px",
+                                    fontSize: "16px",
                                     fontWeight: 600,
+                                    boxShadow: "none",
                                     '&:hover': {
-                                        backgroundColor: isSubmitting ? '#ccc' : '#006570'
+                                        backgroundColor: isSubmitting ? '#ccc' : '#006570',
+                                        boxShadow: "none",
                                     }
                                 }}
                             >
@@ -512,10 +514,16 @@ const ContactUs = () => {
                                 borderRadius: "10px",
                                 fontFamily: "Figtree",
                                 textTransform: "none",
-                                height: { xs: "45px", md: "50px" },
+                                height: "50px",
                                 width: { xs: "180px", md: "200px" },
                                 mt: { xs: "8px", md: "10px" },
-                                fontSize: { xs: "14px", md: "16px" }
+                                fontSize: "16px",
+                                fontWeight: 600,
+                                boxShadow: "none",
+                                '&:hover': {
+                                    backgroundColor: '#006570',
+                                    boxShadow: "none",
+                                }
                             }}>
                                 <Link
                                     href="tel:+9825109703"
