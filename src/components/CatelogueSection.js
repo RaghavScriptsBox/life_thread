@@ -4,7 +4,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CloseIcon from '@mui/icons-material/Close';
 import { ProductImages, ESDArray, UniformsArray, SingleUseArray, AccessoriesArray } from "../Assets/index.js";
-import  Suit from '../Assets/SingleUseImages/Frame 427321813.png'
+import Suit from '../Assets/SingleUseImages/Frame 427321813.png'
 import RequestQuoteModal from './RequestQuoteModal';
 import DownloadCatalogueModal from './DownloadCatalogueModal';
 import CapImage from '../Assets/Accessories/Cap.png';
@@ -155,7 +155,7 @@ const CatelogueSection = () => {
     const carouselRef = useRef(null);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    
+
     // Get current products based on selected category
     const currentProducts = productData[category] || [];
 
@@ -258,17 +258,15 @@ const CatelogueSection = () => {
             </Typography>
 
             {/* Category Buttons */}
-            <Box 
-                display="flex" 
-                justifyContent="center" 
-                mb={{ xs: 3, md: 5 }} 
+            <Box
+                display="flex"
+                justifyContent={{ xs: 'flex-start', sm: 'center' }}
+                mb={{ xs: 3, md: 5 }}
                 px={{ xs: 1, md: 0 }}
                 sx={{
                     overflowX: { xs: 'auto', sm: 'visible' },
-                    '&::-webkit-scrollbar': {
-                        display: 'none'
-                    },
-                    scrollbarWidth: 'none'
+                    '&::-webkit-scrollbar': { display: 'none' },
+                    scrollbarWidth: 'none',
                 }}
             >
                 <ToggleButtonGroup
@@ -280,9 +278,10 @@ const CatelogueSection = () => {
                         backgroundColor: 'transparent',
                         p: 0,
                         borderRadius: "10px 10px 0 0",
-                        borderBottom: { xs: '1px solid #fff', sm: "1px solid #fff" },
-                        width: { xs: '100%', sm: 'auto', md: 'auto' },
-                        minWidth: { xs: 'max-content', sm: 'auto' },
+                        marginLeft: 0, // ✅ Removed the 55% shift
+                        borderBottom: '1px solid #fff',
+                        width: 'auto',
+                        minWidth: { xs: '100%', sm: 'auto' },
                         flexShrink: 0,
                         '& .MuiToggleButtonGroup-grouped': {
                             border: 0,
@@ -298,43 +297,26 @@ const CatelogueSection = () => {
                             sx={{
                                 px: { xs: 2, sm: 3 },
                                 py: { xs: 1.5, sm: 1.25 },
-                                marginLeft:{
-                                    xs:"450px",
-                                    sm:"400px",
-                                    md:"0px",
-                                    lg:"0px",
-                                    xl:"0px"
-
-                                },
                                 fontWeight: 'bold',
                                 border: 0,
-                                borderRadius: { xs: '10px', sm: "10px" },
+                                borderRadius: "10px 10px 0 0",
                                 fontFamily: 'Lato',
                                 fontSize: { xs: "14px", sm: "16px" },
-                                width: { xs: '200px', sm: '300px',md:"300px" },
-                                mb: { xs: 0, sm: 0 },
-                                // Responsive bottom border
-                                borderBottom: { xs: 'none', sm: '2px solid #fff' },
-
-                                // Inactive look
+                                width: { xs: 'auto', sm: 'auto' },
+                                minWidth: { xs: '150px', sm: '120px', md: '150px' },
+                                mb: 0,
+                                whiteSpace: 'nowrap',
+                                borderBottom: '2px solid #fff',
                                 color: '#fff',
                                 backgroundColor: 'transparent',
-
-                                // Active (selected) look
                                 '&.Mui-selected': {
                                     backgroundColor: '#fff',
                                     color: '#007d8c',
-                                    borderBottom: { xs: 'none', sm: '2px solid #fff' },
-                                    borderRadius: { xs: '8px', sm: "10px 10px 0 0" },
+                                    borderBottom: '2px solid #fff',
+                                    borderRadius: "10px 10px 0 0",
                                 },
-
-                                // Hover states (don’t change the underline)
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255,255,255,0.08)',
-                                },
-                                '&.Mui-selected:hover': {
-                                    backgroundColor: '#fff',
-                                },
+                                '&:hover': { backgroundColor: 'rgba(255,255,255,0.08)' },
+                                '&.Mui-selected:hover': { backgroundColor: '#fff' },
                             }}
                         >
                             {cat}
@@ -342,6 +324,7 @@ const CatelogueSection = () => {
                     ))}
                 </ToggleButtonGroup>
             </Box>
+
 
 
 
@@ -374,8 +357,8 @@ const CatelogueSection = () => {
                                 }}
                             >
                                 <Card sx={{
-                                    borderRadius: 2, 
-                                    boxShadow: 3, 
+                                    borderRadius: 2,
+                                    boxShadow: 3,
                                     width: '100%',
                                     height: 'auto',
                                     display: 'flex',
@@ -410,9 +393,9 @@ const CatelogueSection = () => {
                                             }}
                                         />
                                     </CardMedia>
-                                    <CardContent sx={{ 
-                                        flexGrow: 1, 
-                                        display: 'flex', 
+                                    <CardContent sx={{
+                                        flexGrow: 1,
+                                        display: 'flex',
                                         flexDirection: 'column',
                                         p: 2
                                     }}>
@@ -472,12 +455,12 @@ const CatelogueSection = () => {
                     </Box>
 
                     {/* Navigation Arrows for Mobile */}
-                    <Box sx={{ 
-                        display: 'flex', 
-                        justifyContent: 'center', 
-                        alignItems: 'center', 
-                        gap: 2, 
-                        mt: 2 
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: 2,
+                        mt: 2
                     }}>
                         <IconButton
                             onClick={prevSlide}
@@ -485,18 +468,26 @@ const CatelogueSection = () => {
                             sx={{
                                 backgroundColor: 'rgba(255,255,255,0.2)',
                                 color: '#fff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: 40,
+                                height: 40,
                                 '&:hover': {
                                     backgroundColor: 'rgba(255,255,255,0.3)',
                                 },
                                 '&.Mui-disabled': {
                                     backgroundColor: 'rgba(255,255,255,0.1)',
                                     color: 'rgba(255,255,255,0.3)',
+                                },
+                                '& .MuiSvgIcon-root': {
+                                    transform: 'translateX(4px)'
                                 }
                             }}
                         >
                             <ArrowBackIosIcon />
                         </IconButton>
-                        
+
                         {/* Slide indicators */}
                         <Box sx={{ display: 'flex', gap: 1 }}>
                             {currentProducts.map((_, index) => (
@@ -560,8 +551,8 @@ const CatelogueSection = () => {
                             }}
                         >
                             <Card sx={{
-                                borderRadius: 2, 
-                                boxShadow: 3, 
+                                borderRadius: 2,
+                                boxShadow: 3,
                                 width: '100%',
                                 maxWidth: { xs: "350px", sm: "320px", md: "280px", lg: "300px" },
                                 height: { xs: "auto", sm: "500px", md: "500px", lg: "500px" },
@@ -597,9 +588,9 @@ const CatelogueSection = () => {
                                         }}
                                     />
                                 </CardMedia>
-                                <CardContent sx={{ 
-                                    flexGrow: 1, 
-                                    display: 'flex', 
+                                <CardContent sx={{
+                                    flexGrow: 1,
+                                    display: 'flex',
                                     flexDirection: 'column',
                                     p: { xs: 2, md: 3 }
                                 }}>
@@ -624,7 +615,7 @@ const CatelogueSection = () => {
                                             mb: { xs: 1, md: 1 },
                                             flexGrow: 1,
                                             // bgcolor:"red",
-                                            height:"auto"
+                                            height: "auto"
                                         }}
                                     >
                                         {item.desc}
@@ -790,7 +781,7 @@ const CatelogueSection = () => {
                                 boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)'
                             }}
                         />
-                        
+
                         {/* Image Title */}
                         <Typography
                             sx={{

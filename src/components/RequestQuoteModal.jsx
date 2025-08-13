@@ -91,7 +91,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
     const handleSubmit = async () => {
         if (!validateStep()) return;
         try {
-            const response = await fetch('https://formspree.io/f/xanbpogz', {
+            const response = await fetch('https://formspree.io/f/xnnzradv', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

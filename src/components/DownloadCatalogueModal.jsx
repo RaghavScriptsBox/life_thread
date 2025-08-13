@@ -42,7 +42,7 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('https://formspree.io/f/xanbpogz', {
+            const response = await fetch('https://formspree.io/f/mblkbroo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
