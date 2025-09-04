@@ -103,7 +103,7 @@ const CatalogueBanner = () => {
                     }}
                     onClick={() => setDownloadModalOpen(true)}
                 >
-                    Download the Catalogue
+                    Download Catalogue
                 </Button>
             </Box>
             <RequestQuoteModal

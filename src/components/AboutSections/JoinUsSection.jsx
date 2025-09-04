@@ -72,17 +72,15 @@ export default function JoinUsSection() {
 
           {/* Phone */}
           <Grid item xs={12} md={6}>
-            <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
-              <Link href="tel:+919909916599" underline="none" sx={{ color: "text.primary" }}>
+            <Link href="tel:+919909916599" underline="none" sx={{ color: "text.primary" }}>
+              <Box sx={{ textAlign: "center", px: { xs: 1, md: 4 } }}>
                 <LocalPhoneOutlinedIcon sx={{ fontSize: 26, mb: 1 }} />
-              </Link>
-              <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
-                Phone
-              </Typography>
-              <Link href="tel:+919909916599" underline="none" sx={{ color: "text.primary", fontSize: 15 }}>
+                <Typography sx={{ fontWeight: 700, mb: 0.5, fontSize: 16 }}>
+                  Phone
+                </Typography>
                 +91 99099 16599
-              </Link>
-            </Box>
+              </Box>
+            </Link>
 
           </Grid>
 

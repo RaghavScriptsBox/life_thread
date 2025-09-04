@@ -136,13 +136,13 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         'ESD Top & Bottom',
         'Lint-Free Polyester Apron',
         'Lint-Free Wipes for Cleaning',
-        
+
         // Uniforms
         'Scrub Suit (Cotton)',
         'Scrub Suit (Polyester)',
         'Boiler Suit (Cotton)',
         'Boiler Suit (Polyester)',
-        
+
         // Single Use
         'Disposable Scrub Suit',
         'Surgical Gown',
@@ -151,7 +151,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
         'Disposable Apron',
         'Visitor Gown',
         'Disposable Antistatic Garment',
-        
+
         // Accessories
         'Disposable Shoe Cover',
         'Disposable Hand Sleeve',
@@ -196,19 +196,19 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                 }
             }}
         >
-            <DialogTitle sx={{ 
-                p: 0, 
+            <DialogTitle sx={{
+                p: 0,
                 position: 'relative',
                 backgroundColor: '#005A69'
             }}>
-                <Box sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'space-between',
                     p: 2
                 }}>
-                    <Typography sx={{ 
-                        fontSize: '12px', 
+                    <Typography sx={{
+                        fontSize: '12px',
                         color: '#fff',
                         fontWeight: 500,
                         textTransform: 'uppercase',
@@ -221,15 +221,15 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                         <CloseIcon />
                     </IconButton>
                 </Box>
-                
+
                 {/* Step Header */}
-                <Box sx={{ 
-                    px: 2, 
-                    pb: 2, 
+                <Box sx={{
+                    px: 2,
+                    pb: 2,
                     backgroundColor: '#005A69'
                 }}>
-                    <Typography sx={{ 
-                        fontSize: { xs: "24px", md: "28px" }, 
+                    <Typography sx={{
+                        fontSize: { xs: "24px", md: "28px" },
                         fontWeight: 600,
                         color: '#fff',
                         mb: 2,
@@ -238,7 +238,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                     }}>
                         Step {activeStep + 1}: {steps[activeStep]}
                     </Typography>
-                    
+
                     {/* Custom Step Indicator */}
                     <Box sx={{ display: 'flex', gap: 1 }}>
                         {steps.map((_, index) => (
@@ -263,14 +263,14 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                     <Box>
                         {formData.products.map((product, index) => (
                             <Box key={index} sx={{ mb: 3 }}>
-                                <Box sx={{ 
+                                <Box sx={{
                                     display: "flex",
                                     flexDirection: { xs: "column", md: "row" },
                                     gap: { xs: "15px", md: "15px" },
                                     mt: "20px"
                                 }}>
                                     <Box sx={{ width: { xs: "100%", md: "70%" } }}>
-                                        <label style={LabelStyle}>Select the product<span style={{color: 'red'}}>*</span></label>
+                                        <label style={LabelStyle}>Select the product<span style={{ color: 'red' }}>*</span></label>
                                         <select
                                             value={product.product}
                                             onChange={(e) => handleProductChange(index, 'product', e.target.value)}
@@ -297,44 +297,57 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                             <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.products}</Typography>
                                         )}
                                     </Box>
-                                    
-                                    <Box sx={{ width: { xs: "100%", md: "25%" } }}>
-                                        <label style={LabelStyle}>Quantity<span style={{color: 'red'}}>*</span></label>
-                                        <input
-                                            type="number"
-                                            value={product.quantity}
-                                            onChange={(e) => handleProductChange(index, 'quantity', e.target.value)}
-                                            placeholder="0"
-                                            style={{
-                                                borderRadius: "12px",
-                                                height: "40px",
-                                                width: "100%",
-                                                border: '1px solid #D9D9D9',
-                                                marginTop: "12px",
-                                                padding: "0 12px",
-                                                fontFamily: 'Figtree',
-                                                fontSize: '14px'
-                                            }}
-                                        />
-                                    </Box>
-                                    
-                                    {formData.products.length > 1 && (
-                                        <Box sx={{ 
-                                            display: 'flex', 
-                                            alignItems: 'end',
-                                            width: { xs: "100%", md: "5%" }
-                                        }}>
-                                            <IconButton 
-                                                onClick={() => removeProduct(index)}
-                                                sx={{ 
-                                                    color: '#f44336',
-                                                    mt: { xs: 0, md: 1 }
+
+                                    {/* Quantity and Delete Button Container */}
+                                    <Box sx={{
+                                        width: { xs: "100%", md: "30%" },
+                                        display: "flex",
+                                        gap: "8px"
+                                    }}>
+                                        <Box sx={{ flex: 1 }}>
+                                            <label style={LabelStyle}>Quantity<span style={{ color: 'red' }}>*</span></label>
+                                            <input
+                                                type="number"
+                                                value={product.quantity}
+                                                onChange={(e) => handleProductChange(index, 'quantity', e.target.value)}
+                                                placeholder="0"
+                                                style={{
+                                                    borderRadius: "12px",
+                                                    height: "40px",
+                                                    width: "100%",
+                                                    border: '1px solid #D9D9D9',
+                                                    marginTop: "12px",
+                                                    padding: "0 12px",
+                                                    fontFamily: 'Figtree',
+                                                    fontSize: '14px'
                                                 }}
-                                            >
-                                                <DeleteIcon />
-                                            </IconButton>
+                                            />
                                         </Box>
-                                    )}
+
+                                        {formData.products.length > 1 && (
+                                            <Box sx={{
+                                                display: 'flex',
+                                                alignItems: 'end',
+                                                pb: "4px"
+                                            }}>
+                                                <IconButton
+                                                    onClick={() => removeProduct(index)}
+                                                    sx={{
+                                                        color: '#f44336',
+                                                        width: 35,
+                                                        height: 35,
+                                                        border: '1px solid #f44336',
+                                                        borderRadius: '8px',
+                                                        '&:hover': {
+                                                            backgroundColor: 'rgba(244, 67, 54, 0.04)'
+                                                        }
+                                                    }}
+                                                >
+                                                    <DeleteIcon fontSize="small" />
+                                                </IconButton>
+                                            </Box>
+                                        )}
+                                    </Box>
                                 </Box>
                             </Box>
                         ))}
@@ -383,7 +396,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                     // Step 2: Personal Details
                     <Box sx={{ mt: "20px" }}>
                         <Box>
-                            <label style={LabelStyle}>Full Name<span style={{color: 'red'}}>*</span></label>
+                            <label style={LabelStyle}>Full Name<span style={{ color: 'red' }}>*</span></label>
                             <input
                                 required
                                 type="text"
@@ -404,7 +417,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                 <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.fullName}</Typography>
                             )}
                         </Box>
-                        
+
                         <Box sx={{
                             display: "flex",
                             flexDirection: { xs: "column", md: "row" },
@@ -412,7 +425,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                             mt: "20px"
                         }}>
                             <Box sx={{ width: { xs: "100%", md: "48%" } }}>
-                                <label style={LabelStyle}>Email Id<span style={{color: 'red'}}>*</span></label>
+                                <label style={LabelStyle}>Email Id<span style={{ color: 'red' }}>*</span></label>
                                 <input
                                     required
                                     type="email"
@@ -433,9 +446,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     <Typography sx={{ color: 'red', fontSize: '12px', mt: 1 }}>{errors.email}</Typography>
                                 )}
                             </Box>
-                            
+
                             <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-                                <label style={LabelStyle}>Contact Number<span style={{color: 'red'}}>*</span></label>
+                                <label style={LabelStyle}>Contact Number<span style={{ color: 'red' }}>*</span></label>
                                 <input
                                     required
                                     type="tel"
@@ -457,9 +470,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                 )}
                             </Box>
                         </Box>
-                        
+
                         <Box sx={{ mt: "20px" }}>
-                            <label style={LabelStyle}>Business Name<span style={{color: 'red'}}>*</span></label>
+                            <label style={LabelStyle}>Business Name<span style={{ color: 'red' }}>*</span></label>
                             <input
                                 type="text"
                                 value={formData.businessName}
@@ -480,9 +493,9 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                 )}
 
                 {/* Navigation Buttons */}
-                <Box sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
                     mt: 4,
                     gap: 2
                 }}>
@@ -548,7 +561,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
                                     height: "50px",
-                                    fontSize: "16px",
+                                    fontSize: { xs: "15px", md: "16px" },
                                     boxShadow: "none",
                                     "&:hover": {
                                         boxShadow: "none",
@@ -569,7 +582,7 @@ const RequestQuoteModal = ({ open, onClose, selectedProduct = null }) => {
                                     borderRadius: "10px",
                                     fontFamily: "Figtree",
                                     height: "50px",
-                                    fontSize: "16px",
+                                    fontSize: { xs: "15px", md: "16px" },
                                     boxShadow: "none",
                                     '&:hover': {
                                         backgroundColor: '#006570',

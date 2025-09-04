@@ -6,6 +6,7 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import AboutUsTwoImage from '../../Assets/AboutUsTwoImage.png'; // Adjust path as needed
 import SafetyImage from '../../Assets/Icons/safety_divider.png'; // Adjust path as needed
 import VectorImage from "../../Assets/Icons/Vector.png"
+import Appreal2 from "../../Assets/Icons/apparel2.png"
 
 export default function Empowering() {
     return (
@@ -119,7 +120,7 @@ export default function Empowering() {
                         </ListItem>
                         <ListItem sx={{ pl: 0 }}>
                             <ListItemIcon sx={{ maxWidth: 40, color: "#16887a" }}>
-                                <img src={VectorImage} alt="Check" style={{ width: "30px" }} />
+                                <img src={Appreal2} alt="Check" style={{ width: "30px" }} />
                             </ListItemIcon>
                             <ListItemText
                                 sx={{

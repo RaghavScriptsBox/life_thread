@@ -28,7 +28,7 @@ const CoreValuesSection = () => {
 
   return (
     <Box py={8} sx={{ backgroundColor: '#f5f9fa' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography
 
           fontWeight="500"
@@ -45,13 +45,14 @@ const CoreValuesSection = () => {
           alignItems="baseline"
           gap={4}
           mt={4}
+          width={"100%"}
         >
           {values.map((item, index) => (
             <Box
               key={index}
               flex={1}
               px={{ xs: 2, md: 4 }}
-              sx={{ textAlign: { xs: 'left', md: 'center' },mt: { xs: 2, md: 0 } ,bgcolor:"#fff", padding: "20px", borderRadius: "8px", minHeight: "300px" }}
+              sx={{ textAlign: { xs: 'left', md: 'center' },mt: { xs: 2, md: 0 } ,bgcolor:"transparent", padding: "20px", borderRadius: "8px", minHeight: "300px", minWidth:"400px" }}
             >
               <Box
                 sx={{
@@ -64,8 +65,9 @@ const CoreValuesSection = () => {
               </Box>
               <Typography sx={{
                 fontFamily: "Figtree, sans-serif",
-                fontSize: { xs: '22px', md: '24px', fontWeight: 600 },
+                fontSize: { xs: '22px', md: '35px', fontWeight: 600 },
                 color: "#005A69",
+                lineHeight:"45px"
               }} gutterBottom>
                 {item.title}
               </Typography>

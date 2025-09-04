@@ -191,7 +191,6 @@ const DownloadCatalogueModal = ({ open, onClose }) => {
                         fontFamily: 'Inter',
                         fontSize: '12px',
                         opacity: 0.9,
-                        borderTop: '1px dotted rgba(255,255,255,0.3)',
                         pt: 1
                     }}>
                         Fields marked with * are mandatory.

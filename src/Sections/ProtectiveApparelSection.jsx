@@ -125,7 +125,7 @@ const ProtectiveApparelSection = () => {
                 }}
                 onClick={() => handleRequestQuote()}
               >
-                Request a Quote
+                Request Quote
               </Box>
             </Box>
           </Box>

@@ -4,11 +4,13 @@ import {
   Typography,
   Link,
   Container,
+  Button,
 } from '@mui/material';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import WhiteLogo from "../Assets/Horizontal wordmark.svg"; // Assuming you have a logo component or image
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const navItems = [
@@ -16,6 +18,19 @@ const Footer = () => {
     { label: 'About Us', href: '/aboutUs' },
     { label: 'Contact', href: '/contact' },
   ];
+
+  const navigate = useNavigate()
+
+  const NavigateUser = (url) => {
+    console.log("urlzhdsgyuad", url)
+    if (url === "/product") {
+      // Navigate to home page with state to scroll to catalogue
+      navigate("/", { state: { scrollToCatalogue: true } });
+    } else {
+      navigate(url);
+    }
+  }
+
   return (
     <Box sx={{ width: "100%", overflowX: 'hidden', backgroundColor: '#f5f9fa' }}>
       <Box sx={{ backgroundColor: 'transparent', py: 15 }}>
@@ -82,16 +97,18 @@ const Footer = () => {
               maxWidth: { xs: "300px", md: "500px" },
               mx: "auto",
             }}>
-              <PhoneOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
-              <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">
-                <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Phone</Typography>
-                <Link
-                  href="tel:+919909916599"
-                  underline="none"
-                  sx={{ display: "block", mt: 1, fontFamily: "Figtree", fontSize: "16px", color: "#003B49" }}
-                >
+              <Link
+                href="tel:+919909916599"
+                underline="none"
+                sx={{ display: "block", mt: 1, fontFamily: "Figtree", fontSize: "14px", color: "#003B49" }}
+              >
+                <PhoneOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
+                <Typography sx={{ fontFamily: "Figtree", fontSize: "18px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">
+                  <Typography sx={{ fontFamily: "Figtree", fontSize: "18px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Phone</Typography>
+
                   +91 9909916599
-                </Link></Typography>
+                </Typography>
+              </Link>
             </Box>
             <Box sx={{
               width: {
@@ -174,26 +191,6 @@ const Footer = () => {
           >
             <img src={WhiteLogo} alt="LifeThread Logo" style={{ width: '100%', height: '100%' }} />
           </Box>
-          {/* <Box
-            sx={{
-              textAlign: 'center',
-              mt: { xs: 1, md: 0 },
-            }}
-          >
-            <Typography
-              sx={{
-                mb: 2,
-                ml: 7,
-                mt: "-20px",
-                fontWeight: 'bold',
-                fontSize: { xs: '10px', md: '10px' },
-                color: '#fff',
-                fontFamily: 'Inter',
-              }}
-            >
-              Clean, Compliant, Confident
-            </Typography>
-          </Box> */}
         </Box>
 
         {/* Nav Links */}
@@ -210,21 +207,27 @@ const Footer = () => {
           }}
         >
           {navItems.map(({ label, href }) => (
-            <Link
+            <Button
               key={label}
-              href={href}
-              component="a"
-              underline="none"
+              color="inherit"
+              className="nav-link"
               sx={{
-                color: '#fff',
-                fontWeight: 'bold',
-                fontSize: { xs: 14, sm: 16 },
-                fontFamily: "Inter",
-                cursor: 'pointer'
+                fontFamily: "Roboto, sans-serif",
+                color: "#fff",
+                fontWeight: 500,
+                px: 2,
+                fontSize: 16,
+                letterSpacing: 0.1,
+                textTransform: "none",
+                "&:hover": {
+                  color: "#fff",
+                  bgcolor: "transparent",
+                },
               }}
+              onClick={() => { NavigateUser(href) }}
             >
               {label}
-            </Link>
+            </Button>
           ))}
         </Box>
 
@@ -246,13 +249,6 @@ const Footer = () => {
             color: '#fff',
             fontFamily: "Inter"
           }}>&copy; {new Date().getFullYear()} LifeThread. All rights reserved.</Typography>
-          {/* <Box sx={{ display: 'flex', gap: 3 }}>
-          {['Privacy Policy', 'Terms of Service', 'Cookies Settings'].map((item) => (
-            <Link key={item} href="#" underline="hover" sx={{ color: '#fff', fontSize: 14 }}>
-              {item}
-            </Link>
-          ))}
-        </Box> */}
         </Box>
       </Box >
     </Box>

@@ -124,7 +124,7 @@ function Header() {
                 letterSpacing: 0.1,
                 textTransform: "none",
                 "&:hover": {
-                  color: "#1976d2",
+                  color: "#006778",
                   bgcolor: "transparent",
                 },
               }}
@@ -159,7 +159,7 @@ function Header() {
           }}
           onClick={() => handleRequestQuote()}
         >
-          Request a Quote
+          Request Quote
         </Button>
         {/* Hamburger Icon (Mobile) */}
         <IconButton

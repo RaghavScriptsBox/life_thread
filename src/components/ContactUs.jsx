@@ -75,7 +75,7 @@ const ContactUs = () => {
     };
 
     return (
-        <Box sx={{background:"#f5f9fa"}}>
+        <Box sx={{ background: "#f5f9fa" }}>
             {/* Hero Section with Background */}
             <Box
                 sx={{
@@ -206,7 +206,7 @@ const ContactUs = () => {
                                     borderColor: "#fff",
                                     borderRadius: "8px",
                                     px: { xs: 3, md: 4 },
-                                    py: { xs: 1.5, md: 1.5 },
+                                    py: { xs: 1.4, md: 1.4 },
                                     fontSize: { xs: "16px", md: "16px" },
                                     minWidth: { xs: "160px", sm: "auto" },
                                     textTransform: "none",
@@ -235,7 +235,7 @@ const ContactUs = () => {
             />
             <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
                 {/* Contact Us Form */}
-                <Paper elevation={0} sx={{ p: { xs: 3, md: 5 }, borderRadius: 2,background:"transparent" }}>
+                <Paper elevation={0} sx={{ p: { xs: 3, md: 5 }, borderRadius: 2, background: "transparent" }}>
                     <Box id='send-message' sx={{
                         textAlign: "center",
                         mb: { xs: 3, md: 4 }
@@ -338,8 +338,8 @@ const ContactUs = () => {
                                 Select type
                             </Typography>
                             <Box sx={{
-                                display: "flex",
-                                flexDirection: { xs: "row", md: "row" },
+                                display: { xs: "block", md: "flex" },
+                                flexDirection: { xs: "column", md: "row" },
                                 gap: { xs: "20px", md: "0" }
                             }}>
                                 <Box sx={{ width: { xs: "100%", md: "50%" } }}>
@@ -348,27 +348,67 @@ const ContactUs = () => {
                                             name="inquiryType"
                                             value={formData.inquiryType}
                                             onChange={handleChange}
+                                            row={false} // 👈 ensures column layout
                                         >
-                                            <FormControlLabel value="general" control={<Radio />}
+                                            <FormControlLabel
+                                                value="general"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778", // default (unselected) color
+                                                            "&.Mui-checked": {
+                                                                color: "#006778", // selected color
+                                                            },
+                                                        }}
+                                                    />
+                                                }
                                                 label={
                                                     <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
                                                         General Inquiry
                                                     </Typography>
-                                                } />
-                                            <FormControlLabel value="custom" control={<Radio />}
+                                                }
+                                            />
+
+                                            <FormControlLabel
+                                                value="custom"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778",
+                                                            "&.Mui-checked": {
+                                                                color: "#006778",
+                                                            },
+                                                        }}
+                                                    />
+                                                }
                                                 label={
                                                     <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
                                                         Custom Order
                                                     </Typography>
-                                                } />
-                                            <FormControlLabel value="otherInquiry" control={<Radio />}
+                                                }
+                                            />
+
+                                            <FormControlLabel
+                                                value="otherInquiry"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778",
+                                                            "&.Mui-checked": {
+                                                                color: "#006778",
+                                                            },
+                                                        }}
+                                                    />
+                                                }
                                                 label={
                                                     <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
                                                         Other Inquiry
                                                     </Typography>
-                                                } />
+                                                }
+                                            />
                                         </RadioGroup>
                                     </FormControl>
+
                                 </Box>
                                 <Box sx={{ width: { xs: "100%", md: "50%" } }}>
                                     <FormControl component="fieldset">
@@ -377,23 +417,65 @@ const ContactUs = () => {
                                             value={formData.inquiryType}
                                             onChange={handleChange}
                                         >
-                                            <FormControlLabel value="quote" control={<Radio />} label={
-                                                <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
-                                                    Request Quote
-                                                </Typography>
-                                            } />
-                                            <FormControlLabel value="support" control={<Radio />} label={
-                                                <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
-                                                    Technical Support
-                                                </Typography>
-                                            } />
-                                            <FormControlLabel value="other" control={<Radio />} label={
-                                                <Typography sx={{ fontFamily: 'Figtree', color: "#1e1e1e" }}>
-                                                    Other
-                                                </Typography>
-                                            } />
+                                            <FormControlLabel
+                                                value="quote"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778", // default color
+                                                            "&.Mui-checked": {
+                                                                color: "#006778", // selected color
+                                                            },
+                                                        }}
+                                                    />
+                                                }
+                                                label={
+                                                    <Typography sx={{ fontFamily: "Figtree", color: "#1e1e1e" }}>
+                                                        Request Quote
+                                                    </Typography>
+                                                }
+                                            />
+
+                                            <FormControlLabel
+                                                value="support"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778",
+                                                            "&.Mui-checked": {
+                                                                color: "#006778",
+                                                            },
+                                                        }}
+                                                    />
+                                                }
+                                                label={
+                                                    <Typography sx={{ fontFamily: "Figtree", color: "#1e1e1e" }}>
+                                                        Technical Support
+                                                    </Typography>
+                                                }
+                                            />
+
+                                            <FormControlLabel
+                                                value="other"
+                                                control={
+                                                    <Radio
+                                                        sx={{
+                                                            color: "#006778",
+                                                            "&.Mui-checked": {
+                                                                color: "#006778",
+                                                            },
+                                                        }}
+                                                    />
+                                                }
+                                                label={
+                                                    <Typography sx={{ fontFamily: "Figtree", color: "#1e1e1e" }}>
+                                                        Other
+                                                    </Typography>
+                                                }
+                                            />
                                         </RadioGroup>
                                     </FormControl>
+
                                 </Box>
                             </Box>
                         </Box>
@@ -532,9 +614,10 @@ const ContactUs = () => {
                                 >
                                     <Typography sx={{
                                         fontFamily: "Figtree",
-                                        fontSize: "16px",
+                                        fontSize: "17px",
                                         color: "#fff",
-                                        textDecoration: "none"
+                                        textDecoration: "none",
+                                        fontWeight: 600
                                     }}>
                                         Talk to the Expert
                                     </Typography>
