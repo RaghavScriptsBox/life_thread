@@ -206,7 +206,7 @@ const ContactUs = () => {
                                     borderColor: "#fff",
                                     borderRadius: "8px",
                                     px: { xs: 3, md: 4 },
-                                    py: { xs: 1.4, md: 1.4 },
+                                    py: { xs: 1.3, md: 1.3 },
                                     fontSize: { xs: "16px", md: "16px" },
                                     minWidth: { xs: "160px", sm: "auto" },
                                     textTransform: "none",
