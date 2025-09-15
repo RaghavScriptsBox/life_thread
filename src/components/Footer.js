@@ -121,11 +121,30 @@ const Footer = () => {
               mt: { xs: "10px", md: "50px" },
               mx: "auto"
             }}>
-              <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
-              <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Reg. Office</Typography>
-              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
-                214, Harmony Icon, Zydus Hospital Road, Nr. Baghban Party Plot, Thaltej Ahmedabad, Gujarat 380059
-              </Typography>
+              <Link
+                href="https://maps.app.goo.gl/h3xrnjRhV9mz6WcP9?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
+                sx={{ 
+                  display: "block",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  padding: "16px",
+                  borderRadius: "8px",
+                  transition: "all 0.3s ease",
+                  '&:hover': {
+                    backgroundColor: "rgba(0, 90, 105, 0.05)",
+                    transform: "translateY(-2px)"
+                  }
+                }}
+              >
+                <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
+                <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Reg. Office</Typography>
+                <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
+                  214, Harmony Icon, Zydus Hospital Road, Nr. Baghban Party Plot, Thaltej Ahmedabad, Gujarat 380059
+                </Typography>
+              </Link>
             </Box>
             <Box sx={{
               width: {
@@ -138,11 +157,30 @@ const Footer = () => {
               mt: { xs: "10px", md: "50px" },
               mx: "auto"
             }}>
-              <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
-              <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Manufacturing Unit</Typography>
-              <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
-                Plot No C-18/6, Road no-14, Hojiwala Industrial Estate, Sachin Palsana Road, Surat, Gujarat 394230
-              </Typography>
+              <Link
+                href="https://maps.app.goo.gl/MZdKWtwyCawhp2ce8"
+                target="_blank"
+                rel="noopener noreferrer"
+                underline="none"
+                sx={{ 
+                  display: "block",
+                  textAlign: "center",
+                  cursor: "pointer",
+                  padding: "16px",
+                  borderRadius: "8px",
+                  transition: "all 0.3s ease",
+                  '&:hover': {
+                    backgroundColor: "rgba(0, 90, 105, 0.05)",
+                    transform: "translateY(-2px)"
+                  }
+                }}
+              >
+                <PlaceOutlinedIcon sx={{ fontSize: 40, fill: "#005A69" }} />
+                <Typography sx={{ fontFamily: "Figtree", fontSize: "24px", fontWeight: 600, color: "#005A69" }} fontWeight="bold">Manufacturing Unit</Typography>
+                <Typography sx={{ fontFamily: 'Figtree', fontSize: '16px', color: '#003B49' }}>
+                  Plot No C-18/6, Road no-14, Hojiwala Industrial Estate, Sachin Palsana Road, Surat, Gujarat 394230
+                </Typography>
+              </Link>
             </Box>
           </Box>
         </Container>
